@@ -26,7 +26,7 @@ export default function ProductCard({ productDetails }: { productDetails: Produc
                     Eliminar
                 </button>
             </div>
-            <div className="grid grid-cols-2 s-grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <ProductForm productDetails={productDetails} />
                 <ProductResult productDetails={productDetails} />
             </div>
