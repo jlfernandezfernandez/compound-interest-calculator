@@ -24,10 +24,10 @@ const calculatorSlice = createSlice({
             state.products = state.products.filter(product => product.id !== action.payload);
         },
         // Acción para actualizar un producto
-        updateProduct(state, action: PayloadAction<{ index: number; product: ProductDetails }>) {
-            const { index, product } = action.payload;
-            if (index >= 0 && index < state.products.length) {
-                state.products[index] = product;
+        updateProduct(state, action: PayloadAction<ProductDetails>) {
+            const index = state.products.findIndex(product => product.id === action.payload.id);
+            if (index !== -1) {
+                state.products[index] = action.payload;
             }
         },
         // Puedes agregar más acciones según necesites

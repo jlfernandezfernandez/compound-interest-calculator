@@ -1,7 +1,7 @@
 'use client'
 
-import { useAppDispatch } from '@/app/store';
-import { removeProduct } from '@/app/store/calculator/calculatorSlice';
+import { useAppDispatch } from '@/store';
+import { removeProduct, updateProduct } from '@/store/calculator/calculatorSlice';
 import { ProductDetails, productTypes } from '@/financial_products/productTypes';
 
 export default function Product(productDetails: ProductDetails) {
@@ -12,6 +12,17 @@ export default function Product(productDetails: ProductDetails) {
     const handleRemoveProduct = () => {
         console.log(productDetails);
         dispatch(removeProduct(productDetails.id));
+    };
+
+    const handleChange = (field: keyof ProductDetails, value: string) => {
+        // Crear un nuevo objeto de detalles del producto con el campo actualizado
+        const updatedProductDetails = {
+            ...productDetails,
+            [field]: value
+        };
+
+        // Despachar la acción para actualizar el producto en el store de Redux
+        dispatch(updateProduct({ ...updatedProductDetails }));
     };
 
     return (
@@ -35,8 +46,9 @@ export default function Product(productDetails: ProductDetails) {
                         id="name"
                         type="text"
                         placeholder="Ej: Fondo S&P 500"
-                        value={productDetails.name}
-                        onChange={(e) => console.log(e.target.value)}
+                        autoComplete='off'
+                        value={productDetails.name || ''}
+                        onChange={(e) => handleChange('name', e.target.value)}
                         className="input border p-2 rounded"
                     />
                 </div>

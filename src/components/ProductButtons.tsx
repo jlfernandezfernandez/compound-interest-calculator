@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react';
-import { useAppDispatch } from '../app/store'; // Asegúrate de que la ruta de importación sea correcta
-import { addProduct } from '@/app/store/calculator/calculatorSlice';
+import { useAppDispatch } from '../store'; // Asegúrate de que la ruta de importación sea correcta
+import { addProduct } from '@/store/calculator/calculatorSlice';
 import { ProductDetails, ProductProps, ProductType } from '@/financial_products/productTypes';
 
 export default function ProductButtons() {

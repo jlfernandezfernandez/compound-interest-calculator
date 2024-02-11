@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
 import calculatorReducer from './calculator/calculatorSlice';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 export const store = configureStore({
     reducer: { calculator: calculatorReducer },

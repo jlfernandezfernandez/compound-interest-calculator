@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import { useAppSelector } from '../app/store'; // Ajusta la ruta de importación según sea necesario
+import { useAppSelector } from '../store'; // Ajusta la ruta de importación según sea necesario
 import Product from "./Product";
 
 export default function ProductList() {
@@ -12,7 +12,7 @@ export default function ProductList() {
         <section>
             {products.map((product, index) => (
                 <div key={index} className="mb-4 p-4">
-                    <Product key={index} {...product} /> {/* Ajusta según la prop que espera `Product` */}
+                    <Product key={product.id} {...product} />
                 </div>
             ))}
         </section>
