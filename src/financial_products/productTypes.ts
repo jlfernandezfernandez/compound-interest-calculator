@@ -11,11 +11,11 @@ export interface ProductDetails {
     id: string
     type: ProductType
     name?: string;
-    initialAmount?: string;
-    interestRate?: string;
-    contribution?: string;
+    initialAmount?: number;
+    interestRate?: number;
+    contribution?: number;
     contributionFrequency?: 'monthly' | 'quarterly' | 'annually';
-    interestCompounding?: 'annually' | 'monthly';
+    duration?: number;
 }
 
 export interface ProductProps {
