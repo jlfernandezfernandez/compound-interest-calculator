@@ -1,34 +1,18 @@
 'use client'
 
-import { useState, useEffect } from 'react';
+import { useAppDispatch } from '@/app/store';
+import { removeProduct } from '@/app/store/calculator/calculatorSlice';
+import { ProductDetails, productTypes } from '@/financial_products/productTypes';
 
-interface ProductProps {
-    productType: 'inversion' | 'pensión' | 'cuenta';
-}
+export default function Product(productDetails: ProductDetails) {
 
-// Definir los tipos de productos y sus emojis correspondientes
-const productTypes = {
-    'inversion': { emoji: '📈', title: 'Fondo de Inversión' },
-    'pensión': { emoji: '💰', title: 'Plan de Pensiones' },
-    'cuenta': { emoji: '🏦', title: 'Cuenta Remunerada' },
-};
+    const productInfo = productTypes[productDetails.type] || { emoji: '', title: '' };
+    const dispatch = useAppDispatch();
 
-export default function Product({ productType }: ProductProps) {
-    const [productDetails, setProductDetails] = useState({
-        name: '',
-        initialAmount: '',
-        interestRate: '',
-        contribution: '',
-        contributionFrequency: 'monthly',
-        interestCompounding: 'annually',
-    });
-
-    // Buscar el tipo de producto y el emoji
-    const productInfo = productTypes[productType] || { emoji: '', title: '' };
-
-    useEffect(() => {
+    const handleRemoveProduct = () => {
         console.log(productDetails);
-    }, [productDetails]);
+        dispatch(removeProduct(productDetails.id));
+    };
 
     return (
         <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
@@ -37,7 +21,7 @@ export default function Product({ productType }: ProductProps) {
                     {productInfo.emoji} {productInfo.title}
                 </div>
                 <button
-                    onClick={() => console.log("Eliminar producto")}
+                    onClick={handleRemoveProduct}
                     className="text-xs text-red-600 hover:text-red-800 p-1"
                 >
                     Eliminar
@@ -52,7 +36,7 @@ export default function Product({ productType }: ProductProps) {
                         type="text"
                         placeholder="Ej: Fondo S&P 500"
                         value={productDetails.name}
-                        onChange={(e) => setProductDetails({ ...productDetails, name: e.target.value })}
+                        onChange={(e) => console.log(e.target.value)}
                         className="input border p-2 rounded"
                     />
                 </div>
@@ -65,7 +49,7 @@ export default function Product({ productType }: ProductProps) {
                         type="number"
                         placeholder="Ej: 1000"
                         value={productDetails.initialAmount}
-                        onChange={(e) => setProductDetails({ ...productDetails, initialAmount: e.target.value })}
+                        onChange={(e) => console.log(e.target.value)}
                         className="input border p-2 rounded"
                     />
                 </div>
@@ -78,7 +62,7 @@ export default function Product({ productType }: ProductProps) {
                         type="number"
                         placeholder="Ej: 5"
                         value={productDetails.interestRate}
-                        onChange={(e) => setProductDetails({ ...productDetails, interestRate: e.target.value })}
+                        onChange={(e) => console.log(e.target.value)}
                         className="input border p-2 rounded"
                     />
                 </div>
@@ -91,7 +75,7 @@ export default function Product({ productType }: ProductProps) {
                         type="number"
                         placeholder="Ej: 100 mensuales"
                         value={productDetails.contribution}
-                        onChange={(e) => setProductDetails({ ...productDetails, contribution: e.target.value })}
+                        onChange={(e) => console.log(e.target.value)}
                         className="input border p-2 rounded"
                     />
                 </div>
@@ -102,7 +86,7 @@ export default function Product({ productType }: ProductProps) {
                     <select
                         id="contributionFrequency"
                         value={productDetails.contributionFrequency}
-                        onChange={(e) => setProductDetails({ ...productDetails, contributionFrequency: e.target.value })}
+                        onChange={(e) => console.log(e.target.value)}
                         className="input border p-2 rounded"
                     >
                         <option value="monthly">Mensual</option>
@@ -116,7 +100,7 @@ export default function Product({ productType }: ProductProps) {
                     <select
                         id="interestCompounding"
                         value={productDetails.interestCompounding}
-                        onChange={(e) => setProductDetails({ ...productDetails, interestCompounding: e.target.value })}
+                        onChange={(e) => console.log(e.target.value)}
                         className="input border p-2 rounded"
                     >
                         <option value="annually">Anualmente</option>

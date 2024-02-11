@@ -1,20 +1,20 @@
+'use client'
+
+import React from 'react';
+import { useAppSelector } from '../app/store'; // Ajusta la ruta de importación según sea necesario
 import Product from "./Product";
 
 export default function ProductList() {
+
+    const products = useAppSelector(state => state.calculator.products);
+
     return (
-      <section>
-          <div className="mb-4 p-4">
-            {/* Aquí se podría renderizar el componente de tarjeta específico según product.type */}
-            <Product productType="inversion"/>
-          </div>
-          <div className="mb-4 p-4">
-            {/* Aquí se podría renderizar el componente de tarjeta específico según product.type */}
-            <Product productType="pensión"/>
-          </div>
-          <div className="mb-4 p-4s">
-            {/* Aquí se podría renderizar el componente de tarjeta específico según product.type */}
-            <Product productType="cuenta"/>
-          </div>
-      </section>
+        <section>
+            {products.map((product, index) => (
+                <div key={index} className="mb-4 p-4">
+                    <Product key={index} {...product} /> {/* Ajusta según la prop que espera `Product` */}
+                </div>
+            ))}
+        </section>
     );
-  }
+}
