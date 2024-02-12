@@ -13,6 +13,14 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
         dispatch(updateProduct(updatedProductDetails));
     };
 
+    const handleChangeNumber = (field: keyof ProductDetails, value: number) => {
+        const updatedProductDetails = {
+            ...productDetails,
+            [field]: value
+        };
+        dispatch(updateProduct(updatedProductDetails));
+    };
+
     return (
         <div className="grid grid-cols-1 gap-4">
             <div className="flex flex-col">
@@ -34,7 +42,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                     type="number"
                     placeholder="3000"
                     value={productDetails.initialAmount || ''}
-                    onChange={(e) => handleChange('initialAmount', e.target.value)}
+                    onChange={(e) => handleChangeNumber('initialAmount', Number(e.target.value))}
                     className="input border p-2 rounded"
                 />
             </div>
@@ -45,7 +53,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                     type="number"
                     placeholder="250"
                     value={productDetails.contribution || ''}
-                    onChange={(e) => handleChange('contribution', e.target.value)}
+                    onChange={(e) => handleChangeNumber('contribution', Number(e.target.value))}
                     className="input border p-2 rounded"
                 />
             </div>
@@ -54,7 +62,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                 <select
                     id={`${productDetails.id}_contributionFrequency`}
                     value={productDetails.contributionFrequency || ''}
-                    onChange={(e) => handleChange('contributionFrequency', e.target.value)}
+                    onChange={(e) => handleChangeNumber('contributionFrequency', Number(e.target.value))}
                     className="input border p-2 rounded"
                 >
                     {periods.map(frequency => (
@@ -70,7 +78,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                     id={`${productDetails.id}_interestRate`}
                     type="number"
                     value={productDetails.interestRate || ''}
-                    onChange={(e) => handleChange('interestRate', e.target.value)}
+                    onChange={(e) => handleChangeNumber('interestRate', Number(e.target.value))}
                     placeholder="3.5"
                     className="input border p-2 rounded"
                 />
@@ -82,7 +90,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                     type="number"
                     placeholder="25"
                     value={productDetails.duration || ''}
-                    onChange={(e) => handleChange('duration', e.target.value)}
+                    onChange={(e) => handleChangeNumber('duration', Number(e.target.value))}
                     className="input border p-2 rounded"
                 />
             </div>
@@ -91,7 +99,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                 <select
                     id={`${productDetails.id}_capitalizationPeriod`}
                     value={productDetails.capitalizationPeriod || ''}
-                    onChange={(e) => handleChange('capitalizationPeriod', e.target.value)}
+                    onChange={(e) => handleChangeNumber('capitalizationPeriod', Number(e.target.value))}
                     className="input border p-2 rounded"
                 >
                     {periods.map(frequency => (
