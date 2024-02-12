@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import { useAppDispatch } from '../store'; // Asegúrate de que la ruta de importación sea correcta
+import { useAppDispatch } from '../store';
 import { addProduct } from '@/store/calculator/calculatorSlice';
 import { ProductDetails, ProductProps, ProductType } from '@/financial_products/productTypes';
 
@@ -9,7 +9,7 @@ export default function ProductButtons() {
     const dispatch = useAppDispatch();
 
     const handleAddProduct = (type: ProductType) => {
-        const newProduct : ProductDetails = {
+        const newProduct: ProductDetails = {
             id: type + Math.random(),
             type: type,
         };
@@ -17,10 +17,10 @@ export default function ProductButtons() {
     };
 
     return (
-        <section className="mb-10 flex justify-center gap-4">
-            <button onClick={() => handleAddProduct('inversion')} className="inline-block bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-full transition duration-300">+ Añadir Fondo de Inversión 📈</button>
-            <button onClick={() => handleAddProduct('cuenta')} className="inline-block bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-full transition duration-300">+ Añadir Cuenta Remunerada 💰</button>
-            <button onClick={() => handleAddProduct('pension')} className="inline-block bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-full transition duration-300">+ Añadir Plan de Pensión 🏦</button>
+        <section className="mb-8 flex flex-wrap justify-center gap-2 sm:gap-4">
+            <button onClick={() => handleAddProduct('inversion')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">+ Añadir Fondo de Inversión 📈</button>
+            <button onClick={() => handleAddProduct('cuenta')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">+ Añadir Cuenta Remunerada 💰</button>
+            <button onClick={() => handleAddProduct('pension')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">+ Añadir Plan de Pensión 🏦</button>
         </section>
     );
 }
