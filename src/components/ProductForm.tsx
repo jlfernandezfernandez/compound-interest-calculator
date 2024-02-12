@@ -1,6 +1,6 @@
 import { useAppDispatch } from '@/store';
 import { updateProduct } from '@/store/calculator/calculatorSlice';
-import { ProductDetails } from '@/financial_products/productTypes';
+import { ProductDetails, periods,  } from '@/financial_products/productTypes';
 
 export default function ProductForm({ productDetails }: { productDetails: ProductDetails }) {
     const dispatch = useAppDispatch();
@@ -18,7 +18,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
             <div className="flex flex-col">
                 <label htmlFor={`${productDetails.id}_name`} className="font-semibold">Nombre Personalizado</label>
                 <input
-                    id= {`${productDetails.id}_name`}
+                    id={`${productDetails.id}_name`}
                     type="text"
                     placeholder="Inversiones en MyInvestor"
                     autoComplete='off'
@@ -50,17 +50,18 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                 />
             </div>
             <div className="flex flex-col">
-                <label htmlFor={`${productDetails.id}_contributionFrequency`} className="font-semibold">Periodiciad</label>
+                <label htmlFor={`${productDetails.id}_contributionFrequency`} className="font-semibold">Periodicidad</label>
                 <select
                     id={`${productDetails.id}_contributionFrequency`}
                     value={productDetails.contributionFrequency || ''}
                     onChange={(e) => handleChange('contributionFrequency', e.target.value)}
                     className="input border p-2 rounded"
                 >
-                    <option value="monthly">Mensual</option>
-                    <option value="quarterly">Trimestral</option>
-                    <option value="semestraly">Semestral</option>
-                    <option value="annually">Anual</option>
+                    {periods.map(frequency => (
+                        <option key={frequency.value} value={frequency.time}>
+                            {frequency.label}
+                        </option>
+                    ))}
                 </select>
             </div>
             <div className="flex flex-col">
@@ -75,7 +76,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                 />
             </div>
             <div className="flex flex-col">
-                <label htmlFor={`${productDetails.id}_duration`}className="font-semibold">Años de Duración</label>
+                <label htmlFor={`${productDetails.id}_duration`} className="font-semibold">Años de Duración</label>
                 <input
                     id={`${productDetails.id}_duration`}
                     type="number"
@@ -84,6 +85,21 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                     onChange={(e) => handleChange('duration', e.target.value)}
                     className="input border p-2 rounded"
                 />
+            </div>
+            <div className="flex flex-col">
+                <label htmlFor={`${productDetails.id}_capitalizationPeriod`} className="font-semibold">Capitalización</label>
+                <select
+                    id={`${productDetails.id}_capitalizationPeriod`}
+                    value={productDetails.capitalizationPeriod || ''}
+                    onChange={(e) => handleChange('capitalizationPeriod', e.target.value)}
+                    className="input border p-2 rounded"
+                >
+                    {periods.map(frequency => (
+                        <option key={frequency.value} value={frequency.time}>
+                            {frequency.label}
+                        </option>
+                    ))}
+                </select>
             </div>
         </div>
     );

@@ -7,6 +7,16 @@ export const productTypes = {
 
 export type ProductType = keyof typeof productTypes;
 
+export const periods = [
+    { value: 'monthly', label: 'Mensual', time: 12 },
+    { value: 'annually', label: 'Anual', time: 1 },
+    { value: 'daily', label: 'Diario', time: 365 },
+    { value: 'quarterly', label: 'Trimestral', time: 3 },
+    { value: 'half_yearly', label: 'Semestral', time: 2 },
+];
+
+export type ProductPeriodicity = typeof periods[number]['time'];
+
 export interface ProductDetails {
     id: string
     type: ProductType
@@ -14,8 +24,9 @@ export interface ProductDetails {
     initialAmount?: number;
     interestRate?: number;
     contribution?: number;
-    contributionFrequency?: 'monthly' | 'quarterly' | 'annually';
+    contributionFrequency?: ProductPeriodicity;
     duration?: number;
+    capitalizationPeriod?: ProductPeriodicity;
 }
 
 export interface ProductProps {
