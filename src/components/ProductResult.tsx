@@ -42,14 +42,16 @@ export default function ProductResult({ productDetails }: { productDetails: Prod
     // Formatea los números con el separador de miles y el separador decimal adecuado
     const formattedInitialBalance = formatCurrency(initialBalance);
     const formattedContribution = formatCurrency(totalContribution);
-    const formattedTotalInterest = formatCurrency(totalGenerated);
+    const formattedTotalGenerated = formatCurrency(totalGenerated);
+    const formattedTotalInterest = formatCurrency(totalInterestGenerated);
 
     return (
         <div className='ml-6 p-1 sm:mt-0 mt-5 flex flex-col justify-center items-center'>
             <div className="mb-6 w-full text-center"> {/* Ajusta el ancho según sea necesario y centra el texto */}
                 <p><strong>Balance Inicial:</strong> {formattedInitialBalance}</p>
                 <p><strong>Depósitos:</strong> {formattedContribution}</p>
-                <p><strong>Interes:</strong> {formattedTotalInterest}</p>
+                <p><strong>Intereses:</strong> {formattedTotalInterest}</p>
+                <p><strong>Total:</strong> {formattedTotalGenerated}</p>
             </div>
             <div className='w-full flex justify-center'>
                 <DoughnutChart data={data} />
