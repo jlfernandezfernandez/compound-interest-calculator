@@ -38,9 +38,9 @@ export default function ProductCard({ productDetails }: { productDetails: Produc
                 </div>
                 <button
                     onClick={handleRemoveProduct}
-                    className="text-xs text-red-600 hover:text-red-800 p-1"
+                    className="text-xs text-red-600 hover:text-red-800 p-2"
                 >
-                    Eliminar
+                    Descartar
                 </button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
