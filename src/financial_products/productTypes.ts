@@ -1,7 +1,7 @@
 
 export const productTypes = {
     inversion: { emoji: '📈', title: 'Fondo de Inversión' },
-    pension: { emoji: '💰', title: 'Plan de Pensiones' },
+    pension: { emoji: '💰', title: 'Plan de Pensión' },
     cuenta: { emoji: '🏦', title: 'Cuenta Remunerada' },
 };
 

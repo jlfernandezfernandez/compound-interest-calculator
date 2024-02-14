@@ -1,6 +1,6 @@
 import { useAppDispatch } from '@/store';
 import { updateProduct } from '@/store/calculator/calculatorSlice';
-import { ProductDetails, periods,  } from '@/financial_products/productTypes';
+import { ProductDetails, periods, } from '@/financial_products/productTypes';
 
 export default function ProductForm({ productDetails }: { productDetails: ProductDetails }) {
     const dispatch = useAppDispatch();
@@ -23,7 +23,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
 
     return (
         <div className="p-1 grid grid-cols-1 gap-4">
-            <div className="flex flex-col">
+            {/*<div className="flex flex-col">
                 <label htmlFor={`${productDetails.id}_name`} className="font-semibold">Nombre Personalizado</label>
                 <input
                     id={`${productDetails.id}_name`}
@@ -34,7 +34,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                     onChange={(e) => handleChange('name', e.target.value)}
                     className="input border p-2 rounded"
                 />
-            </div>
+            </div>*/}
             <div className="flex flex-col"> {/* Esto hará que ocupe tres columnas */}
                 <label htmlFor={`${productDetails.id}_initialAmount`} className="font-semibold">Cantidad Inicial</label>
                 <input
