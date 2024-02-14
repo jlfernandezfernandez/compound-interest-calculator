@@ -1,22 +1,25 @@
-// Importa las definiciones de productos y frecuencias de contribución
 import { ProductDetails } from '@/financial_products/productTypes';
-import { Doughnut } from 'react-chartjs-2';
-import Chart from 'chart.js/auto';
+import { updateYearlyTotals } from '@/store/calculator/calculatorSlice';
 import DoughnutChart from './DoughnutChart';
+import { calculateYearlyTotals, formatCurrency } from '@/domain/financialCalculations';
+import { useAppDispatch } from '@/store';
+import { useEffect } from 'react';
 
 export default function ProductResult({ productDetails }: { productDetails: ProductDetails }) {
-    // Realiza los cálculos necesarios
-    const initialBalance: number = productDetails.initialAmount || 0; // saldo inicial en euros
-    const contributionFrequency: number = productDetails.contributionFrequency || 12; // veces al año que se realiza una contribución
-    const years: number = productDetails.duration || 0; // años de la inversión
-    const interestRate: number = productDetails.interestRate || 0; //interés anual
-    const contribution: number = (productDetails.contribution || 0); //cantidad en euros
-    const contributionPeriods: number = years * contributionFrequency;
+    const dispatch = useAppDispatch();
 
-    // Calcula el interés total
-    const totalContribution = calculateTotalContribution(contribution, contributionPeriods);
-    const totalGenerated = calculateCompoundInterest(initialBalance, contribution, interestRate, contributionPeriods, contributionFrequency);
-    const totalInterestGenerated = totalGenerated - totalContribution - initialBalance;
+    const totalYearly = calculateYearlyTotals(productDetails);
+    const initialBalance: number = productDetails.initialAmount || 0; // saldo inicial en euros
+    let totalContribution: number = 0, totalGenerated: number = 0, totalInterestGenerated: number = 0;
+
+    useEffect(() => {
+        dispatch(updateYearlyTotals({ id: productDetails.id, yearlyTotals: totalYearly }));
+    }, [dispatch, productDetails.initialAmount, productDetails.contribution, productDetails.interestRate, productDetails.duration, productDetails.contributionFrequency]);
+
+
+    totalYearly.findLast(data => totalContribution = data.totalContribution ? data.totalContribution : 0);
+    totalYearly.findLast(data => totalGenerated = data.totalGenerated || 0);
+    totalYearly.findLast(data => totalInterestGenerated = data.totalInterest || 0);
 
     const data = {
         labels: ['Balance Inicial', 'Depósitos Totales', 'Intereses Totales'],
@@ -58,27 +61,4 @@ export default function ProductResult({ productDetails }: { productDetails: Prod
             </div>
         </div>
     );
-    
-}
-
-function calculateCompoundInterest(initialBalance: number, contribution: number, interestRate: number, contributionPeriods: number, contributionFrequency: number): number {
-    const ratePerPeriod: number = interestRate / 100 / contributionFrequency;
-    let futureValue: number = initialBalance;
-
-    for (let i = 0; i < contributionPeriods; i++) {
-        futureValue = futureValue * (1 + ratePerPeriod);
-        futureValue += contribution;
-    }
-
-    return futureValue;
-}
-
-
-function calculateTotalContribution(contribution: number, contributionPeriods: number) {
-    const totalAmount = contribution * contributionPeriods;
-    return totalAmount;
-}
-
-function formatCurrency(amount: number) {
-    return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(amount);
 }

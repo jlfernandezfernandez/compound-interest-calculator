@@ -1,8 +1,8 @@
 
 export const productTypes = {
-    inversion: { emoji: '📈', title: 'Fondo de Inversión' },
-    pension: { emoji: '💰', title: 'Plan de Pensiones' },
-    cuenta: { emoji: '🏦', title: 'Cuenta Remunerada' },
+    inversion: { key: 'inversion', emoji: '📈', title: 'Fondo de Inversión' },
+    pension: { key: 'pension', emoji: '💰', title: 'Plan de Pensiones' },
+    cuenta: { key: 'cuenta', emoji: '🏦', title: 'Cuenta Remunerada' },
 };
 
 export type ProductType = keyof typeof productTypes;
@@ -17,6 +17,13 @@ export const periods = [
 
 export type ProductPeriodicity = typeof periods[number]['time'];
 
+export interface YearlyTotals {
+    year: number; 
+    totalContribution: number; // Contribución total hasta ese año
+    totalGenerated: number; // Total generado hasta ese año
+    totalInterest: number; // Total de intereses generados hasta ese año
+}
+
 export interface ProductDetails {
     id: string
     type: ProductType
@@ -27,6 +34,7 @@ export interface ProductDetails {
     contributionFrequency?: ProductPeriodicity;
     duration?: number;
     capitalizationPeriod?: ProductPeriodicity;
+    yearlyTotals?: YearlyTotals[];
 }
 
 export interface ProductProps {
