@@ -41,7 +41,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                     id={`${productDetails.id}_initialAmount`}
                     type="number"
                     placeholder="3000"
-                    value={productDetails.initialAmount || ''}
+                    value={productDetails.initialAmount !== undefined ? productDetails.initialAmount : ''}
                     onChange={(e) => handleChangeNumber('initialAmount', Number(e.target.value))}
                     className="input border p-2 rounded"
                 />
@@ -52,7 +52,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                     id={`${productDetails.id}_contribution`}
                     type="number"
                     placeholder="250"
-                    value={productDetails.contribution || ''}
+                    value={productDetails.contribution !== undefined ? productDetails.contribution : ''}
                     onChange={(e) => handleChangeNumber('contribution', Number(e.target.value))}
                     className="input border p-2 rounded"
                 />
@@ -77,7 +77,7 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                 <input
                     id={`${productDetails.id}_interestRate`}
                     type="number"
-                    value={productDetails.interestRate || ''}
+                    value={productDetails.interestRate !== undefined ? productDetails.interestRate : ''}
                     onChange={(e) => handleChangeNumber('interestRate', Number(e.target.value))}
                     placeholder="3.5"
                     className="input border p-2 rounded"
