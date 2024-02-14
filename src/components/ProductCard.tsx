@@ -1,5 +1,5 @@
 import { useAppDispatch } from '@/store';
-import { removeProduct } from '@/store/calculator/calculatorSlice';
+import { removeProduct, updateProduct } from '@/store/calculator/calculatorSlice';
 import { ProductDetails, productTypes } from '@/financial_products/productTypes';
 import ProductForm from './ProductForm';
 import ProductResult from './ProductResult';
@@ -13,6 +13,14 @@ export default function ProductCard({ productDetails }: { productDetails: Produc
         dispatch(removeProduct(productDetails.id));
     };
 
+    const handleChange = (field: keyof ProductDetails, value: string) => {
+        const updatedProductDetails = {
+            ...productDetails,
+            [field]: value
+        };
+        dispatch(updateProduct(updatedProductDetails));
+    };
+
     return (
         <div className="max-w-3xl mx-auto bg-white p-7 rounded-lg shadow-lg">
             <div className="flex items-start justify-between mb-6">
@@ -20,11 +28,12 @@ export default function ProductCard({ productDetails }: { productDetails: Produc
                     <span className="text-xl">{productInfo.emoji}</span>
                     <input
                         type="text"
-                        placeholder={productInfo.title} // Usar el título como placeholder si el nombre no está establecido
+                        placeholder={productInfo.title}
                         value={productDetails.name}
-                        onChange={(e) => (console.log(e.target.value))}
-                        className="ml-2 text-xl bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-400 outline-none" // Estilo para el input
-                        style={{ transition: 'border-color 0.3s ease', maxWidth: '200px' }} // Transición suave para el color del borde
+                        onChange={(e) => (handleChange('name', e.target.value))}
+                        className="ml-2 mr-5 pl-1 text-xl bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-400 outline-none"
+                        style={{ transition: 'border-color 0.3s ease', maxWidth: '180px', borderRadius: '0' }}
+                        maxLength={15}
                     />
                 </div>
                 <button

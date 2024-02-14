@@ -1,19 +1,12 @@
 import { useAppDispatch } from '@/store';
 import { updateProduct } from '@/store/calculator/calculatorSlice';
 import { ProductDetails, periods, } from '@/financial_products/productTypes';
+import NumberInput from './NumberInput';
 
 export default function ProductForm({ productDetails }: { productDetails: ProductDetails }) {
     const dispatch = useAppDispatch();
 
-    const handleChange = (field: keyof ProductDetails, value: string) => {
-        const updatedProductDetails = {
-            ...productDetails,
-            [field]: value
-        };
-        dispatch(updateProduct(updatedProductDetails));
-    };
-
-    const handleChangeNumber = (field: keyof ProductDetails, value: number) => {
+    const handleChangeNumber = (field: keyof ProductDetails, value: undefined | number) => {
         const updatedProductDetails = {
             ...productDetails,
             [field]: value
@@ -23,53 +16,29 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
 
     return (
         <div className="p-1 grid grid-cols-1 gap-4">
-            {/*<div className="flex flex-col">
-                <label htmlFor={`${productDetails.id}_name`} className="font-semibold">Nombre Personalizado</label>
-                <input
-                    id={`${productDetails.id}_name`}
-                    type="text"
-                    placeholder="Inversiones en MyInvestor"
-                    autoComplete='off'
-                    value={productDetails.name || ''}
-                    onChange={(e) => handleChange('name', e.target.value)}
-                    className="input border p-2 rounded"
-                />
-            </div>*/}
-            <div className="flex flex-col">
-                <label htmlFor={`${productDetails.id}_initialAmount`} className="font-semibold">Cantidad Inicial</label>
-                <div className="flex items-center border p-2 rounded">
-                    <input
-                        id={`${productDetails.id}_initialAmount`}
-                        type="number"
-                        placeholder="3000"
-                        value={productDetails.initialAmount !== undefined ? productDetails.initialAmount : ''}
-                        onChange={(e) => handleChangeNumber('initialAmount', Number(e.target.value))}
-                        className="flex-1 outline-none"
-                    />
-                    <span className="text-gray-500">€</span>
-                </div>
-            </div>
-            <div className="flex flex-col">
-                <label htmlFor={`${productDetails.id}_contribution`} className="font-semibold">Depósito Periódico</label>
-                <div className="flex items-center border p-2 rounded">
-                    <input
-                        id={`${productDetails.id}_contribution`}
-                        type="number"
-                        placeholder="250"
-                        value={productDetails.contribution !== undefined ? productDetails.contribution : ''}
-                        onChange={(e) => handleChangeNumber('contribution', Number(e.target.value))}
-                        className="flex-1 outline-none"
-                    />
-                    <span className="text-gray-500">€</span>
-                </div>
-            </div>
+            <NumberInput
+                id={`${productDetails.id}_initialAmount`}
+                label="Cantidad Inicial"
+                value={productDetails.initialAmount}
+                placeholder="3000"
+                unit="€"
+                onChange={(value) => handleChangeNumber('initialAmount', value)}
+            />
+            <NumberInput
+                id={`${productDetails.id}_contribution`}
+                label="Depósito Periódico"
+                value={productDetails.contribution}
+                placeholder="250"
+                unit="€"
+                onChange={value => handleChangeNumber('contribution', value)}
+            />
             <div className="flex flex-col">
                 <label htmlFor={`${productDetails.id}_contributionFrequency`} className="font-semibold">Periodicidad</label>
                 <select
                     id={`${productDetails.id}_contributionFrequency`}
                     value={productDetails.contributionFrequency || ''}
                     onChange={(e) => handleChangeNumber('contributionFrequency', Number(e.target.value))}
-                    className="input border p-2 rounded"
+                    className="input border p-2 rounded border-gray-200 focus:border-gray-400"
                 >
                     {periods.map(frequency => (
                         <option key={frequency.value} value={frequency.time}>
@@ -78,34 +47,22 @@ export default function ProductForm({ productDetails }: { productDetails: Produc
                     ))}
                 </select>
             </div>
-            <div className="flex flex-col">
-                <label htmlFor={`${productDetails.id}_interestRate`} className="font-semibold">Interés Anual</label>
-                <div className="flex items-center border p-2 rounded">
-                    <input
-                        id={`${productDetails.id}_interestRate`}
-                        type="number"
-                        value={productDetails.interestRate !== undefined ? productDetails.interestRate : ''}
-                        onChange={(e) => handleChangeNumber('interestRate', Number(e.target.value))}
-                        placeholder="3.5"
-                        className="flex-1 outline-none"
-                    />
-                    <span className="text-gray-500">%</span>
-                </div>
-            </div>
-            <div className="flex flex-col">
-                <label htmlFor={`${productDetails.id}_duration`} className="font-semibold">Duración</label>
-                <div className="flex items-center border p-2 rounded">
-                    <input
-                        id={`${productDetails.id}_duration`}
-                        type="number"
-                        placeholder="25"
-                        value={productDetails.duration || ''}
-                        onChange={(e) => handleChangeNumber('duration', Number(e.target.value))}
-                        className="flex-1 outline-none"
-                    />
-                    <span className="text-gray-500">años</span>
-                </div>
-            </div>
+            <NumberInput
+                id={`${productDetails.id}_interestRate`}
+                label="Interés Anual"
+                value={productDetails.interestRate}
+                placeholder="3.5"
+                unit="%"
+                onChange={value => handleChangeNumber('interestRate', value)}
+            />
+            <NumberInput
+                id={`${productDetails.id}_duration`}
+                label="Duración"
+                value={productDetails.duration}
+                placeholder="25"
+                unit="años"
+                onChange={value => handleChangeNumber('duration', value)}
+            />
             {/*<div className="flex flex-col">
                 <label htmlFor={`${productDetails.id}_capitalizationPeriod`} className="font-semibold">Capitalización</label>
                 <select
