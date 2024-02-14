@@ -14,10 +14,18 @@ export default function ProductCard({ productDetails }: { productDetails: Produc
     };
 
     return (
-        <div className="max-w-4xl mx-auto bg-white p-7 rounded-lg shadow-lg">
-            <div className="flex justify-between items-start">
-                <div className="text-center text-xl mb-6">
-                    {productInfo.emoji} {productInfo.title}
+        <div className="max-w-3xl mx-auto bg-white p-7 rounded-lg shadow-lg">
+            <div className="flex items-start justify-between mb-6">
+                <div className="flex items-center">
+                    <span className="text-xl">{productInfo.emoji}</span>
+                    <input
+                        type="text"
+                        placeholder={productInfo.title} // Usar el título como placeholder si el nombre no está establecido
+                        value={productDetails.name}
+                        onChange={(e) => (console.log(e.target.value))}
+                        className="ml-2 text-xl bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-400 outline-none" // Estilo para el input
+                        style={{ transition: 'border-color 0.3s ease', maxWidth: '200px' }} // Transición suave para el color del borde
+                    />
                 </div>
                 <button
                     onClick={handleRemoveProduct}
