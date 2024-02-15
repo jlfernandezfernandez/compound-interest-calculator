@@ -32,8 +32,8 @@ export default function ProductCard({ productDetails }: { productDetails: Produc
                         value={productDetails.name}
                         onChange={(e) => (handleChange('name', e.target.value))}
                         className="ml-2 mr-5 pl-1 text-xl bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-400 outline-none"
-                        style={{ transition: 'border-color 0.3s ease', maxWidth: '180px', borderRadius: '0' }}
-                        maxLength={15}
+                        style={{ transition: 'border-color 0.3s ease', maxWidth: '200px', borderRadius: '0' }}
+                        maxLength={17}
                     />
                 </div>
                 <button

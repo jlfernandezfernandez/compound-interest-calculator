@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { useAppSelector } from '@/store'; // Asume que este es el path correcto a tu store
-import DoughnutChart from './DoughnutChart';
 import { formatCurrency } from '@/domain/financialCalculations';
+import PieChart from './PieChart';
 
 const ProductsResult = () => {
     const products = useAppSelector(state => state.calculator.products);
@@ -48,14 +48,14 @@ const ProductsResult = () => {
                 label: 'Cantidad',
                 data: [totalInversion, totalRemunerado, totalPensiones],
                 backgroundColor: [
-                    'gray',
-                    'yellow',
-                    'green',
+                    '#E74D3C',
+                    '#DAA507',
+                    '#8EC7D2',
                 ],
                 borderColor: [
-                    'gray',
-                    'yellow',
-                    'green',
+                    '#E74D3C',
+                    '#DAA507',
+                    '#8EC7D2',
                 ],
                 borderWidth: 1,
             },
@@ -64,20 +64,22 @@ const ProductsResult = () => {
 
     return (
         products.length > 0 && (
-            <div className='max-w-5xl mx-auto bg-white p-7 rounded-lg shadow-lg mt-5 w-full'>
+            <div className='max-w-5xl mx-auto  mt-4 w-full'>
                 <div className='flex flex-col items-center w-full'>
                     <section className="mb-6 flex flex-col items-center text-center">
-                        <h2 className="text-xl md:text-2xl font-bold mb-4">Resultados Generales</h2>
+                        <h2 className="text-xl md:text-2xl font-bold">Resumen 📊</h2>
                     </section>
                     {/* Gráfico Doughnut */}
-                    <div className="flex">
-                        <div className="mb-6 w-full text-center mr-5"> {/* Ajusta el ancho según sea necesario y centra el texto */}
-                            <p><strong>Depósitos:</strong> {formatCurrency(allTotalContribution)}</p>
-                            <p><strong>Intereses:</strong> {formatCurrency(allTotalInterest)}</p>
-                            <p><strong>Total:</strong> {formatCurrency(allTotalGenerated)}</p>
+                    <div className="items-stretch h-full grid grid-cols-1 sm:grid-cols-2">
+                        <div className='flex'>
+                            <div className="mb-6 w-full h-full text-center mr-5 p-7 rounded-lg shadow-lg">
+                                <p><strong>Depósitos:</strong> {formatCurrency(allTotalContribution)}</p>
+                                <p><strong>Intereses:</strong> {formatCurrency(allTotalInterest)}</p>
+                                <p><strong>Total:</strong> {formatCurrency(allTotalGenerated)}</p>
+                            </div>
                         </div>
-                        <div>
-                            <DoughnutChart data={data} />
+                        <div className='h-full p-7 rounded-lg shadow-lg'>
+                            <PieChart data={data} />
                         </div>
                     </div>
                     {/* Aquí puedes añadir más componentes visualizaciones en el futuro */}
@@ -87,7 +89,6 @@ const ProductsResult = () => {
             </div>
         )
     );
-
 }
 
 export default ProductsResult;
