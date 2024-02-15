@@ -3,31 +3,37 @@
 import React from 'react';
 import { useAppSelector } from '@/store'; // Asume que este es el path correcto a tu store
 import DoughnutChart from './DoughnutChart';
-import { productTypes } from '@/financial_products/productTypes';
+import { formatCurrency } from '@/domain/financialCalculations';
 
 const ProductsResult = () => {
     const products = useAppSelector(state => state.calculator.products);
 
-    // Inicializa los totales a 0
     let totalInversion = 0;
     let totalRemunerado = 0;
     let totalPensiones = 0;
 
-    console.log(products);
+    let allTotalContribution = 0;
+    let allTotalInterest = 0;
+    let allTotalGenerated = 0;
+
 
     products.forEach(product => {
         const yearlyTotals = product.yearlyTotals || [];
         const lastYear = yearlyTotals[yearlyTotals.length - 1] || {};
         const totalGenerated = lastYear.totalGenerated || 0;
 
+        allTotalContribution += lastYear.totalContribution || 0;
+        allTotalInterest += lastYear.totalInterest || 0;
+        allTotalGenerated += totalGenerated;
+
         switch (product.type) {
-            case productTypes.inversion.key:
+            case 'inversion':
                 totalInversion += totalGenerated;
                 break;
-            case productTypes.cuenta.key:
+            case 'cuenta':
                 totalRemunerado += totalGenerated;
                 break;
-            case productTypes.pension.key:
+            case 'pension':
                 totalPensiones += totalGenerated;
                 break;
             default:
@@ -35,7 +41,6 @@ const ProductsResult = () => {
         }
     });
 
-    // Construye el objeto data para el gráfico
     const data = {
         labels: ['Inversiones', 'Cuentas Remuneradas', 'Planes de Pensión'],
         datasets: [
@@ -43,14 +48,14 @@ const ProductsResult = () => {
                 label: 'Cantidad',
                 data: [totalInversion, totalRemunerado, totalPensiones],
                 backgroundColor: [
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)',
+                    'gray',
+                    'yellow',
+                    'green',
                 ],
                 borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
+                    'gray',
+                    'yellow',
+                    'green',
                 ],
                 borderWidth: 1,
             },
@@ -58,12 +63,31 @@ const ProductsResult = () => {
     };
 
     return (
-        <div className='ml-6 p-1 sm:mt-0 mt-5 flex flex-col justify-center items-center'>
-            <div className='w-full flex justify-center'>
-                <DoughnutChart data={data} />
+        products.length > 0 && (
+            <div className='max-w-5xl mx-auto bg-white p-7 rounded-lg shadow-lg mt-5 w-full'>
+                <div className='flex flex-col items-center w-full'>
+                    <section className="mb-6 flex flex-col items-center text-center">
+                        <h2 className="text-xl md:text-2xl font-bold mb-4">Resultados Generales</h2>
+                    </section>
+                    {/* Gráfico Doughnut */}
+                    <div className="flex">
+                        <div className="mb-6 w-full text-center mr-5"> {/* Ajusta el ancho según sea necesario y centra el texto */}
+                            <p><strong>Depósitos:</strong> {formatCurrency(allTotalContribution)}</p>
+                            <p><strong>Intereses:</strong> {formatCurrency(allTotalInterest)}</p>
+                            <p><strong>Total:</strong> {formatCurrency(allTotalGenerated)}</p>
+                        </div>
+                        <div>
+                            <DoughnutChart data={data} />
+                        </div>
+                    </div>
+                    {/* Aquí puedes añadir más componentes visualizaciones en el futuro */}
+                    {/* Por ejemplo, para otros gráficos o datos resumidos */}
+                    {/* <div className='w-full lg:w-1/3 px-4'>Otro Componente/Gráfico</div> */}
+                </div>
             </div>
-        </div>
+        )
     );
+
 }
 
 export default ProductsResult;

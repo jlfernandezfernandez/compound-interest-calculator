@@ -1,6 +1,7 @@
 import IntroductionSection from "@/components/IntroductionSection";
 import ProductButtons from "@/components/ProductButtons";
 import ProductList from "@/components/ProductList";
+import ProductsResult from "@/components/ProductsResult";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
     return (
-        <div className="flex flex-col min-h-screen p-4 bg-gradient-radial font-body">
+        <div className="flex flex-col min-h-screen p-5 bg-gradient-radial font-body">
             <div className="flex justify-between items-start w-full">
                 <Link href="/" className="inline-block bg-gradient-radial py-4 px-6 rounded">
                     Inicio
@@ -21,6 +22,7 @@ export default function CalculatorPage() {
                 <IntroductionSection />
                 <ProductButtons />
                 <ProductList />
+                <ProductsResult />
             </main>
         </div>
     );
