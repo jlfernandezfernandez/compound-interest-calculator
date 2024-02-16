@@ -49,7 +49,7 @@ export default function ProductResult({ productDetails }: { productDetails: Prod
     const formattedTotalInterest = formatCurrency(totalInterestGenerated);
 
     return (
-        <div className='ml-6 p-1 sm:mt-0 mt-5 flex flex-col justify-center items-center'>
+        <div className='sm:ml-6 ml-0 p-1 sm:mt-0 mt-5 flex flex-col justify-center items-center'>
             <div className="mb-6 w-full text-center"> {/* Ajusta el ancho según sea necesario y centra el texto */}
                 <p><strong>Balance Inicial:</strong> {formattedInitialBalance}</p>
                 <p><strong>Depósitos:</strong> {formattedContribution}</p>
