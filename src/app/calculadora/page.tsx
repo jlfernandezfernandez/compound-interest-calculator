@@ -18,7 +18,7 @@ export default function CalculatorPage() {
                     Inicio
                 </Link>
             </div>
-            <main className="flex flex-col items-center w-full">
+            <main className="flex flex-col items-center w-full h-full">
                 <IntroductionSection />
                 <ProductButtons />
                 <ProductList />

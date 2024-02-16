@@ -64,7 +64,7 @@ const ProductsResult = () => {
 
     return (
         products.length > 0 && (
-            <div className=' h-full max-w-5xl mx-auto  mt-4 w-full'>
+            <div className=' h-full max-w-5xl mx-auto mt-4 w-full'>
                 <div className='flex flex-col items-center w-full'>
                     <section className="mb-6 flex flex-col items-center text-center">
                         <h2 className="text-xl md:text-2xl font-bold">Resumen 📊</h2>
