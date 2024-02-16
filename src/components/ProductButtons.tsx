@@ -20,7 +20,6 @@ export default function ProductButtons() {
             type: type,
         };
         dispatch(addProduct(newProduct));
-        products.push(newProduct);
     };
 
     return (
