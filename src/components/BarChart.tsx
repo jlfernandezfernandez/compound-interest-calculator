@@ -25,8 +25,11 @@ interface BarChartProps {
 }
 
 export default function BarChart({ data }: BarChartProps) {
+    const isMobile = window.innerWidth < 600;
+
     const options = {
         responsive: true,
+        maintainAspectRatio: false, // Desactiva la relación de aspecto fija
         interaction: {
             mode: 'index' as const,
             intersect: false,
@@ -34,6 +37,12 @@ export default function BarChart({ data }: BarChartProps) {
         plugins: {
             tooltip: {
                 callbacks: {
+                    footer: (tooltipItems: TooltipItem<"bar">[]) => {
+                        const sum = tooltipItems.reduce((acc, tooltipItem) => {
+                            return acc + tooltipItem.parsed.y;
+                        }, 0);
+                        return '💸 ' + new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(sum);
+                    },
                     label: function (tooltipItem: TooltipItem<"bar">) {
                         let label = tooltipItem.dataset.label || '';
                         if (label) {
@@ -49,6 +58,7 @@ export default function BarChart({ data }: BarChartProps) {
         },
         scales: {
             y: {
+                display: !isMobile,
                 stacked: true,
                 beginAtZero: true,
                 ticks: {

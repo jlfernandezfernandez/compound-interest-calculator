@@ -42,7 +42,7 @@ const ProductsResult = () => {
     const globalYearlyTotals = calculateGlobalYearlyTotals(products);
 
     const barChartData = {
-        labels: globalYearlyTotals.map(item => `Año ${item.year}`),
+        labels: globalYearlyTotals.map(item => `${item.year}`),
         datasets: [
             {
                 label: 'Total Contribuido',
@@ -68,7 +68,7 @@ const ProductsResult = () => {
                 <section className="mb-6 flex flex-col items-center text-center">
                     <h2 className="text-xl md:text-2xl font-bold">Resumen 📊</h2>
                 </section>
-                <div className='p-7 rounded-lg shadow-lg w-full'>
+                <div className='p-5 rounded-lg shadow-lg w-full chart-container'>
                     <BarChart data={barChartData} />
                 </div>
                 {/* Gráfico Doughnut y Resumen */}

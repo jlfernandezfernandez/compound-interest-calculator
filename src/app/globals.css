@@ -31,3 +31,16 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Estilo por defecto para el contenedor del gráfico */
+.chart-container {
+  height: 350px; /* Altura por defecto para escritorio */
+  width: 100%;
+}
+
+/* Consulta de medios para dispositivos con ancho menor a 600px (dispositivos móviles generalmente) */
+@media (max-width: 600px) {
+  .chart-container {
+      height: 400px; /* Aumenta la altura del gráfico para móviles */
+  }
+}
