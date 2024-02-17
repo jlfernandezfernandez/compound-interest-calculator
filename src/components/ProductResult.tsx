@@ -9,7 +9,7 @@ export default function ProductResult({ productDetails }: { productDetails: Prod
     const dispatch = useAppDispatch();
 
     const totalYearly = calculateYearlyTotals(productDetails);
-    const initialBalance: number = productDetails.initialAmount || 0; // saldo inicial en euros
+    const initialBalance: number = productDetails.initialAmount || 0;
     let totalContribution: number = 0, totalGenerated: number = 0, totalInterestGenerated: number = 0;
 
     useEffect(() => {

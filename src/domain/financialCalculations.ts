@@ -45,18 +45,59 @@ function calculateYearTotal(initialBalance: number, contribution: number, intere
         year: year,
         totalContribution: totalYearContribution,
         totalGenerated: totalYearGenerated,
-        totalInterest: totalYearInterestGenerated,
+        totalInterest: totalYearInterestGenerated
     };
 }
 
-export const calculateGlobalYearlyTotals = (products: ProductDetails[]): YearlyTotals[] => {
-    let globalTotals: YearlyTotals[] = [];
+export const summarizeProducts = (products: ProductDetails[]) => {
+    let totalProductInversion = 0;
+    let totalProductRemunerado = 0;
+    let totalProductPensiones = 0;
+    let allTotalContribution = 0;
+    let allTotalInterest = 0;
+    let allTotalGenerated = 0;
+
+    products.forEach(product => {
+        const yearlyTotals = product.yearlyTotals || [];
+        const lastYear = yearlyTotals[yearlyTotals.length - 1] || {};
+        const totalGenerated = lastYear.totalGenerated || 0;
+
+        allTotalContribution += lastYear.totalContribution || 0;
+        allTotalInterest += lastYear.totalInterest || 0;
+        allTotalGenerated += totalGenerated;
+
+        switch (product.type) {
+            case 'inversion':
+                totalProductInversion += totalGenerated;
+                break;
+            case 'cuenta':
+                totalProductRemunerado += totalGenerated;
+                break;
+            case 'pension':
+                totalProductPensiones += totalGenerated;
+                break;
+        }
+    });
+
+    return {
+        totalProductInversion,
+        totalProductRemunerado,
+        totalProductPensiones,
+        allTotalContribution,
+        allTotalInterest,
+        allTotalGenerated,
+    };
+};
+
+export const calculateGlobalYearlyTotals = (products: ProductDetails[]) => {
+    let globalTotals = [];
     let maxYear = Math.max(...products.map(product => product.duration || 0));
 
     for (let year = 1; year <= maxYear; year++) {
         let totalContribution = 0;
         let totalGenerated = 0;
         let totalInterest = 0;
+        let totalInitialAmount = 0;
 
         products.forEach(product => {
             const yearlyDetail = product.yearlyTotals?.find(detail => detail.year === year);
@@ -65,13 +106,15 @@ export const calculateGlobalYearlyTotals = (products: ProductDetails[]): YearlyT
                 totalGenerated += yearlyDetail.totalGenerated;
                 totalInterest += yearlyDetail.totalInterest;
             }
+            totalInitialAmount += product.initialAmount || 0;
         });
 
         globalTotals.push({
             year,
             totalContribution,
             totalGenerated,
-            totalInterest
+            totalInterest,
+            totalInitialAmount
         });
     }
 

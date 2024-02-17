@@ -2,61 +2,37 @@
 
 import React from 'react';
 import { useAppSelector } from '@/store'; // Asume que este es el path correcto a tu store
-import { calculateGlobalYearlyTotals, formatCurrency } from '@/domain/financialCalculations';
+import { calculateGlobalYearlyTotals, formatCurrency, summarizeProducts } from '@/domain/financialCalculations';
 import PieChart from './PieChart';
 import BarChart from './BarChart';
 
 const ProductsResult = () => {
     const products = useAppSelector(state => state.calculator.products);
 
-    let totalInversion = 0;
-    let totalRemunerado = 0;
-    let totalPensiones = 0;
-
-    let allTotalContribution = 0;
-    let allTotalInterest = 0;
-    let allTotalGenerated = 0;
-
-
-    products.forEach(product => {
-        const yearlyTotals = product.yearlyTotals || [];
-        const lastYear = yearlyTotals[yearlyTotals.length - 1] || {};
-        const totalGenerated = lastYear.totalGenerated || 0;
-
-        allTotalContribution += lastYear.totalContribution || 0;
-        allTotalInterest += lastYear.totalInterest || 0;
-        allTotalGenerated += totalGenerated;
-
-        switch (product.type) {
-            case 'inversion':
-                totalInversion += totalGenerated;
-                break;
-            case 'cuenta':
-                totalRemunerado += totalGenerated;
-                break;
-            case 'pension':
-                totalPensiones += totalGenerated;
-                break;
-            default:
-                break;
-        }
-    });
+    const {
+        totalProductInversion,
+        totalProductRemunerado,
+        totalProductPensiones,
+        allTotalContribution,
+        allTotalInterest,
+        allTotalGenerated,
+    } = summarizeProducts(products);
 
     const pieChartData = {
         labels: ['Inversiones', 'Cuentas Remuneradas', 'Planes de Pensión'],
         datasets: [
             {
                 label: 'Cantidad',
-                data: [totalInversion, totalRemunerado, totalPensiones],
+                data: [totalProductInversion, totalProductRemunerado, totalProductPensiones],
                 backgroundColor: [
-                    '#E74D3C',
-                    '#DAA507',
-                    '#8EC7D2',
+                    '#FFCF96',
+                    '#F6FDC3',
+                    '#CDFADB',
                 ],
                 borderColor: [
-                    '#E74D3C',
-                    '#DAA507',
-                    '#8EC7D2',
+                    '#FFCF96',
+                    '#F6FDC3',
+                    '#CDFADB',
                 ],
                 borderWidth: 1,
             },
@@ -71,12 +47,17 @@ const ProductsResult = () => {
             {
                 label: 'Total Contribuido',
                 data: globalYearlyTotals.map(item => item.totalContribution),
-                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                backgroundColor: '#B784B7',
             },
             {
                 label: 'Total Intereses Generados',
                 data: globalYearlyTotals.map(item => item.totalInterest),
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                backgroundColor: '#E493B3',
+            },
+            {
+                label: 'Balance Inicial',
+                data: globalYearlyTotals.map(item => item.totalInitialAmount),
+                backgroundColor: '#EEA5A6',
             },
         ],
     };
