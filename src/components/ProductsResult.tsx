@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { useAppSelector } from '@/store'; // Asume que este es el path correcto a tu store
-import { formatCurrency } from '@/domain/financialCalculations';
+import { calculateGlobalYearlyTotals, formatCurrency } from '@/domain/financialCalculations';
 import PieChart from './PieChart';
+import BarChart from './BarChart';
 
 const ProductsResult = () => {
     const products = useAppSelector(state => state.calculator.products);
@@ -41,7 +42,7 @@ const ProductsResult = () => {
         }
     });
 
-    const data = {
+    const pieChartData = {
         labels: ['Inversiones', 'Cuentas Remuneradas', 'Planes de Pensión'],
         datasets: [
             {
@@ -62,12 +63,33 @@ const ProductsResult = () => {
         ],
     };
 
+    const globalYearlyTotals = calculateGlobalYearlyTotals(products);
+
+    const barChartData = {
+        labels: globalYearlyTotals.map(item => `Año ${item.year}`),
+        datasets: [
+            {
+                label: 'Total Contribuido',
+                data: globalYearlyTotals.map(item => item.totalContribution),
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            },
+            {
+                label: 'Total Intereses Generados',
+                data: globalYearlyTotals.map(item => item.totalInterest),
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            },
+        ],
+    };
+
     return products.length > 0 && (
         <div className='max-w-5xl mx-auto mt-4 w-full'>
             <div className='flex flex-col items-center w-full'>
                 <section className="mb-6 flex flex-col items-center text-center">
                     <h2 className="text-xl md:text-2xl font-bold">Resumen 📊</h2>
                 </section>
+                <div className='p-7 rounded-lg shadow-lg w-full'>
+                    <BarChart data={barChartData} />
+                </div>
                 {/* Gráfico Doughnut y Resumen */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
                     <div className="p-10 rounded-lg shadow-lg text-center">
@@ -76,7 +98,7 @@ const ProductsResult = () => {
                         <p><strong>Total:</strong> {formatCurrency(allTotalGenerated)}</p>
                     </div>
                     <div className='p-7 rounded-lg shadow-lg'>
-                        <PieChart data={data} />
+                        <PieChart data={pieChartData} />
                     </div>
                 </div>
                 {/* Aquí puedes añadir más componentes o visualizaciones en el futuro */}

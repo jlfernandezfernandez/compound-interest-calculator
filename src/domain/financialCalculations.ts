@@ -48,3 +48,32 @@ function calculateYearTotal(initialBalance: number, contribution: number, intere
         totalInterest: totalYearInterestGenerated,
     };
 }
+
+export const calculateGlobalYearlyTotals = (products: ProductDetails[]): YearlyTotals[] => {
+    let globalTotals: YearlyTotals[] = [];
+    let maxYear = Math.max(...products.map(product => product.duration || 0));
+
+    for (let year = 1; year <= maxYear; year++) {
+        let totalContribution = 0;
+        let totalGenerated = 0;
+        let totalInterest = 0;
+
+        products.forEach(product => {
+            const yearlyDetail = product.yearlyTotals?.find(detail => detail.year === year);
+            if (yearlyDetail) {
+                totalContribution += yearlyDetail.totalContribution;
+                totalGenerated += yearlyDetail.totalGenerated;
+                totalInterest += yearlyDetail.totalInterest;
+            }
+        });
+
+        globalTotals.push({
+            year,
+            totalContribution,
+            totalGenerated,
+            totalInterest
+        });
+    }
+
+    return globalTotals;
+};
