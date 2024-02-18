@@ -18,12 +18,9 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
@@ -34,13 +31,21 @@ body {
 
 /* Estilo por defecto para el contenedor del gráfico */
 .chart-container {
-  height: 350px; /* Altura por defecto para escritorio */
+  height: 350px;
+  /* Altura por defecto para escritorio */
   width: 100%;
 }
 
 /* Consulta de medios para dispositivos con ancho menor a 600px (dispositivos móviles generalmente) */
 @media (max-width: 600px) {
   .chart-container {
-      height: 400px; /* Aumenta la altura del gráfico para móviles */
+    height: 400px;
+    /* Aumenta la altura del gráfico para móviles */
+  }
+}
+
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  img[loading="lazy"] {
+    clip-path: inset(0.6px)
   }
 }
