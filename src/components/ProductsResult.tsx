@@ -80,7 +80,7 @@ const ProductsResult = () => {
                             <p><strong>Total:</strong> {formatCurrency(allTotalGenerated)}</p>
                         </div>
                     </div>
-                    <div className='p-7 rounded-lg shadow-lg'>
+                    <div className='p-7 rounded-lg shadow-lg h-full'>
                         <PieChart data={pieChartData} />
                     </div>
                 </div>
