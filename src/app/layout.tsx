@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/store/Providers";
@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   description: "Calcula el interés compuesto de todos tus productos de inversión de forma sencillla. Desde fondos de inversión, fondos indexados, planes de pensión hasta cuentas de ahorros.",
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,14 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-      <body className={inter.className}>
-        <Providers>
-          {children}
-          <SpeedInsights />
-          <Analytics />
-        </Providers>
-      </body>
+        <body className={inter.className}>
+          <Providers>
+            {children}
+            <SpeedInsights />
+            <Analytics />
+          </Providers>
+        </body>
     </html>
   );
 }
