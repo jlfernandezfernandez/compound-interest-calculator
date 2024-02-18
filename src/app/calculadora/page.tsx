@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
     return (
-        <div className="flex flex-col min-h-screen p-5 bg-gradient-radial font-body">
+        <div className="flex flex-col min-h-screen p-5 bg-gradient-radial font-body h-full">
             <div className="flex justify-between items-start w-full">
                 <Link href="/" className="inline-block bg-gradient-radial py-4 px-6 rounded">
                     Inicio
