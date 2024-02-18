@@ -22,7 +22,7 @@ export default function ProductCard({ productDetails }: { productDetails: Produc
     };
 
     return (
-        <div className="max-w-3xl mx-auto bg-white p-7 rounded-lg shadow-lg">
+        <div className="max-w-5xl mx-auto w-full bg-white p-7 rounded-lg shadow-lg">
             <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center">
                     <span className="text-xl">{productInfo.emoji}</span>

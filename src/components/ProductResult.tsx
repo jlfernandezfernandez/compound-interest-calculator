@@ -1,9 +1,10 @@
-import { ProductDetails } from '@/financial_products/productTypes';
+import { ProductDetails, periods } from '@/financial_products/productTypes';
 import { updateYearlyTotals } from '@/store/calculator/calculatorSlice';
 import DoughnutChart from './DoughnutChart';
 import { calculateYearlyTotals, formatCurrency } from '@/domain/financialCalculations';
 import { useAppDispatch } from '@/store';
 import { useEffect } from 'react';
+import ProductsSummary from './ProductsSummary';
 
 export default function ProductResult({ productDetails }: { productDetails: ProductDetails }) {
     const dispatch = useAppDispatch();
@@ -33,30 +34,25 @@ export default function ProductResult({ productDetails }: { productDetails: Prod
                     '#f2544c',
                 ],
                 borderColor: [
-                    '#f57a74',
-                    '#f9b3af',
-                    '#f2544c',
+                    'white',
+                    'white',
+                    'white',
                 ],
                 borderWidth: 1,
             },
         ],
     };
 
-    // Formatea los números con el separador de miles y el separador decimal adecuado
-    const formattedInitialBalance = formatCurrency(initialBalance);
-    const formattedContribution = formatCurrency(totalContribution);
     const formattedTotalGenerated = formatCurrency(totalGenerated);
-    const formattedTotalInterest = formatCurrency(totalInterestGenerated);
+    const formattedContribution = formatCurrency(productDetails.contribution || 0);
+    const periodAdverb = periods.find(period => period.time === productDetails.contributionFrequency)?.adverb || '';
 
     return (
         <div className='sm:ml-6 ml-0 p-1 sm:mt-0 mt-5 flex flex-col justify-center items-center'>
-            <div className="mb-6 w-full text-center"> {/* Ajusta el ancho según sea necesario y centra el texto */}
-                <p><strong>Balance Inicial:</strong> {formattedInitialBalance}</p>
-                <p><strong>Depósitos:</strong> {formattedContribution}</p>
-                <p><strong>Intereses:</strong> {formattedTotalInterest}</p>
-                <p><strong>Total:</strong> {formattedTotalGenerated}</p>
+            <div className="mb-8 w-full">
+                <ProductsSummary totalSavings={formattedTotalGenerated} monthlySavings={formattedContribution} years={productDetails.duration || 0} period={periodAdverb} />
             </div>
-            <div className='w-full flex justify-center'>
+            <div className='w-full flex justify-center p-2'>
                 <DoughnutChart data={data} />
             </div>
         </div>

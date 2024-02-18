@@ -8,11 +8,11 @@ export const productTypes = {
 export type ProductType = keyof typeof productTypes;
 
 export const periods = [
-    { value: 'monthly', label: 'Mensual', time: 12 },
-    { value: 'annually', label: 'Anual', time: 1 },
-    { value: 'daily', label: 'Diario', time: 365 },
-    { value: 'quarterly', label: 'Trimestral', time: 3 },
-    { value: 'half_yearly', label: 'Semestral', time: 2 },
+    { value: 'monthly', label: 'Mensual', time: 12, adverb: 'mensual' },
+    { value: 'annually', label: 'Anual', time: 1, adverb: 'anual' },
+    { value: 'daily', label: 'Diario', time: 365, adverb: 'diario' },
+    { value: 'quarterly', label: 'Trimestral', time: 3, adverb: 'trimestral' },
+    { value: 'half_yearly', label: 'Semestral', time: 2, adverb: 'semestral' },
 ];
 
 export type ProductPeriodicity = typeof periods[number]['time'];

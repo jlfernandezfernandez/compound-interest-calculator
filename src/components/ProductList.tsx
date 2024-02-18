@@ -9,7 +9,7 @@ export default function ProductList() {
     const products = useAppSelector(state => state.calculator.products);
 
     return (
-        <section>
+        <section className="w-full">
             {products.map((product, index) => (
                 <div key={index} className="mb-4 p-4">
                     <ProductCard key={product.id} productDetails={product} />

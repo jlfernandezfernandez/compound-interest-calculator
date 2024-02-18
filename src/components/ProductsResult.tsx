@@ -73,10 +73,12 @@ const ProductsResult = () => {
                 </div>
                 {/* Gráfico Doughnut y Resumen */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                    <div className="p-10 rounded-lg shadow-lg text-center">
-                        <p><strong>Depósitos:</strong> {formatCurrency(allTotalContribution)}</p>
-                        <p><strong>Intereses:</strong> {formatCurrency(allTotalInterest)}</p>
-                        <p><strong>Total:</strong> {formatCurrency(allTotalGenerated)}</p>
+                    <div className="p-10 rounded-lg shadow-lg text-center h-full">
+                        <div>
+                            <p><strong>Depósitos:</strong> {formatCurrency(allTotalContribution)}</p>
+                            <p><strong>Intereses:</strong> {formatCurrency(allTotalInterest)}</p>
+                            <p><strong>Total:</strong> {formatCurrency(allTotalGenerated)}</p>
+                        </div>
                     </div>
                     <div className='p-7 rounded-lg shadow-lg'>
                         <PieChart data={pieChartData} />

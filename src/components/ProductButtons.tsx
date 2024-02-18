@@ -18,6 +18,7 @@ export default function ProductButtons() {
         const newProduct: ProductDetails = {
             id: type + Math.random(),
             type: type,
+            contributionFrequency: 12,
         };
         dispatch(addProduct(newProduct));
     };
