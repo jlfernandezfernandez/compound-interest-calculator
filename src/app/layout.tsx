@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google"; // Importar Plus Jakarta SNS desde Google Fonts
 import "./globals.css";
 import { Providers } from "@/store/Providers";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/react';
+import Footer from "@/components/Footer";
+import BuyMeACoffeeButton from "@/components/BuyMeACoffeButton";
 
-const inter = Inter({ subsets: ["latin"] });
+const plusJakartaSNS = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Financial Liberty | La calculadora de interés compuesto más avanzada",
@@ -26,9 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={plusJakartaSNS.className}>
         <Providers>
           {children}
+          <Footer />
           <SpeedInsights />
           <Analytics />
         </Providers>
