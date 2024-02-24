@@ -20,7 +20,7 @@ export default function Header() {
                     <HomeIcon className="h-6 w-6" />
                     Inicio
                 </Link>
-                <Link href="/calculadora" className={`flex items-center ml-auto text-xl tracking-tighter ${isActive('/calculadora')}`}>
+                <Link href="/calculadora-interes-compuesto" className={`flex items-center ml-auto text-xl tracking-tighter ${isActive('/calculadora-interes-compuesto')}`}>
                     Calculadora
                 </Link>
                 <Link href="/mejora-tus-resultados" className="flex items-center ml-auto text-sm">

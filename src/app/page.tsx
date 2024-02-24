@@ -10,7 +10,7 @@ export default function Home() {
         <p className="text-lg md:text-xl mb-8">
           Calcula aquí cuanto dinero tendrás en un futuro gracias al poder del interés compuesto.
         </p>
-        <Link href="/calculadora" className="inline-block bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-full transition duration-300">
+        <Link href="/calculadora-interes-compuesto" className="inline-block bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-full transition duration-300">
             Adelante
         </Link>
       </div>
