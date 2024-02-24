@@ -5,7 +5,6 @@ import { Providers } from "@/store/Providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/react';
 import Footer from "@/components/Footer";
-import BuyMeACoffeeButton from "@/components/BuyMeACoffeButton";
 
 const plusJakartaSNS = Plus_Jakarta_Sans({ subsets: ["latin"] });
 

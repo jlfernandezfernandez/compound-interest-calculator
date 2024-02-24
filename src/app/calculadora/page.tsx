@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer";
 import IntroductionSection from "@/components/IntroductionSection";
 import ProductButtons from "@/components/ProductButtons";
 import ProductList from "@/components/ProductList";
@@ -13,13 +12,13 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
     return (
-        <div className="flex flex-col min-h-screen p-5 bg-gradient-radial font-body h-full">
+        <div className="flex flex-col min-h-screen p-5 bg-gradient-radial font-body">
             <div className="flex justify-between items-start w-full">
                 <Link href="/">
                     Inicio
                 </Link>
             </div>
-            <main className="flex flex-col items-center w-full h-full">
+            <main className="flex flex-col items-center w-full overflow-auto">
                 <IntroductionSection />
                 <ProductButtons />
                 <ProductList />

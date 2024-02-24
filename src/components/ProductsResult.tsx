@@ -63,7 +63,7 @@ const ProductsResult = () => {
     };
 
     return products.length > 0 && (
-        <div className='max-w-5xl mx-auto mt-4 w-full h-full'>
+        <div className='max-w-5xl mx-auto mt-4 w-full'>
             <div className='flex flex-col items-center w-full'>
                 <section className="mb-6 flex flex-col items-center text-center">
                     <h2 className="text-xl md:text-2xl font-bold">Resumen 📊</h2>
@@ -73,14 +73,14 @@ const ProductsResult = () => {
                 </div>
                 {/* Gráfico Doughnut y Resumen */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                    <div className="p-10 rounded-lg shadow-lg text-center h-full">
+                    <div className="p-10 rounded-lg shadow-lg text-center">
                         <div>
                             <p><strong>Depósitos:</strong> {formatCurrency(allTotalContribution)}</p>
                             <p><strong>Intereses:</strong> {formatCurrency(allTotalInterest)}</p>
                             <p><strong>Total:</strong> {formatCurrency(allTotalGenerated)}</p>
                         </div>
                     </div>
-                    <div className='p-7 rounded-lg shadow-lg h-full'>
+                    <div className='p-7 rounded-lg shadow-lg'>
                         <PieChart data={pieChartData} />
                     </div>
                 </div>
