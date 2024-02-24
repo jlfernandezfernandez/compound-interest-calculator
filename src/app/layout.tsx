@@ -8,8 +8,8 @@ import { Analytics } from '@vercel/analytics/react';
 const plusJakartaSNS = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Financial Liberty | La calculadora de interés compuesto más avanzada",
-  description: "Calcula el interés compuesto de todos tus productos de inversión de forma sencillla. Desde fondos de inversión, fondos indexados, planes de pensión hasta cuentas de ahorros.",
+  title: "¡Calculadora de interés compuesto avanzada en 2024! Optimiza tus inversiones",
+  description: "Calcula el interés compuesto de tus productos financieros de manera fácil. Desde fondos de inversión hasta cuentas de ahorro, maximiza tus ganancias con nuestra herramienta avanzada.",
 };
 
 export const viewport: Viewport = {
