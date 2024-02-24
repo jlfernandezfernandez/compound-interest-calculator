@@ -1,8 +1,8 @@
 
 export const productTypes = {
-    inversion: { key: 'inversion', emoji: '📈', title: 'Fondo de Inversión' },
-    pension: { key: 'pension', emoji: '💰', title: 'Plan de Pensiones' },
-    cuenta: { key: 'cuenta', emoji: '🏦', title: 'Cuenta Remunerada' },
+    inversion: { key: 'inversion', emoji: '📈', title: 'Fondo de Inversión', initialBalanceColor:'#f57a74', totalContributionColor:'#f9b3af', totalInterestColor:'#f2544c'},
+    pension: { key: 'pension', emoji: '💰', title: 'Plan de Pensiones', initialBalanceColor:'#4D79C7', totalContributionColor:'#7FB2F0', totalInterestColor:'#35478D'},
+    cuenta: { key: 'cuenta', emoji: '🏦', title: 'Cuenta Remunerada', initialBalanceColor:'#157E38', totalContributionColor:'#45BF55', totalInterestColor:'#044E29'},
 };
 
 export type ProductType = keyof typeof productTypes;

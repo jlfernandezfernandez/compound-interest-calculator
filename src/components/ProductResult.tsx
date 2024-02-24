@@ -1,4 +1,4 @@
-import { ProductDetails, periods } from '@/financial_products/productTypes';
+import { ProductDetails, periods, productTypes } from '@/financial_products/productTypes';
 import { updateYearlyTotals } from '@/store/calculator/calculatorSlice';
 import DoughnutChart from './DoughnutChart';
 import { calculateYearlyTotals, formatCurrency } from '@/domain/financialCalculations';
@@ -29,9 +29,9 @@ export default function ProductResult({ productDetails }: { productDetails: Prod
                 label: 'Cantidad',
                 data: [initialBalance, totalContribution, totalInterestGenerated],
                 backgroundColor: [
-                    '#f57a74',
-                    '#f9b3af',
-                    '#f2544c',
+                    productTypes[productDetails.type]?.initialBalanceColor,
+                    productTypes[productDetails.type]?.totalContributionColor,
+                    productTypes[productDetails.type]?.totalInterestColor,
                 ],
                 borderColor: [
                     'white',
