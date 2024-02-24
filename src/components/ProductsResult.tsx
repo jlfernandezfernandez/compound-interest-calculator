@@ -63,24 +63,24 @@ const ProductsResult = () => {
     };
 
     return products.length > 0 && (
-        <div className='max-w-5xl mx-auto mt-4 mb-4 w-full'>
+        <div className='max-w-5xl mx-auto mt-3 mb-4 w-full'>
             <div className='flex flex-col items-center w-full'>
-                <section className="mb-6 flex flex-col items-center text-center">
-                    <h2 className="text-xl md:text-2xl font-bold">Resumen 📊</h2>
+                <section className="mb-3 flex flex-col items-center text-center">
+                    <h2 className="text-xl md:text-3xl font-bold">Resumen 📊</h2>
                 </section>
-                <div className='p-5 rounded-lg shadow-lg w-full chart-container'>
+                <div className='p-5 w-full chart-container mt-3 mb-2'>
                     <BarChart data={barChartData} />
                 </div>
                 {/* Gráfico Doughnut y Resumen */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                    <div className="p-10 rounded-lg shadow-lg text-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mt-2">
+                    <div className="p-10 text-center">
                         <div>
                             <p><strong>Depósitos:</strong> {formatCurrency(allTotalContribution)}</p>
                             <p><strong>Intereses:</strong> {formatCurrency(allTotalInterest)}</p>
                             <p><strong>Total:</strong> {formatCurrency(allTotalGenerated)}</p>
                         </div>
                     </div>
-                    <div className='p-7 rounded-lg shadow-lg'>
+                    <div className='p-7'>
                         <PieChart data={pieChartData} />
                     </div>
                 </div>
