@@ -17,8 +17,8 @@ export default function CalculatorPage() {
             <div className="flex-grow">
                 <div className="flex flex-col p-5 bg-gradient-radial font-body">
                     <div className="flex justify-between items-start w-full">
-                        <Link href="/">
-                            <a className="text-white">Inicio</a> {/* Asegúrate de utilizar <a> dentro de <Link> para la navegación */}
+                        <Link href="/" className="text-white">
+                            Inicio
                         </Link>
                     </div>
                     <main className="flex flex-col items-center w-full overflow-auto">
