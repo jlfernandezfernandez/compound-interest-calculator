@@ -4,9 +4,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: '/',
-      disallow: '/private/',
+      allow: '/'
     },
-    sitemap: 'https://acme.com/sitemap.xml',
+    sitemap: 'https://ganaconinteres.com/sitemap.xml',
   }
 }
