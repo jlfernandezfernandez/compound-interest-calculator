@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gradient-radial font-body">
+    <main className="flex min-h-screen flex-col items-center justify-center p-8 md:p-24 bg-gradient-radial font-body">
       <div className="text-center px-4">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">
           Maximiza tu Libertad Financiera
         </h1>
         <p className="text-lg md:text-xl mb-8">
