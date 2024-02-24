@@ -30,7 +30,6 @@ export default function RootLayout({
       <body className={plusJakartaSNS.className}>
         <Providers>
           {children}
-          <Footer />
           <SpeedInsights />
           <Analytics />
         </Providers>

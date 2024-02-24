@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import IntroductionSection from "@/components/IntroductionSection";
 import ProductButtons from "@/components/ProductButtons";
 import ProductList from "@/components/ProductList";
@@ -12,18 +13,23 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
     return (
-        <div className="flex flex-col min-h-screen p-5 bg-gradient-radial font-body">
-            <div className="flex justify-between items-start w-full">
-                <Link href="/">
-                    Inicio
-                </Link>
+        <div className="flex flex-col min-h-screen">
+            <div className="flex-grow">
+                <div className="flex flex-col p-5 bg-gradient-radial font-body">
+                    <div className="flex justify-between items-start w-full">
+                        <Link href="/">
+                            <a className="text-white">Inicio</a> {/* Asegúrate de utilizar <a> dentro de <Link> para la navegación */}
+                        </Link>
+                    </div>
+                    <main className="flex flex-col items-center w-full overflow-auto">
+                        <IntroductionSection />
+                        <ProductButtons />
+                        <ProductList />
+                        <ProductsResult />
+                    </main>
+                </div>
             </div>
-            <main className="flex flex-col items-center w-full overflow-auto">
-                <IntroductionSection />
-                <ProductButtons />
-                <ProductList />
-                <ProductsResult />
-            </main>
+            <Footer />
         </div>
     );
 }

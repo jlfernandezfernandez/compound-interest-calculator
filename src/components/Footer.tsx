@@ -8,7 +8,7 @@ export default function Footer() {
                 <BuyMeACoffeeButton />
             </div>
             <div className="flex items-center">
-                <p>2024</p>
+                <p className='text-sm'>2024</p>
             </div>
         </div>
     )
