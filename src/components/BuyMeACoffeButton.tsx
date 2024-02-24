@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function BuyMeACoffeeButton() {
     return (
-        <a href="https://www.buymeacoffee.com/jordiluiss" target="_blank" rel="noopener noreferrer" className="text-base font-semibold bg-gray-800 text-white px-4 pt-2 pb-1 rounded-md shadow-md border border-white">
-            <span role="img" aria-label="café" className="mr-2">☕</span>
-            Invítame a un café
-        </a>
+            <a href="https://www.buymeacoffee.com/jordiluiss" target="_blank" rel="noopener noreferrer" className="text-sm bg-gray-800 text-white py-2 px-4 rounded-md">
+                Invítame a un café
+                <span role="img" aria-label="café" className="ml-2">☕</span>
+            </a>
     );
 }

@@ -3,13 +3,11 @@ import BuyMeACoffeeButton from "./BuyMeACoffeButton";
 
 export default function Footer() {
     return (
-        <div className="border-t mt-1 left-0 w-full bg-white text-white text-center py-3 flex justify-between px-6">
-            <div className="flex items-center">
-                <BuyMeACoffeeButton />
-            </div>
-            <div className="flex items-center">
-                <p className='text-sm text-black'>2024</p>
-            </div>
-        </div>
+        <footer className="border-t bg-white text-gray-500 py-3 px-4">
+        <nav className="flex items-center justify-between max-w-3xl mx-auto space-x-4 text-sm">
+          <BuyMeACoffeeButton/>
+          <span>2024</span>
+        </nav>
+      </footer>
     )
 }
