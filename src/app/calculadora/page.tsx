@@ -16,7 +16,7 @@ export default function CalculatorPage() {
         <div className="flex flex-col min-h-screen">
             <Header/>
             <div className="flex-grow">
-                <div className="flex flex-col p-5 font-body">
+                <div className="flex flex-col p-3 font-body">
                     <main className="flex flex-col items-center w-full overflow-auto">
                         <IntroductionSection />
                         <ProductButtons />
