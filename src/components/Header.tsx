@@ -14,7 +14,7 @@ export default function Header() {
                 <h1 className="text-xl font-bold tracking-tighter">Calculadora</h1>
                 <Link className="flex items-center space-x-2 ml-auto text-sm" href="/">
                     Mejora tus inversiones
-                    <ArrowRightIcon className="h-4 w-4 translate-x-2" />
+                    <ArrowRightIcon className="h-4 w-4 translate-x-1" />
                 </Link>
             </div>
         </header>
