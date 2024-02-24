@@ -19,6 +19,10 @@ export default function ProductButtons() {
             id: type + Math.random(),
             type: type,
             contributionFrequency: 12,
+            initialAmount: 3000,
+            contribution: 250,
+            interestRate: 3.5,
+            duration: 25
         };
         dispatch(addProduct(newProduct));
     };
