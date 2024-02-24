@@ -1,10 +1,10 @@
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import IntroductionSection from "@/components/IntroductionSection";
 import ProductButtons from "@/components/ProductButtons";
 import ProductList from "@/components/ProductList";
 import ProductsResult from "@/components/ProductsResult";
 import { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Calculadora de interés compuesto",
@@ -14,13 +14,9 @@ export const metadata: Metadata = {
 export default function CalculatorPage() {
     return (
         <div className="flex flex-col min-h-screen">
+            <Header/>
             <div className="flex-grow">
-                <div className="flex flex-col p-5 bg-gradient-radial font-body">
-                    <div className="flex justify-between items-start w-full">
-                        <Link href="/" className="text-white">
-                            Inicio
-                        </Link>
-                    </div>
+                <div className="flex flex-col p-5 font-body">
                     <main className="flex flex-col items-center w-full overflow-auto">
                         <IntroductionSection />
                         <ProductButtons />
