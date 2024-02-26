@@ -17,7 +17,7 @@ export default function AppleIcon() {
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 180,
+          fontSize: 190,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
