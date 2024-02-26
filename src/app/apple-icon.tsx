@@ -5,8 +5,8 @@ import { ImageResponse } from 'next/og'
 export const runtime = 'edge'
 
 export const size = {
-  width: 512,
-  height: 512,
+  width: 180,
+  height: 180,
 }
 export const contentType = 'image/png'
 
@@ -17,7 +17,7 @@ export default function AppleIcon() {
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 144,
+          fontSize: 180,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
