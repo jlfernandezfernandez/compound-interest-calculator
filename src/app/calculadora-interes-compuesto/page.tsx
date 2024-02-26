@@ -7,7 +7,7 @@ import ProductsResult from "@/components/ProductsResult";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Calculadora de interés compuesto: maximiza tus ganancias financieras",
+    title: "La mejor calculadora de interés compuesto! Maximiza tus ganancias financieras",
     description: "Calcula el interés compuesto de tus productos de inversión de manera sencilla. Desde fondos de inversión hasta planes de pensión, haz crecer tu dinero con nuestra herramienta.",
 };
 
