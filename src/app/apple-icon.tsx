@@ -17,11 +17,14 @@ export default function AppleIcon() {
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 190,
+          fontSize: 180,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          height: '100%',
+          width: '180px',
+          height: '180px',
+          background: 'white',
+          overflow: 'hidden',
         }}
       >
         📈
