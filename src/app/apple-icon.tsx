@@ -21,9 +21,9 @@ export default function AppleIcon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          width: '180px',
-          height: '180px',
-          background: 'white',
+          width: '185px',
+          height: '185px',
+          background: '#e1e8ed',
           overflow: 'hidden',
         }}
       >
