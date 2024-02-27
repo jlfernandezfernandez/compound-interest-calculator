@@ -15,7 +15,7 @@ export default function ImproveResultsPage() {
                 <div className="max-w-4xl">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter mb-4">Maximiza tus Inversiones 💼</h1>
                     <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 mb-6">Descubre herramientas y servicios clave para elevar tus inversiones al siguiente nivel. 🚀</p>
-                    <div className="space-y-6">
+                    <div className="space-y-8">
                         <div>
                             <h2 className="text-2xl font-bold">MyInvestor 🏦</h2>
                             <p>Con una selección de fondos de inversión de bajo coste y alta rentabilidad, MyInvestor se posiciona como una plataforma esencial para diversificar tu cartera. Ideal para inversores que buscan opciones variadas.</p>

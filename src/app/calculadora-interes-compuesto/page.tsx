@@ -1,3 +1,4 @@
+import FinalSection from "@/components/FinalSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import IntroductionSection from "@/components/IntroductionSection";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function CalculatorPage() {
     return (
         <div className="flex flex-col min-h-screen">
-            <Header/>
+            <Header />
             <div className="flex-grow">
                 <div className="flex flex-col p-3 font-body">
                     <main className="flex flex-col items-center w-full overflow-auto">
@@ -24,6 +25,9 @@ export default function CalculatorPage() {
                         <ProductsResult />
                     </main>
                 </div>
+            </div>
+            <div className="mt-auto mb-4">
+                <FinalSection />
             </div>
             <Footer />
         </div>
