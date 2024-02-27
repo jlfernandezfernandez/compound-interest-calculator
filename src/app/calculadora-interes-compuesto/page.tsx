@@ -26,7 +26,7 @@ export default function CalculatorPage() {
                     </main>
                 </div>
             </div>
-            <div className="mt-auto mb-4">
+            <div className="my-auto p-3">
                 <FinalSection />
             </div>
             <Footer />
