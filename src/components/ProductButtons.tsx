@@ -29,7 +29,7 @@ export default function ProductButtons() {
 
     return (
         <section className="mb-8 flex flex-wrap justify-center gap-2 sm:gap-4">
-            <button onClick={() => handleAddProduct('inversion')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">
+            <button onClick={() => handleAddProduct('inversion')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 sm:text-base">
                 + Añadir Fondo de Inversión 📈
                 {countByType('inversion') > 0 && (
                     <span className="inline-flex justify-center items-center ml-2 bg-white text-black rounded-full h-6 w-6">
@@ -37,7 +37,7 @@ export default function ProductButtons() {
                     </span>
                 )}
             </button>
-            <button onClick={() => handleAddProduct('cuenta')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">
+            <button onClick={() => handleAddProduct('cuenta')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 sm:text-base">
                 + Añadir Cuenta Remunerada 💰
                 {countByType('cuenta') > 0 && (
                     <span className="inline-flex justify-center items-center ml-2 bg-white text-black rounded-full h-6 w-6">
@@ -45,7 +45,7 @@ export default function ProductButtons() {
                     </span>
                 )}
             </button>
-            <button onClick={() => handleAddProduct('pension')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">
+            <button onClick={() => handleAddProduct('pension')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 sm:text-base">
                 + Añadir Plan de Pensiones 🏦
                 {countByType('pension') > 0 && (
                     <span className="inline-flex justify-center items-center ml-2 bg-white text-black rounded-full h-6 w-6">
