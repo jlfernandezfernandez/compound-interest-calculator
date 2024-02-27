@@ -7,8 +7,8 @@ import ProductsResult from "@/components/ProductsResult";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "La mejor calculadora de interés compuesto! Maximiza tus ganancias financieras",
-    description: "Calcula el interés compuesto de tus productos de inversión de manera sencilla. Desde fondos de inversión hasta planes de pensión, haz crecer tu dinero con nuestra herramienta.",
+    title: "Calculadora de Interés Compuesto Avanzada - Maximiza tus Inversiones",
+    description: "Descubre la calculadora de interés compuesto más completa y elegante. Con opciones únicas para fondos de inversión, planes de pensión y cuentas remuneradas. Analiza tus inversiones de manera individual o conjunta y toma decisiones informadas para crecer tu patrimonio. Única en su clase, diseñada para inversores exigentes que buscan optimizar sus rendimientos financieros.",
 };
 
 export default function CalculatorPage() {

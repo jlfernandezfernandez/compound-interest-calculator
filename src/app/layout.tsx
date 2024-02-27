@@ -8,8 +8,8 @@ import { Analytics } from '@vercel/analytics/react';
 const plusJakartaSNS = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "¡Calculadora de interés compuesto avanzada en 2024! Optimiza tus inversiones",
-  description: "Calcula el interés compuesto de tus productos financieros de manera fácil. Desde fondos de inversión hasta cuentas de ahorro, maximiza tus ganancias con nuestra herramienta avanzada.",
+  title: "Calculadora de Interés Compuesto 2024: Optimiza Inversiones | Herramienta Gratuita",
+  description: "Descubre cómo el interés compuesto puede transformar tus ahorros e inversiones en 2024. Utiliza nuestra calculadora gratuita para planificar y optimizar tus estrategias financieras. Adecuada para todo tipo de inversores, desde principiantes hasta avanzados.",
 };
 
 export default function RootLayout({
