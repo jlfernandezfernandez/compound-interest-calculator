@@ -55,7 +55,7 @@ export default function ImproveResultsPage() {
                             <h2 className="text-2xl font-bold mb-1">Revolut 💳</h2>
                             <p>Revolut transforma la gestión diaria de tu dinero ofreciendo una cuenta remunerada con tasas competitivas, incluso en su plan básico. Una excelente herramienta para ahorrar e invertir.</p>
                             <br />
-                            <p>Aquí tengo <strong>contratada mi cuenta remunerada</strong>, la cual me ofrece una rentabilidad anual del 3.11%, pagada cada día. La <strong>cuenta es gratuita</strong>y es una excelente manera de luchar contra la inflacción.</p>
+                            <p>Aquí tengo <strong>contratada mi cuenta remunerada</strong>, la cual me ofrece una rentabilidad anual del 3.11%, pagada cada día. La <strong>cuenta es gratuita</strong> y es una excelente manera de luchar contra la inflacción.</p>
                             <br />
                             <p>Y sí, cuentas con IBAN español y toda la protección que otorga cualquier otro banco español.</p>
                             <br />
