@@ -73,7 +73,7 @@ export default function MyInversionPage() {
                     </section>
 
                     <section className="mb-8">
-                        <MyProfits/>
+                        <MyProfits />
                     </section>
 
                     <div className="text-center mt-8 mb-2">
