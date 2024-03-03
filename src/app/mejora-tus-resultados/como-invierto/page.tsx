@@ -47,7 +47,7 @@ export default function MyInversionPage() {
                     <section className="mb-8">
                         <h2 className="text-xl md:text-2xl font-bold mb-4">El Poder del Interés Compuesto ⚙️</h2>
                         <div className="ml-1">
-                            <p>Considerado la <strong>"octava maravilla del mundo"</strong>, el interés compuesto es una herramienta clave para crecer tus ahorros. A diferencia del interés simple, el compuesto trabaja poniendo a tus intereses a generar más intereses, creando un efecto acumulativo sorprendente.</p>
+                            <p>Considerado la <strong>&quot;octava maravilla del mundo&quot;</strong>, el interés compuesto es una herramienta clave para crecer tus ahorros. A diferencia del interés simple, el compuesto trabaja poniendo a tus intereses a generar más intereses, creando un efecto acumulativo sorprendente.</p>
                             <h3 className="text-lg md:text-xl font-semibold mt-4 mb-3">Entendiendo la Fórmula Mágica</h3>
                             <div className="my-4 bg-gray-200 p-4 rounded-md">
                                 <p className="text-center"><strong>A = P(1 + r/n)<sup>nt</sup></strong></p>
