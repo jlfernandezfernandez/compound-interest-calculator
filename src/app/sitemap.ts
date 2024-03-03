@@ -6,19 +6,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://www.ganaconinteres.com/',
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 1,
+      priority: 0.7,
     },
     {
       url: 'https://www.ganaconinteres.com/calculadora-interes-compuesto',
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: 'https://www.ganaconinteres.com/mejora-tus-resultados',
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.65,
+      priority: 0.85,
     },
+    {
+      url: 'https://www.ganaconinteres.com/mejora-tus-resultados/como-invierto',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    }
   ]
 }
