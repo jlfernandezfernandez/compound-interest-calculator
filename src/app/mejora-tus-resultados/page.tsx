@@ -4,8 +4,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Maximiza tus Inversiones con MyInvestor, Micappital y Revolut",
-    description: "Explora cómo MyInvestor, Micappital y Revolut pueden conseguir mejorar tu interés compuesto. Descubre qué productos financieros y qué herramientas utilizo para tener casi un 10% de rentabilidad anual.",
+    title: "Maximiza tus Ganancias: Aprovecha el Interés Compuesto con MyInvestor, Micappital y Revolut",
+    description: "Eleva tu estrategia de inversión y maximiza tus rendimientos con el poder del interés compuesto. Descubre cómo MyInvestor, Micappital y Revolut pueden transformar tus finanzas.",
 };
 
 export default function ImproveResultsPage() {
@@ -15,8 +15,8 @@ export default function ImproveResultsPage() {
             <div className="flex flex-grow justify-center items-center p-4 mb-2">
 
                 <div className="max-w-5xl">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter mb-4">Maximiza tus Inversiones 💼</h1>
-                    <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 mb-5">Aquí te dejo las herramientas que <strong>utilizo personalmente</strong> para que tú también puedas elevar tus inversiones al siguiente nivel. 🚀</p>
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter mb-4">Maximiza tus Inversiones y Aprovecha el Poder del Interés Compuesto 💼</h1>
+                    <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 mb-5">En el camino hacia la libertad financiera, cada decisión cuenta. Aquí te muestro cómo el <strong>interés compuesto</strong>, combinado con las <strong>herramientas adecuadas</strong> como MyInvestor, Micappital, y Revolut, puede ser tu mejor aliado para maximizar tus inversiones. 🚀</p>
                     <div className="p-4 mb-6 flex flex-col sm:flex-row justify-between items-center bg-blue-50 border-l-4 border-blue-500">
                         <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-6 sm:mb-0">¿Quieres ver con más detalle los productos que tengo, intereses y cantidades? 🔍</p>
                         <Link href="/mejora-tus-resultados/como-invierto" className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded transition duration-300">
@@ -72,7 +72,7 @@ export default function ImproveResultsPage() {
 
                     </div>
                     <div className="text-center p-6 mt-8 bg-blue-100 rounded-lg shadow">
-                        <p className="text-xl text-gray-700">Listo para mejorar tus estrategias de inversión con las herramientas que uso?</p>
+                        <p className="text-xl text-gray-700">¿Quieres ver cómo el interés compuesto ha transformado mis finanzas?</p>
                         <Link href="/mejora-tus-resultados/como-invierto" className="inline-block mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Explora Cómo Invierto
                         </Link>
