@@ -1,4 +1,6 @@
-import React from 'react';
+'use client'
+
+import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -7,7 +9,7 @@ import {
     BarElement,
     Tooltip,
     Legend,
-    TooltipItem
+    TooltipItem,
 } from 'chart.js';
 
 // Registrando los componentes necesarios de Chart.js para el gráfico de barras
@@ -25,7 +27,22 @@ interface BarChartProps {
 }
 
 export default function BarChart({ data }: BarChartProps) {
-    const isMobile = window.innerWidth < 600;
+    // Estado para controlar si el dispositivo es móvil
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Ajustar isMobile basado en el ancho de la ventana solo del lado del cliente
+    useEffect(() => {
+        const updateMobileStatus = () => {
+            setIsMobile(window.innerWidth < 600);
+        };
+
+        updateMobileStatus(); // Ejecuta una vez al montar
+
+        window.addEventListener('resize', updateMobileStatus); // Ajusta al cambiar el tamaño
+
+        // Limpieza al desmontar
+        return () => window.removeEventListener('resize', updateMobileStatus);
+    }, []);
 
     const options = {
         responsive: true,

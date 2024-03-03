@@ -15,10 +15,10 @@ export default function ImproveResultsPage() {
             <div className="flex flex-grow justify-center items-center p-4 mb-2">
 
                 <div className="max-w-5xl">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter mb-4">Maximiza tus Inversiones y Aprovecha el Poder del Interés Compuesto 💼</h1>
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter mb-4">Maximiza tus Inversiones y Aprovecha el Poder del Interés Compuesto 💼</h1>
                     <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 mb-5">En el camino hacia la libertad financiera, cada decisión cuenta. Aquí te muestro cómo el <strong>interés compuesto</strong>, combinado con las <strong>herramientas adecuadas</strong> como MyInvestor, Micappital, y Revolut, puede ser tu mejor aliado para maximizar tus inversiones. 🚀</p>
                     <div className="p-4 mb-6 flex flex-col sm:flex-row justify-between items-center bg-blue-50 border-l-4 border-blue-500">
-                        <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-6 sm:mb-0">¿Quieres ver con más detalle los productos que tengo, intereses y cantidades? 🔍</p>
+                        <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-6 sm:mb-0">¿Quieres ver con más detalle los productos que tengo e intereses? 🔍</p>
                         <Link href="/mejora-tus-resultados/como-invierto" className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded transition duration-300">
                             Descubre Más
                         </Link>
@@ -70,6 +70,7 @@ export default function ImproveResultsPage() {
                             <a href="https://revolut.com/referral/?referral-code=jordilftw5!FEB2-24-VR-ES" className="text-blue-500 hover:underline">Explora Revolut</a>
                         </div>
 
+                        <p className="text-right text-xs text-gray-700">Utilizando estos enlace apoyarás el desarrollo de esta web, gracias.</p>
                     </div>
                     <div className="text-center p-6 mt-8 bg-blue-100 rounded-lg shadow">
                         <p className="text-xl text-gray-700">¿Quieres ver cómo el interés compuesto ha transformado mis finanzas?</p>
