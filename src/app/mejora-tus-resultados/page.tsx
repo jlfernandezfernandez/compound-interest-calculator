@@ -19,7 +19,7 @@ export default function ImproveResultsPage() {
                     <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 mb-5">En el camino hacia la libertad financiera, cada decisión cuenta. Aquí te muestro cómo el <strong>interés compuesto</strong>, combinado con las <strong>herramientas adecuadas</strong> como MyInvestor, Micappital, y Revolut, puede ser tu mejor aliado para maximizar tus inversiones. 🚀</p>
                     <div className="p-4 mb-6 flex flex-col sm:flex-row justify-between items-center bg-blue-50 border-l-4 border-blue-500">
                         <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-6 sm:mb-0">¿Quieres ver con más detalle los productos que tengo e intereses? 🔍</p>
-                        <Link href="/mejora-tus-resultados/como-invierto" className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded transition duration-300">
+                        <Link href="/mejora-tus-resultados/como-invierto" className="inline-block bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-full transition duration-300">
                             Descubre Más
                         </Link>
                     </div>
@@ -65,7 +65,7 @@ export default function ImproveResultsPage() {
                             <br />
                             <p>Aquí tengo <strong>contratada mi cuenta remunerada</strong>, la cual me ofrece una rentabilidad anual del 3.11%, pagada cada día. La <strong>cuenta es gratuita</strong> y es una excelente manera de luchar contra la inflacción.</p>
                             <br />
-                            <p>Y sí, cuentas con IBAN español y toda la protección que otorga cualquier otro banco español.</p>
+                            <p>Y sí, tienen IBAN español y toda la protección que otorgaría cualquier otro banco español.</p>
                             <br />
                             <a href="https://revolut.com/referral/?referral-code=jordilftw5!FEB2-24-VR-ES" className="text-blue-500 hover:underline">Explora Revolut</a>
                         </div>
@@ -74,7 +74,7 @@ export default function ImproveResultsPage() {
                     </div>
                     <div className="text-center p-6 mt-8 bg-blue-100 rounded-lg shadow">
                         <p className="text-xl text-gray-700">¿Quieres ver cómo el interés compuesto ha transformado mis finanzas?</p>
-                        <Link href="/mejora-tus-resultados/como-invierto" className="inline-block mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <Link href="/mejora-tus-resultados/como-invierto" className="inline-block bg-black hover:bg-gray-800 text-white py-3 px-4 mt-4 rounded transition duration-300">
                             Explora Cómo Invierto
                         </Link>
                     </div>

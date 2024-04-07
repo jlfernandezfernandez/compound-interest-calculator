@@ -8,11 +8,11 @@ export default function MyProfits() {
             <h2 className="text-xl md:text-2xl font-bold mb-4">Mis Rentabilidades Actuales 📈</h2>
             <div className="ml-1">
             <div className="mb-5">
-                <p>Gracias a mi estrategia de inversión, en 19 meses he alcanzado:</p>
+                <p>Gracias a mi estrategia de inversión, en 20 meses he alcanzado:</p>
                 <ul className="list-disc list-inside space-y-1 my-4 ml-2">
-                    <li><strong>Plan de Pensiones:</strong> 4.67% de rentabilidad.</li>
-                    <li><strong>Fondos de Inversión:</strong> 9.75% de rentabilidad.</li>
-                    <li><strong>Cuenta Remunerada:</strong> 3.10% de rentabilidad anual.</li>
+                    <li><strong>Plan de Pensiones:</strong> 6,47% de rentabilidad.</li>
+                    <li><strong>Fondos de Inversión:</strong> 11,31% de rentabilidad.</li>
+                    <li><strong>Cuenta Remunerada:</strong> 3,10% de rentabilidad anual.</li>
                 </ul>
             </div>
 
