@@ -8,7 +8,7 @@ export default function BuyMeACoffeeButton() {
     };
 
     return (
-        <a href="https://www.buymeacoffee.com/jordiluiss" target="_blank" rel="noopener noreferrer" 
+        <a href="https://ko-fi.com/jordiluiss" target="_blank" rel="noopener noreferrer" 
            className="text-sm bg-gray-800 text-white py-2 px-4 rounded-md"
            onClick={handleClick}>
             Invítame a un café

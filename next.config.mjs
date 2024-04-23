@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'cdn.buymeacoffee.com',
+                hostname: 'ko-fi.com',
             },
         ],
     },
