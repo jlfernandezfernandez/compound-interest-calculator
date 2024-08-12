@@ -1,4 +1,11 @@
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Calculadora de Interés Compuesto | Maximiza tu Libertad Financiera",
+  description:
+    "Explora el impacto del interés compuesto en tu futuro financiero con nuestra herramienta líder. Visualiza el crecimiento de tu inversión y toma decisiones informadas.",
+};
 
 export default function Home() {
   return (
@@ -8,12 +15,18 @@ export default function Home() {
           Descubre Cómo Maximizar tu Libertad Financiera 🚀
         </h1>
         <p className="text-lg md:text-xl mb-8">
-          Explora el impacto del interés compuesto en tu futuro financiero con nuestra herramienta líder en el mercado.
+          Explora el impacto del interés compuesto en tu futuro financiero con
+          nuestra herramienta líder en el mercado.
         </p>
         <p className="text-lg md:text-xl mb-8">
-          Con nuestra <strong>calculadora avanzada de interés compuesto</strong>, visualiza el crecimiento de tu inversión 📈. Toma decisiones informadas y alcanza tus metas financieras más rápido.
+          Con nuestra <strong>calculadora avanzada de interés compuesto</strong>
+          , visualiza el crecimiento de tu inversión 📈. Toma decisiones
+          informadas y alcanza tus metas financieras más rápido.
         </p>
-        <Link href="/calculadora-interes-compuesto" className="inline-block bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-full transition duration-300">
+        <Link
+          href="/calculadora-interes-compuesto"
+          className="inline-block bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-full transition duration-300"
+        >
           Empezar Ahora
         </Link>
       </div>
