@@ -1,58 +1,57 @@
-'use client'
+"use client";
 
-import React from 'react';
-import { useAppDispatch, useAppSelector } from '../store';
-import { addProduct } from '@/store/calculator/calculatorSlice';
-import { ProductDetails, ProductType, productTypes } from '@/financial_products/productTypes';
+import React from "react";
+import { useAppDispatch, useAppSelector } from "../store";
+import { addProduct } from "@/store/calculator/calculatorSlice";
+import {
+  ProductDetails,
+  ProductType,
+  productTypes,
+} from "@/financial_products/productTypes";
 
 export default function ProductButtons() {
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
+  const products = useAppSelector((state) => state.calculator.products);
 
-    // Selecciona todos los productos del estado global
-    const products = useAppSelector((state) => state.calculator.products); // Ajusta el selector según la estructura de tu estado
+  const countByType = (type: ProductType) =>
+    products.filter((product) => product.type === type).length;
 
-    // Cuenta los productos por tipo
-    const countByType = (type: ProductType) => products.filter(product => product.type === type).length;
-
-    const handleAddProduct = (type: ProductType) => {
-        const newProduct: ProductDetails = {
-            id: type + Math.random(),
-            type: type,
-            contributionFrequency: 12,
-            initialAmount: 3000,
-            contribution: 250,
-            interestRate: 3.5,
-            duration: 25
-        };
-        dispatch(addProduct(newProduct));
+  const handleAddProduct = (type: ProductType) => {
+    const newProduct: ProductDetails = {
+      id: type + Math.random(),
+      type: type,
+      contributionFrequency: 12,
+      initialAmount: 3000,
+      contribution: 250,
+      interestRate: 3.5,
+      duration: 25,
     };
+    dispatch(addProduct(newProduct));
+  };
 
-    return (
-        <section className="mb-8 flex flex-wrap justify-center gap-2 sm:gap-4">
-            <button onClick={() => handleAddProduct('inversion')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 sm:text-base">
-                + Añadir Fondo de Inversión 📈
-                {countByType('inversion') > 0 && (
-                    <span className="inline-flex justify-center items-center ml-2 bg-white text-black rounded-full h-6 w-6">
-                        {countByType('inversion')}
-                    </span>
-                )}
-            </button>
-            <button onClick={() => handleAddProduct('cuenta')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 sm:text-base">
-                + Añadir Cuenta Remunerada 💰
-                {countByType('cuenta') > 0 && (
-                    <span className="inline-flex justify-center items-center ml-2 bg-white text-black rounded-full h-6 w-6">
-                        {countByType('cuenta')}
-                    </span>
-                )}
-            </button>
-            <button onClick={() => handleAddProduct('pension')} className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full transition duration-300 sm:text-base">
-                + Añadir Plan de Pensiones 🏦
-                {countByType('pension') > 0 && (
-                    <span className="inline-flex justify-center items-center ml-2 bg-white text-black rounded-full h-6 w-6">
-                        {countByType('pension')}
-                    </span>
-                )}
-            </button>
-        </section>
-    );
+  return (
+    <section
+      className="mb-12 flex flex-wrap justify-center gap-4"
+      aria-label="Añadir productos de inversión"
+    >
+      {Object.entries(productTypes).map(([type, info]) => (
+        <button
+          key={type}
+          onClick={() => handleAddProduct(type as ProductType)}
+          className="group relative bg-white border border-gray-300 hover:border-gray-400 text-gray-800 py-3 px-6 rounded-lg transition duration-300 shadow-sm hover:shadow-md"
+          aria-label={`Añadir ${info.title}`}
+        >
+          <span className="flex items-center">
+            <span className="mr-2">{info.emoji}</span>
+            <span className="font-medium">Añadir {info.title}</span>
+          </span>
+          {countByType(type as ProductType) > 0 && (
+            <span className="absolute -top-2 -right-2 bg-black text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
+              {countByType(type as ProductType)}
+            </span>
+          )}
+        </button>
+      ))}
+    </section>
+  );
 }

@@ -1,9 +1,29 @@
+import React from "react";
+
 export default function IntroductionSection() {
   return (
-    <section className="max-w-6xl mx-auto w-full mb-6 flex flex-col items-center text-center" aria-label="Introducción a la Calculadora de Interés Compuesto">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Calculadora de Interés Compuesto Avanzada 📊</h2>
-      <p className="mb-4">Maximiza tus ahorros y planifica tus inversiones con precisión. 🚀</p>
-      <p>Descubre cómo el interés compuesto puede <strong>acelerar el crecimiento de tu patrimonio</strong> y ayudarte a alcanzar tus metas financieras más rápido. Con esta calculadora, simula diferentes escenarios de inversión y toma decisiones informadas para un futuro financiero más brillante.</p>
+    <section
+      className="max-w-4xl mx-auto w-full mb-12 text-center"
+      aria-labelledby="intro-heading"
+    >
+      <h1
+        id="intro-heading"
+        className="text-4xl md:text-5xl font-bold mb-6 text-gray-900"
+      >
+        Calculadora de Interés Compuesto Avanzada
+      </h1>
+      <p className="text-xl md:text-2xl text-gray-600 mb-8">
+        Potencia tus inversiones y visualiza tu futuro financiero.
+      </p>
+      <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+        <p className="text-gray-700 leading-relaxed">
+          Descubre el poder del interés compuesto y cómo puede{" "}
+          <strong>acelerar el crecimiento de tu patrimonio</strong>. Nuestra
+          calculadora te permite simular diversos escenarios de inversión,
+          ayudándote a tomar decisiones informadas para un futuro financiero más
+          sólido y próspero.
+        </p>
+      </div>
     </section>
   );
 }

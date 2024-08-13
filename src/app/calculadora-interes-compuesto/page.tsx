@@ -15,18 +15,18 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
   return (
-    <>
-      <main className="flex-grow">
-        <div className="flex flex-col p-3 font-body max-w-7xl mx-auto">
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-grow p-3 max-w-7xl mx-auto w-full">
+        <main className="font-body">
           <div className="flex flex-col items-center w-full overflow-auto">
             <IntroductionSection />
             <ProductButtons />
             <ProductList />
             <ProductsResult />
           </div>
-        </div>
-      </main>
-      <FinalSection />
-    </>
+        </main>
+        <FinalSection />
+      </div>
+    </div>
   );
 }

@@ -29,7 +29,7 @@ export default function ImproveResultsPage() {
           href="/mejora-tus-resultados/como-invierto"
           className="inline-block bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-full transition duration-300"
         >
-          Descubre Más
+          Descúbrelos
         </Link>
       </div>
       <div className="space-y-8">
