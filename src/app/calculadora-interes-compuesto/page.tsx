@@ -9,12 +9,13 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Calculadora de Interés Compuesto Avanzada - Maximiza tus Inversiones",
-  description: "Descubre la calculadora de interés compuesto más completa. Analiza fondos de inversión, planes de pensión y cuentas remuneradas. Optimiza tus rendimientos financieros con nuestra herramienta única.",
+  description:
+    "Descubre la calculadora de interés compuesto más completa. Analiza fondos de inversión, planes de pensión y cuentas remuneradas. Optimiza tus rendimientos financieros con nuestra herramienta única.",
 };
 
 export default function CalculatorPage() {
   return (
-    <div className="flex flex-col min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col min-h-screen max-w-7xl mx-auto ">
       <IntroductionSection />
       <main className="flex-grow">
         <ProductButtons />

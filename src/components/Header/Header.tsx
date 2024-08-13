@@ -40,7 +40,7 @@ export default function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="relative" role="banner">
+    <header className="relative mb-8" role="banner">
       <div className="py-4 px-4 flex items-center justify-between border-b border-gray-200">
         <Logo />
         <ActionButtons isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
