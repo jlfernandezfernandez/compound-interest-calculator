@@ -6,8 +6,7 @@ import "./globals.css";
 import { Providers } from "@/store/Providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/Header/Header";
 
 const plusJakartaSNS = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -45,7 +44,6 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">{children}</main>
-            <Footer />
           </div>
           <SpeedInsights />
           <Analytics />
