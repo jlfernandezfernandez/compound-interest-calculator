@@ -30,20 +30,17 @@ export default function ProductCard({
 
   const handleChange = useCallback(
     (field: keyof ProductDetails, value: string) => {
-      const updatedProductDetails = {
-        ...productDetails,
-        [field]: value,
-      };
+      const updatedProductDetails = { ...productDetails, [field]: value };
       dispatch(updateProduct(updatedProductDetails));
     },
     [dispatch, productDetails]
   );
 
   return (
-    <div className="max-w-5xl mx-auto w-full bg-white p-5 rounded-lg shadow-lg">
+    <div className="max-w-7xl mx-auto bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center">
-          <span className="text-xl" aria-hidden="true">
+          <span className="text-2xl mr-3" aria-hidden="true">
             {productInfo.emoji}
           </span>
           <input
@@ -51,20 +48,20 @@ export default function ProductCard({
             placeholder={productInfo.title}
             value={productDetails.name}
             onChange={(e) => handleChange("name", e.target.value)}
-            className="ml-2 text-xl bg-transparent border-0 border-b-2 border-gray-200 focus:border-gray-400 outline-none transition-colors duration-300 max-w-[200px]"
+            className="text-xl font-medium bg-transparent border-b-2 border-gray-200 focus:border-gray-400 outline-none transition-colors duration-300 max-w-[200px]"
             maxLength={17}
             aria-label={`Nombre del ${productInfo.title}`}
           />
         </div>
         <button
           onClick={handleRemoveProduct}
-          className="text-xs text-red-600 hover:text-red-800 p-2"
+          className="text-sm text-gray-500 hover:text-red-600 transition-colors duration-300"
           aria-label={`Descartar ${productDetails.name || productInfo.title}`}
         >
           {isMobile ? "🗑️" : "Descartar"}
         </button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <ProductForm productDetails={productDetails} />
         <ProductResult productDetails={productDetails} />
       </div>

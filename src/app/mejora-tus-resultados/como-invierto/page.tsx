@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function MyInversionPage() {
   return (
-    <main className="p-4 md:p-8 max-w-5xl mx-auto">
+    <main className="p-4 md:p-8 max-w-7xl mx-auto">
       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6">
         Maximizando mis Inversiones con el Interés Compuesto 🏗️
       </h1>

@@ -4,7 +4,7 @@ import React from "react";
 export default function FinalSection() {
   return (
     <section
-      className="max-w-6xl mx-auto w-full my-8 p-8 bg-gray-50 rounded-2xl shadow-sm"
+      className="max-w-7xl mx-auto w-full my-8 p-8 bg-gray-50 rounded-2xl shadow-sm"
       aria-labelledby="recommended-tools"
     >
       <h2

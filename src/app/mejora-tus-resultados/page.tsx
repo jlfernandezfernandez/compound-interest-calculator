@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ImproveResultsPage() {
   return (
-    <main className="p-4 mb-2 max-w-5xl mx-auto">
+    <main className="p-4 mb-2 max-w-7xl mx-auto">
       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6">
         Maximiza tus Inversiones con el Interés Compuesto 💼
       </h1>
@@ -21,7 +21,7 @@ export default function ImproveResultsPage() {
         <strong>herramientas adecuadas</strong> pueden ser tus mejores aliados.
         🚀
       </p>
-      <div className="p-4 mb-6 flex flex-col sm:flex-row justify-between items-center bg-blue-50 border-l-4 border-blue-500">
+      <div className="p-4 mb-6 flex flex-col sm:flex-row justify-between items-center bg-white border-l-4 border-black rounded-r-lg shadow-sm">
         <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-6 sm:mb-0">
           ¿Quieres ver con más detalle los productos que tengo e intereses? 🔍
         </p>
@@ -52,7 +52,7 @@ export default function ImproveResultsPage() {
             .
           </p>
           <br />
-          <div className="p-4 border border-gray-200 rounded-lg shadow-lg">
+          <div className="p-4 border bg-white border-gray-200 rounded-lg shadow-lg">
             <p>
               <strong>✨ Bono de bienvenida.</strong> Obtén 20€ al abrir una
               cuenta y cumplir una de las siguientes condiciones: ✨
@@ -93,7 +93,7 @@ export default function ImproveResultsPage() {
             rentabilidad anual.
           </p>
           <br />
-          <div className="p-4 border border-gray-200 rounded-lg shadow-lg">
+          <div className="p-4 bg-white border border-gray-200 rounded-lg shadow-lg">
             <p>
               <strong>✨ Para que lo pruebes:</strong> Recibe 50€ en comisiones
               al usar este enlace. ✨

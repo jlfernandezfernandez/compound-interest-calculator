@@ -3,7 +3,7 @@ import React from "react";
 export default function IntroductionSection() {
   return (
     <section
-      className="max-w-4xl mx-auto w-full mb-12 text-center"
+      className="max-w-7xl mx-auto w-full mb-12 text-center"
       aria-labelledby="intro-heading"
     >
       <h1
