@@ -1,0 +1,38 @@
+{
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Calculadora de Interés Compuesto",
+  "short_name": "Interés Compuesto",
+  "description": "Calculadora de interés compuesto para optimizar inversiones",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-icon?<generated>",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "/icon?id=icon-192",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon?id=icon-512",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/icon?id=icon-maskable",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    }
+  ]
+}

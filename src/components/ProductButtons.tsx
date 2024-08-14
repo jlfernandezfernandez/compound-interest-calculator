@@ -31,18 +31,18 @@ export default function ProductButtons() {
 
   return (
     <section
-      className="mb-12 flex flex-wrap justify-center gap-4"
+      className="mb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto"
       aria-label="Añadir productos de inversión"
     >
       {Object.entries(productTypes).map(([type, info]) => (
         <button
           key={type}
           onClick={() => handleAddProduct(type as ProductType)}
-          className="group relative bg-white border border-gray-300 hover:border-gray-400 text-gray-800 py-3 px-6 rounded-lg transition duration-300 shadow-sm hover:shadow-md"
+          className="group relative bg-white border border-gray-300 hover:border-gray-400 text-gray-800 py-3 px-4 rounded-lg transition duration-300 shadow-sm hover:shadow-md flex items-center justify-center h-16 w-full"
           aria-label={`Añadir ${info.title}`}
         >
-          <span className="flex items-center">
-            <span className="mr-2">{info.emoji}</span>
+          <span className="flex items-center text-sm">
+            <span className="mr-2 text-lg">{info.emoji}</span>
             <span className="font-medium">Añadir {info.title}</span>
           </span>
           {countByType(type as ProductType) > 0 && (
