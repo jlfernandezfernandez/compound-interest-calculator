@@ -39,6 +39,12 @@ const ProductsResult = () => {
     [products]
   );
 
+  const totalInitialAmount = useMemo(
+    () =>
+      products.reduce((sum, product) => sum + (product.initialAmount || 0), 0),
+    [products]
+  );
+
   const barChartData = useMemo(
     () => ({
       labels: globalYearlyTotals.map((item) => `${item.year}`),
@@ -55,12 +61,12 @@ const ProductsResult = () => {
         },
         {
           label: "Balance Inicial",
-          data: globalYearlyTotals.map((item) => item.totalInitialAmount),
+          data: globalYearlyTotals.map(() => totalInitialAmount),
           backgroundColor: "#EEA5A6",
         },
       ],
     }),
-    [globalYearlyTotals]
+    [globalYearlyTotals, totalInitialAmount]
   );
 
   if (products.length === 0) {
@@ -81,6 +87,10 @@ const ProductsResult = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mt-2">
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-300">
             <div className="text-center">
+              <p>
+                <strong>Balance Inicial:</strong>{" "}
+                {formatCurrency(totalInitialAmount)}
+              </p>
               <p>
                 <strong>Depósitos:</strong>{" "}
                 {formatCurrency(summary.allTotalContribution)}
