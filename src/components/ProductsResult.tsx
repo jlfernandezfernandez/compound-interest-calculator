@@ -84,28 +84,39 @@ const ProductsResult = () => {
         <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-300 w-full chart-container mt-3 mb-2">
           <BarChart data={barChartData} />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mt-2">
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-300">
-            <div className="text-center">
-              <p>
-                <strong>Balance Inicial:</strong>{" "}
-                {formatCurrency(totalInitialAmount)}
-              </p>
-              <p>
-                <strong>Depósitos:</strong>{" "}
-                {formatCurrency(summary.allTotalContribution)}
-              </p>
-              <p>
-                <strong>Intereses:</strong>{" "}
-                {formatCurrency(summary.allTotalInterest)}
-              </p>
-              <p>
-                <strong>Total:</strong>{" "}
-                {formatCurrency(summary.allTotalGenerated)}
-              </p>
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full mt-4">
+          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-300 flex items-center">
+            <table className="w-full">
+              <tbody>
+                {[
+                  { label: "Balance Inicial", value: totalInitialAmount },
+                  { label: "Depósitos", value: summary.allTotalContribution },
+                  { label: "Intereses", value: summary.allTotalInterest },
+                ].map((item, index) => (
+                  <tr
+                    key={index}
+                    className="border-b border-gray-100 last:border-b-0"
+                  >
+                    <td className="py-3 text-left text-gray-600">
+                      {item.label}
+                    </td>
+                    <td className="py-3 text-right font-medium text-gray-800">
+                      {formatCurrency(item.value)}
+                    </td>
+                  </tr>
+                ))}
+                <tr className="border-t-2 border-gray-300">
+                  <td className="py-3 text-left font-semibold text-gray-700">
+                    Total
+                  </td>
+                  <td className="py-3 text-right font-bold text-gray-900">
+                    {formatCurrency(summary.allTotalGenerated)}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-300 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-300 flex justify-center items-center">
             <div className="w-full sm:w-4/5 md:w-3/4 lg:w-2/3">
               <PieChart data={pieChartData} />
             </div>
