@@ -6,23 +6,22 @@ import ProductCard from "./ProductCard";
 
 export default function ProductList() {
   const products = useAppSelector((state) => state.calculator.products);
-  const lastProductRef = useRef<HTMLDivElement | null>(null);
+  const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (products.length > 0 && lastProductRef.current) {
-      lastProductRef.current.scrollIntoView({ behavior: "smooth" });
+    if (listRef.current) {
+      listRef.current.lastElementChild?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [products]);
+  }, [products.length]);
 
   return (
     <section className="w-full" aria-label="Lista de productos de inversión">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {products.map((product, index) => (
-          <div
-            key={product.id}
-            ref={index === products.length - 1 ? lastProductRef : null}
-            className="w-full"
-          >
+      <div
+        ref={listRef}
+        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+      >
+        {products.map((product) => (
+          <div key={product.id} className="w-full">
             <ProductCard productDetails={product} />
           </div>
         ))}
