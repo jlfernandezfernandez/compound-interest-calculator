@@ -7,6 +7,7 @@ import { Providers } from "@/store/Providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header/Header";
+import { PWAPrompt } from "@/components/PWAPrompt";
 
 const plusJakartaSNS = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -47,6 +48,7 @@ export default function RootLayout({
               {children}
             </main>
           </div>
+          <PWAPrompt />
           <SpeedInsights />
           <Analytics />
         </Providers>
