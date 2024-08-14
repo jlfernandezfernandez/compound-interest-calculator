@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import { useAppDispatch } from "@/store";
 import {
   removeProduct,
@@ -17,27 +17,31 @@ export default function ProductCard({
 }: {
   productDetails: ProductDetails;
 }) {
-  const productInfo = productTypes[productDetails.type] || {
-    emoji: "",
-    title: "",
-  };
   const dispatch = useAppDispatch();
+
+  const productInfo = useMemo(
+    () =>
+      productTypes[productDetails.type] || {
+        emoji: "",
+        title: "",
+      },
+    [productDetails.type]
+  );
 
   const handleRemoveProduct = useCallback(() => {
     dispatch(removeProduct(productDetails.id));
   }, [dispatch, productDetails.id]);
 
-  const handleChange = useCallback(
-    (field: keyof ProductDetails, value: string | number) => {
-      const updatedProductDetails = { ...productDetails, [field]: value };
-      dispatch(updateProduct(updatedProductDetails));
+  const handleNameChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(updateProduct({ ...productDetails, name: e.target.value }));
     },
     [dispatch, productDetails]
   );
 
   return (
     <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-300 h-full">
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-5">
         <div className="flex items-center flex-grow">
           <span className="text-2xl mr-2 sm:mr-3" aria-hidden="true">
             {productInfo.emoji}
@@ -47,28 +51,27 @@ export default function ProductCard({
               type="text"
               placeholder={productInfo.title}
               value={productDetails.name || ""}
-              onChange={(e) => handleChange("name", e.target.value)}
+              onChange={handleNameChange}
               className="text-md sm:text-lg bg-transparent hover:border-b border-gray-200 focus:border-gray-400 outline-none transition-colors duration-300 w-full pr-8"
               maxLength={17}
               aria-label={`Nombre del ${productInfo.title}`}
             />
-            <Edit2 className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+            <Edit2
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4"
+              aria-hidden="true"
+            />
           </div>
         </div>
-        <div className="flex items-center">
-          <button
-            onClick={handleRemoveProduct}
-            className="text-sm text-gray-500 hover:text-red-600 transition-colors duration-300 p-2 rounded-full hover:bg-gray-100"
-            aria-label={`Descartar ${productDetails.name || productInfo.title}`}
-          >
-            <Trash2 className="w-5 h-5" />
-          </button>
-        </div>
+        <button
+          onClick={handleRemoveProduct}
+          className="text-sm text-gray-500 hover:text-red-600 transition-colors duration-300 p-2 rounded-full hover:bg-gray-100 flex-shrink-0"
+          aria-label={`Descartar ${productDetails.name || productInfo.title}`}
+        >
+          <Trash2 className="w-5 h-5" />
+        </button>
       </div>
-      <div className="space-y-6">
-        <ProductForm productDetails={productDetails} />
-        <ProductResult productDetails={productDetails} />
-      </div>
+      <ProductForm productDetails={productDetails} />
+      <ProductResult productDetails={productDetails} />
     </div>
   );
 }
