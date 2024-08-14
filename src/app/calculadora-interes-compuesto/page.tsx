@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
   return (
-    <div className="flex flex-col min-h-screen max-w-7xl mx-auto ">
+    <div className="flex flex-col min-h-screen max-w-8xl mx-auto ">
       <IntroductionSection />
       <main className="flex-grow">
         <ProductButtons />

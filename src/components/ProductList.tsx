@@ -15,18 +15,18 @@ export default function ProductList() {
   }, [products]);
 
   return (
-    <section
-      className="w-full space-y-8"
-      aria-label="Lista de productos de inversión"
-    >
-      {products.map((product, index) => (
-        <div
-          key={product.id}
-          ref={index === products.length - 1 ? lastProductRef : null}
-        >
-          <ProductCard productDetails={product} />
-        </div>
-      ))}
+    <section className="w-full" aria-label="Lista de productos de inversión">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {products.map((product, index) => (
+          <div
+            key={product.id}
+            ref={index === products.length - 1 ? lastProductRef : null}
+            className="w-full"
+          >
+            <ProductCard productDetails={product} />
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

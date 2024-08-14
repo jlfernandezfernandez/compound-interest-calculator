@@ -1,7 +1,6 @@
 "use client";
-
 import React from "react";
-import { useAppSelector } from "@/store"; // Asume que este es el path correcto a tu store
+import { useAppSelector } from "@/store";
 import {
   calculateGlobalYearlyTotals,
   formatCurrency,
@@ -64,18 +63,19 @@ const ProductsResult = () => {
 
   return (
     products.length > 0 && (
-      <div className="max-w-7xl mx-auto mt-3 mb-4 w-full">
+      <div className="max-w-9xl mx-auto mt-8 mb-8 w-full">
         <div className="flex flex-col items-center w-full">
           <section className="mb-3 flex flex-col items-center text-center">
-            <h2 className="text-xl md:text-3xl font-bold">Resumen 📊</h2>
+            <h2 className="text-base lg:text-xl font-bold mb-2 text-gray-900 ">
+              Resumen
+            </h2>
           </section>
-          <div className="p-5 w-full chart-container mt-3 mb-2">
+          <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-300 w-full chart-container mt-3 mb-2">
             <BarChart data={barChartData} />
           </div>
-          {/* Gráfico Doughnut y Resumen */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mt-2">
-            <div className="p-10 text-center">
-              <div>
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-300">
+              <div className="text-center">
                 <p>
                   <strong>Depósitos:</strong>{" "}
                   {formatCurrency(allTotalContribution)}
@@ -88,11 +88,12 @@ const ProductsResult = () => {
                 </p>
               </div>
             </div>
-            <div className="p-7">
-              <PieChart data={pieChartData} />
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-300 flex justify-center items-center">
+              <div className="w-full sm:w-4/5 md:w-3/4 lg:w-2/3">
+                <PieChart data={pieChartData} />
+              </div>
             </div>
           </div>
-          {/* Aquí puedes añadir más componentes o visualizaciones en el futuro */}
         </div>
       </div>
     )
