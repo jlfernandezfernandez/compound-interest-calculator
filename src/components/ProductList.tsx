@@ -18,7 +18,7 @@ export default function ProductList() {
     <section className="w-full" aria-label="Lista de productos de inversión">
       <div
         ref={listRef}
-        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6"
       >
         {products.map((product) => (
           <div key={product.id} className="w-full">
