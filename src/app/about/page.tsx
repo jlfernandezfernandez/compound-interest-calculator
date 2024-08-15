@@ -13,9 +13,9 @@ import {
 import BuyMeACoffeeButton from "@/components/BuyMeACoffeButton";
 
 export const metadata: Metadata = {
-  title: "Sobre Gana Con Interés: Calculadora Simple de Interés Compuesto",
+  title: "Sobre Gana con Interés: Calculadora Simple de Interés Compuesto",
   description:
-    "Descubre cómo Gana Con Interés te ayuda a calcular y visualizar fácilmente el crecimiento de tus inversiones con nuestra calculadora de interés compuesto gratuita y sencilla.",
+    "Descubre cómo Gana con Interés te ayuda a calcular y visualizar fácilmente el crecimiento de tus inversiones con nuestra calculadora de interés compuesto gratuita y sencilla.",
 };
 
 const Feature = ({
@@ -38,10 +38,10 @@ const Feature = ({
 
 export default function AboutPage() {
   return (
-    <main className="max-w-8xl mx-auto">
+    <main>
       <section className="text-center mb-12">
         <h1 className="text-2xl sm:text-3xl font-bold mb-4">
-          Gana Con Interés: Tu Compañero de Inversiones 📈
+          Gana con Interés: Tu Compañero de Inversiones 📈
         </h1>
         <p className="text-xl text-gray-700 mb-6 max-w-4xl mx-auto">
           Calcula y visualiza el poder del interés compuesto en tus inversiones
@@ -113,7 +113,7 @@ export default function AboutPage() {
 
       <section className="mb-12 bg-gray-100 p-6 rounded-lg">
         <h2 className="text-xl sm:text-xl font-bold mb-6 text-center">
-          ¿Por Qué Elegir Gana Con Interés? 🤔
+          ¿Por Qué Elegir Gana con Interés? 🤔
         </h2>
         <ul className="space-y-3 max-w-4xl mx-auto">
           <li className="flex items-center">

@@ -15,7 +15,7 @@ export const ActionButtons: React.FC<ActionButtonsProps> = ({
     <Link
       href="/about"
       className="p-2 rounded-md hover:bg-gray-100 transition-colors duration-200"
-      aria-label="Acerca de Gana Con Interés"
+      aria-label="Acerca de Gana con Interés"
     >
       <HelpCircle className="w-5 h-5 sm:w-6 sm:h-6" />
     </Link>

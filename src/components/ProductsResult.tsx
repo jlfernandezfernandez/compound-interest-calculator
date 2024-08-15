@@ -74,7 +74,7 @@ const ProductsResult = () => {
   }
 
   return (
-    <div className="max-w-9xl mx-auto mt-8 mb-8 w-full">
+    <div className="mt-8 mb-8 w-full">
       <div className="flex flex-col items-center w-full">
         <section className="mb-3 flex flex-col items-center text-center">
           <h2 className="text-base lg:text-xl font-bold mb-2 text-gray-900">
