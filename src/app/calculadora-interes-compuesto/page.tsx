@@ -8,7 +8,7 @@ import FinalSection from "@/components/FinalSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Calculadora de Interés Compuesto Avanzada - Maximiza tus Inversiones",
+  title: "Calculadora de Interés Compuesto - Maximiza tus Inversiones",
   description:
     "Descubre la calculadora de interés compuesto más completa. Analiza fondos de inversión, planes de pensión y cuentas remuneradas. Optimiza tus rendimientos financieros con nuestra herramienta única.",
 };
