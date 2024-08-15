@@ -10,10 +10,15 @@ const nextConfig = {
     ];
   },
   images: {
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: "https",
         hostname: "ko-fi.com",
+      },
+      {
+        protocol: "https",
+        hostname: "api.producthunt.com",
       },
     ],
   },

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import {
   Github,
@@ -163,17 +164,17 @@ export default function AboutPage() {
           </Link>
         </div>
         <div className="flex justify-center mt-6">
-          <a
+          <Link
             href="https://www.producthunt.com/posts/compound-interest-calculator-c9828068-fee6-49d7-a195-ba4941234d3f?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-compound&#0045;interest&#0045;calculator&#0045;c9828068&#0045;fee6&#0045;49d7&#0045;a195&#0045;ba4941234d3f"
-            target="_blank"
+            prefetch={false}
           >
-            <img
+            <Image
               src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=480491&theme=light"
               alt="Compound&#0032;Interest&#0032;Calculator - The&#0032;Most&#0032;Beautiful&#0032;&#0038;&#0032;Comprehensive&#0032;Calculator | Product Hunt"
               width="250"
               height="54"
             />
-          </a>
+          </Link>
         </div>
       </section>
     </main>
