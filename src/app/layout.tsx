@@ -1,12 +1,13 @@
 // app/layout.tsx
 
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/store/Providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header/Header";
+import Head from "next/head";
 
 const plusJakartaSNS = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -24,6 +25,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+      <Head>
+        {/* Google Tag Manager */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=AW-16673769195`}
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-16673769195');
+            `,
+          }}
+        />
+      </Head>
       <body className={plusJakartaSNS.className}>
         <Providers>
           <div className="flex flex-col min-h-screen">
