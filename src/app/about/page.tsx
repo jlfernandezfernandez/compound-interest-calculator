@@ -1,6 +1,15 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { Github } from "lucide-react";
+import {
+  Github,
+  Calculator,
+  Target,
+  Star,
+  Lock,
+  Wifi,
+  Globe,
+  Download,
+} from "lucide-react";
 import BuyMeACoffeeButton from "@/components/BuyMeACoffeButton";
 
 export const metadata: Metadata = {
@@ -9,88 +18,143 @@ export const metadata: Metadata = {
     "Descubre cómo Gana Con Interés te ayuda a calcular y visualizar fácilmente el crecimiento de tus inversiones con nuestra calculadora de interés compuesto gratuita y sencilla.",
 };
 
+const Feature = ({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) => (
+  <div className="flex items-start space-x-3 mb-4">
+    {icon}
+    <div>
+      <h3 className="font-semibold mb-1">{title}</h3>
+      <p className="text-gray-600">{description}</p>
+    </div>
+  </div>
+);
+
 export default function AboutPage() {
   return (
-    <main className="px-4 max-w-6xl mx-auto">
-      <h1 className="text-xl sm:text-2xl font-bold mb-4">
-        Gana Con Interés: Calculadora Simple de Interés Compuesto 📈
-      </h1>
-      <p className="text-base sm:text-lg text-gray-700 mb-6">
-        Gana Con Interés es tu herramienta gratuita y sencilla para calcular y
-        visualizar el poder del interés compuesto en tus inversiones. Ideal para
-        planificar tus ahorros en fondos de inversión, cuentas remuneradas y
-        planes de pensiones.
-      </p>
+    <main className="max-w-8xl mx-auto">
+      <section className="text-center mb-12">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-4">
+          Gana Con Interés: Tu Compañero de Inversiones 📈
+        </h1>
+        <p className="text-xl text-gray-700 mb-6 max-w-4xl mx-auto">
+          Calcula y visualiza el poder del interés compuesto en tus inversiones
+          de forma gratuita y sencilla. Ideal para fondos de inversión, cuentas
+          remuneradas y planes de pensiones.
+        </p>
+        <Link
+          href="/calculadora-interes-compuesto"
+          className="inline-block bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-full transition duration-300 text-lg font-semibold"
+        >
+          Empieza a Calcular Tus Ganancias
+        </Link>
+      </section>
 
-      <section className="mb-8">
-        <h2 className="text-xl sm:text-2xl font-bold mb-3">
-          Nuestra Misión: Simplificar tus Cálculos Financieros 🎯
+      <section className="mb-12">
+        <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center">
+          Nuestra Misión 🎯
         </h2>
-        <p>
-          Nuestra misión es ofrecerte una calculadora de interés compuesto fácil
-          de usar y visual para proyectar tus ganancias a largo plazo. Te
+        <p className="text-lg text-center max-w-4xl mx-auto">
+          Simplificar tus cálculos financieros ofreciéndote una herramienta
+          visual e intuitiva para proyectar tus ganancias a largo plazo. Te
           ayudamos a entender el impacto del interés compuesto en tus
           inversiones de manera clara y sencilla.
         </p>
       </section>
 
-      <section className="mb-8">
-        <h2 className="text-xl sm:text-2xl font-bold mb-3">
-          Características de Nuestra Calculadora 🚀
+      <section className="mb-12">
+        <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center">
+          Características Principales 🚀
         </h2>
-        <ul className="list-disc list-inside space-y-2 my-3 ml-2">
-          <li>Interfaz intuitiva y fácil de usar</li>
-          <li>Cálculos instantáneos de interés compuesto</li>
-          <li>
-            Gráficos claros para visualizar el crecimiento de tus inversiones
-          </li>
-          <li>Resumen detallado de tu inversión a lo largo del tiempo</li>
-          <li>Comparación visual entre diferentes tipos de inversiones</li>
-        </ul>
+        <div className="grid md:grid-cols-2 gap-6">
+          <Feature
+            icon={<Calculator className="w-6 h-6 text-blue-500" />}
+            title="Cálculos Instantáneos"
+            description="Obtén resultados de interés compuesto al instante con nuestra interfaz intuitiva."
+          />
+          <Feature
+            icon={<Star className="w-6 h-6 text-yellow-500" />}
+            title="Visualización Clara"
+            description="Gráficos intuitivos que muestran el crecimiento de tu inversión a lo largo del tiempo."
+          />
+          <Feature
+            icon={<Target className="w-6 h-6 text-green-500" />}
+            title="Comparación de Inversiones"
+            description="Compara visualmente diferentes tipos de inversiones para tomar decisiones informadas."
+          />
+          <Feature
+            icon={<Lock className="w-6 h-6 text-purple-500" />}
+            title="Almacenamiento Local"
+            description="Tus cálculos se guardan automáticamente en tu navegador para futuras consultas."
+          />
+          <Feature
+            icon={<Wifi className="w-6 h-6 text-red-500" />}
+            title="Modo Offline"
+            description="Utiliza la aplicación sin necesidad de conexión a internet (No se requiere Wi-Fi ni datos móviles)."
+          />
+          <Feature
+            icon={<Globe className="w-6 h-6 text-indigo-500" />}
+            title="Multiplataforma"
+            description="Disponible como aplicación para iOS, Android y escritorio."
+          />
+          <Feature
+            icon={<Download className="w-6 h-6 text-teal-500" />}
+            title="Descargable"
+            description="Instala la aplicación en tu dispositivo para un acceso rápido y fácil."
+          />
+        </div>
       </section>
 
-      <section className="mb-8">
-        <h2 className="text-xl sm:text-2xl font-bold mb-3">
+      <section className="mb-12 bg-gray-100 p-6 rounded-lg">
+        <h2 className="text-xl sm:text-xl font-bold mb-6 text-center">
           ¿Por Qué Elegir Gana Con Interés? 🤔
         </h2>
-        <ul className="list-disc list-inside space-y-2 my-3 ml-2">
-          <li>
-            <strong>Simplicidad:</strong> Diseñada para ser fácil de usar, sin
-            complicaciones.
+        <ul className="space-y-3 max-w-4xl mx-auto">
+          <li className="flex items-center">
+            <span className="mr-2">✅</span> <strong>Simplicidad:</strong> Fácil
+            de usar, sin complicaciones.
           </li>
-          <li>
-            <strong>Gratuita y Sin Publicidad:</strong> Sin costes ocultos ni
+          <li className="flex items-center">
+            <span className="mr-2">✅</span>{" "}
+            <strong>Gratuita y Sin Publicidad: </strong> Sin costes ocultos ni
             distracciones.
           </li>
-          <li>
-            <strong>Visualización Clara:</strong> Gráficos intuitivos que
-            muestran el crecimiento de tu inversión.
+          <li className="flex items-center">
+            <span className="mr-2">✅</span> <strong>Versatilidad:</strong> Útil
+            para diferentes tipos de inversiones y perfiles de ahorradores.
           </li>
-          <li>
-            <strong>Versatilidad:</strong> Útil para diferentes tipos de
-            inversiones y perfiles de ahorradores.
+          <li className="flex items-center">
+            <span className="mr-2">✅</span> <strong>Educativa:</strong>{" "}
+            Comprende mejor el impacto del interés compuesto.
           </li>
-          <li>
-            <strong>Educativa:</strong> Te ayuda a comprender mejor el impacto
-            del interés compuesto.
+          <li className="flex items-center">
+            <span className="mr-2">✅</span>{" "}
+            <strong>Persistencia de Datos:</strong> Retoma tus análisis en
+            cualquier momento.
           </li>
         </ul>
       </section>
 
-      <section className="mb-8">
-        <h2 className="text-xl sm:text-2xl font-bold mb-3">
+      <section className="mb-12 text-center">
+        <h2 className="text-xl sm:text-2xl font-bold mb-6">
           Apoya Este Proyecto ❤️
         </h2>
-        <p className="mb-4">
-          Si encuentras útil Gana Con Interés, considera apoyar su desarrollo y
+        <p className="mb-6 max-w-4xl mx-auto">
+          Si encuentras útil Gana con Interés, considera apoyar su desarrollo y
           mantenimiento. Tu contribución ayuda a mantener esta herramienta
           gratuita y en constante mejora.
         </p>
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-start sm:items-center">
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
           <BuyMeACoffeeButton />
           <Link
             href="https://github.com/jlfernandezfernandez"
-            className="inline-flex items-center gap-2 bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors"
+            className="inline-flex items-center gap-2 bg-gray-200 text-gray-800 px-6 py-3 rounded-full hover:bg-gray-300 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -98,16 +162,20 @@ export default function AboutPage() {
             Sígueme en GitHub
           </Link>
         </div>
+        <div className="flex justify-center mt-6">
+          <a
+            href="https://www.producthunt.com/posts/compound-interest-calculator-c9828068-fee6-49d7-a195-ba4941234d3f?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-compound&#0045;interest&#0045;calculator&#0045;c9828068&#0045;fee6&#0045;49d7&#0045;a195&#0045;ba4941234d3f"
+            target="_blank"
+          >
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=480491&theme=light"
+              alt="Compound&#0032;Interest&#0032;Calculator - The&#0032;Most&#0032;Beautiful&#0032;&#0038;&#0032;Comprehensive&#0032;Calculator | Product Hunt"
+              width="250"
+              height="54"
+            />
+          </a>
+        </div>
       </section>
-
-      <div className="text-center mt-8">
-        <Link
-          href="/calculadora-interes-compuesto"
-          className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-4 rounded-full transition duration-300 text-sm"
-        >
-          Prueba la Calculadora de Interés Compuesto
-        </Link>
-      </div>
     </main>
   );
 }
