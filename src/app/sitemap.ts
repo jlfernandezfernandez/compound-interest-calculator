@@ -1,30 +1,36 @@
-import { MetadataRoute } from 'next'
- 
+import { MetadataRoute } from "next";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://www.ganaconinteres.com/',
+      url: "https://www.ganaconinteres.com/",
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: "yearly",
       priority: 0.7,
     },
     {
-      url: 'https://www.ganaconinteres.com/calculadora-interes-compuesto',
+      url: "https://www.ganaconinteres.com/calculadora-interes-compuesto",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: 'https://www.ganaconinteres.com/mejora-tus-resultados',
+      url: "https://www.ganaconinteres.com/mejora-tus-resultados",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.85,
     },
     {
-      url: 'https://www.ganaconinteres.com/mejora-tus-resultados/como-invierto',
+      url: "https://www.ganaconinteres.com/mejora-tus-resultados/como-invierto",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
-    }
-  ]
+    },
+    {
+      url: "https://www.ganaconinteres.com/about",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+  ];
 }

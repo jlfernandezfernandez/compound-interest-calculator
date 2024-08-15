@@ -8,7 +8,7 @@ export default function BuyMeACoffeeButton() {
   return (
     <Link
       href="https://ko-fi.com/jordiluiss"
-      className="bg-white text-black inline-flex items-center gap-2 bg-accent px-4 py-2 rounded-md"
+      className="border-2 border-black  bg-white text-black hover:bg-gray-100 inline-flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-300"
       prefetch={false}
     >
       <Coffee className="h-5 w-5" />
