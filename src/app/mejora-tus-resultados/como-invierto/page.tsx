@@ -1,3 +1,5 @@
+// app/mejora-tus-resultados/como-invierto/page.tsx
+
 import Link from "next/link";
 import { Metadata } from "next";
 import MyProfits from "@/components/MyProfits";

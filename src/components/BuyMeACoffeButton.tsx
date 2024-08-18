@@ -8,11 +8,15 @@ export default function BuyMeACoffeeButton() {
   return (
     <Link
       href="https://ko-fi.com/jordiluiss"
-      className="border-2 border-black  bg-white text-black hover:bg-gray-100 inline-flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-300"
+      className="bg-gradient-to-r from-orange-400 to-orange-500 text-white 
+                 hover:from-orange-500 hover:to-orange-600
+                 inline-flex items-center gap-2 px-6 py-3 rounded-full
+                 shadow-md hover:shadow-lg transition-all duration-300
+                 font-semibold text-sm"
       prefetch={false}
     >
       <Coffee className="h-5 w-5" />
-      Buy me a coffee
+      <span>Buy me a coffee</span>
     </Link>
   );
 }
