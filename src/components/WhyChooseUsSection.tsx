@@ -25,7 +25,7 @@ const WhyChooseUsSection: React.FC = () => {
       >
         ¿Por Qué Elegir Gana con Interés? 🤔
       </h2>
-      <ul className="space-y-3 max-w-4xl mx-auto">
+      <ul className="space-y-3">
         {reasons.map((reason, index) => (
           <li key={index} className="flex items-center">
             <span className="mr-2">✅</span>

@@ -16,7 +16,7 @@ const SupportProjectSection: React.FC = () => {
       >
         Apoya Este Proyecto ❤️
       </h2>
-      <p className="mb-6 max-w-4xl mx-auto">
+      <p className="mb-6">
         Si encuentras útil Gana con Interés, considera apoyar su desarrollo y
         mantenimiento. Tu contribución ayuda a mantener esta herramienta
         gratuita y en constante mejora.

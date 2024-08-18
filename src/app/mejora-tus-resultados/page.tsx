@@ -2,152 +2,87 @@
 
 import { Metadata } from "next";
 import Link from "next/link";
+import ImproveResultsHeader from "@/components/ImproveResultsHeader";
+import ImproveResultsCompoundInterest from "@/components/ImproveResultsCompoundInterest";
+import ImproveResultsInvestmentTool from "@/components/ImproveResultsInvestmentTool";
+import Button from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "Maximiza tus Ganancias: Aprovecha el Interés Compuesto",
+  title:
+    "Maximiza tus Ganancias: Aprovecha el Interés Compuesto | Gana con Interés",
   description:
-    "Eleva tu estrategia de inversión y maximiza tus rendimientos con el poder del interés compuesto. Descubre cómo MyInvestor, Micappital y Revolut pueden transformar tus finanzas.",
+    "Descubre cómo multiplicar tus ahorros con el poder del interés compuesto. Aprende sobre MyInvestor, Micappital y Revolut para optimizar tus inversiones y alcanzar la libertad financiera.",
+  keywords:
+    "interés compuesto, inversiones, MyInvestor, Micappital, Revolut, libertad financiera",
 };
 
 export default function ImproveResultsPage() {
   return (
-    <main>
-      <h1 className="text-2xl sm:text-3xl font-bold mb-4">
-        Maximiza tus Inversiones con el Interés Compuesto 💼
-      </h1>
-      <p className="text-base sm:text-lg text-gray-700 mb-6">
-        En el camino hacia la libertad financiera, cada decisión cuenta.
-        Descubre cómo el <strong>interés compuesto</strong> y las{" "}
-        <strong>herramientas adecuadas</strong> pueden ser tus mejores aliados.
-        🚀
-      </p>
-
-      <div className="p-4 mb-8 bg-white border-l-4 border-black rounded-lg shadow-sm">
-        <p className="text-base sm:text-lg text-gray-600 mb-3">
-          ¿Quieres ver con más detalle los productos que tengo e intereses? 🔍
-        </p>
-        <Link
-          href="/mejora-tus-resultados/como-invierto"
-          className="inline-block bg-black hover:bg-gray-800 text-white text-sm py-2 px-4 rounded-full transition duration-300"
-        >
-          Descúbrelos
-        </Link>
-      </div>
-
-      <div className="space-y-10">
+    <main className="max-w-5xl mx-auto">
+      <div className="space-y-12">
+        <ImproveResultsHeader />
+        <ImproveResultsCompoundInterest />
         <section>
-          <h2 className="text-xl sm:text-2xl font-bold mb-3">MyInvestor 🏦</h2>
-          <p className="mb-3 text-base">
-            Con una selección de fondos de inversión de bajo coste y alta
-            rentabilidad, MyInvestor se posiciona como una plataforma esencial
-            para diversificar tu cartera. Ideal para inversores que buscan
-            opciones variadas.
-          </p>
-          <p className="mb-3 text-base">
-            Gracias a la <strong>diversidad de productos financieros</strong>, a
-            lo bien que funcionan sus planes de pensión y a las{" "}
-            <strong>bajas comisiones</strong>, es el banco{" "}
-            <strong>
-              donde tengo mi cartera de inversión y mi plan de pensiones
-            </strong>
-            .
-          </p>
-          <div className="p-4 bg-gray-50 rounded-lg mb-3">
-            <p className="font-semibold mb-2">✨ Bono de bienvenida</p>
-            <p>
-              Obtén 20€ al abrir una cuenta y cumplir una de las siguientes
-              condiciones:
-            </p>
-            <ul className="list-disc list-inside mt-2 ml-4">
-              <li>
-                100€ invertidos en fondos, carteras indexadas (roboadvisor),
-                acciones o planes de pensión.
-              </li>
-              <li>1.000€ en la cuenta.</li>
-              <li>Un depósito contratado.</li>
-            </ul>
+          <h2 className="text-2xl font-bold mb-8 text-center">
+            Herramientas de Inversión Recomendadas 🛠️
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <ImproveResultsInvestmentTool
+              title="MyInvestor"
+              emoji="🏦"
+              description="Plataforma líder en España para diversificar tu cartera con fondos de inversión de bajo coste."
+              link="https://myinvestor.page.link/decXeBGbKbyMkiJEA"
+              linkText="Únete a MyInvestor"
+              referralBenefit="Beneficio: 20€ al abrir una cuenta y hacer tu primera inversión de 100€ o más."
+            />
+            <ImproveResultsInvestmentTool
+              title="Micappital"
+              emoji="💼"
+              description="Gestión financiera personalizada que utiliza IA para optimizar tu cartera."
+              link="https://www.micappital.com?referal=jordiluisgZ2kOJ"
+              linkText="Descubre Micappital"
+              referralBenefit="Beneficio: 50€ en comisiones gratuitas al registrarte con este enlace."
+            />
+            <ImproveResultsInvestmentTool
+              title="Revolut"
+              emoji="💳"
+              description="Banco digital con cuentas multidivisa y opciones de inversión en acciones y criptomonedas."
+              link="https://revolut.com/referral/?referral-code=jordilftw5!FEB2-24-VR-ES"
+              linkText="Explora Revolut"
+              referralBenefit="Beneficio: Tarjeta gratis y hasta 50€ al hacer tu primera compra."
+            />
           </div>
-          <a
-            href="https://myinvestor.page.link/decXeBGbKbyMkiJEA"
-            className="text-blue-500 hover:underline"
-          >
-            Únete a MyInvestor
-          </a>
         </section>
 
-        <section>
-          <h2 className="text-xl sm:text-2xl font-bold mb-3">Micappital 💼</h2>
-          <p className="mb-3 text-base">
-            Optimiza tus inversiones con Micappital, una startup que ofrece
-            gestión financiera personalizada, alineando tus inversiones con tus
-            metas financieras, gracias a su equipo de expertos.
+        <section className="bg-gray-100 p-6 rounded-lg">
+          <h2 className="text-lg font-bold mb-4">
+            ¿Por qué usar estos enlaces?
+          </h2>
+          <p className="mb-4">
+            Al utilizar mis enlaces de referido, no solo obtienes beneficios
+            exclusivos, sino que también apoyas el desarrollo continuo de esta
+            web gratuita sobre educación financiera e interés compuesto.
           </p>
-          <p className="mb-3 text-base">
-            <strong>
-              Ellos buscan los mejores fondos de inversión para ti
-            </strong>{" "}
-            en base a tu perfil, ayudándote a crear una{" "}
-            <strong>cartera diversificada y balanceada</strong>. Personalmente,
-            estoy muy contento y gracias a ellos estoy consiguiendo un 10% de
-            rentabilidad anual.
+          <p>
+            Tu apoyo me permite seguir creando contenido valioso y herramientas
+            útiles para ayudarte a alcanzar tus metas financieras.
           </p>
-          <div className="p-4 bg-gray-50 rounded-lg mb-3">
-            <p className="font-semibold mb-2">✨ Para que lo pruebes:</p>
-            <p>Recibe 50€ en comisiones al usar este enlace.</p>
-            <p className="mt-2">
-              Ellos cobran 2,5€/mes por cada 1.000€ que gestionen (Máximo de
-              25€/mes),{" "}
-              <strong>siempre que ese mes te hayan hecho ganar dinero.</strong>
-            </p>
-          </div>
-          <a
-            href="https://www.micappital.com?referal=jordiluisgZ2kOJ"
-            className="text-blue-500 hover:underline"
-          >
-            Descubre Micappital
-          </a>
         </section>
 
-        <section>
-          <h2 className="text-xl sm:text-2xl font-bold mb-3">Revolut 💳</h2>
-          <p className="mb-3 text-base">
-            Revolut transforma la gestión diaria de tu dinero ofreciendo una
-            cuenta remunerada con tasas competitivas, incluso en su plan básico.
-            Una excelente herramienta para ahorrar e invertir.
-          </p>
-          <p className="mb-3 text-base">
-            Aquí tengo <strong>contratada mi cuenta remunerada</strong>, la cual
-            me ofrece una rentabilidad anual del 3.11%, pagada cada día. La{" "}
-            <strong>cuenta es gratuita</strong> y es una excelente manera de
-            luchar contra la inflación.
-          </p>
-          <p className="mb-3 text-base">
-            Y sí, tienen IBAN español y toda la protección que otorgaría
-            cualquier otro banco español.
-          </p>
-          <a
-            href="https://revolut.com/referral/?referral-code=jordilftw5!FEB2-24-VR-ES"
-            className="text-blue-500 hover:underline"
+        <section className="text-center border-t border-gray-200 pt-8">
+          <h2 className="text-base font-semibold text-gray-800 mb-8">
+            ¿Quieres ver cómo aplico estas estrategias en mi propia cartera de
+            inversión?{" "}
+          </h2>
+          <Button
+            as={Link}
+            href="/mejora-tus-resultados/como-invierto"
+            variant="primary"
+            size="md"
           >
-            Explora Revolut
-          </a>
+            Explora Mi Estrategia de Inversión
+          </Button>
         </section>
-      </div>
-
-      <p className="text-right text-sm text-gray-600 mt-8">
-        Utilizando estos enlaces apoyarás el desarrollo de esta web, gracias.
-      </p>
-
-      <div className="text-center p-6 mt-8 bg-gray-100 rounded-lg">
-        <p className="text-lg text-gray-700 mb-4">
-          ¿Quieres ver cómo el interés compuesto ha transformado mis finanzas?
-        </p>
-        <Link
-          href="/mejora-tus-resultados/como-invierto"
-          className="inline-block bg-black hover:bg-gray-800 text-white py-2 px-6 rounded transition duration-300"
-        >
-          Explora Cómo Invierto
-        </Link>
       </div>
     </main>
   );

@@ -10,7 +10,7 @@ const MissionSection: React.FC = () => {
       >
         Nuestra Misión 🎯
       </h2>
-      <p className="text-lg text-center max-w-4xl mx-auto">
+      <p className="text-lg text-center">
         Simplificar tus cálculos financieros ofreciéndote una herramienta visual
         e intuitiva para proyectar tus ganancias a largo plazo. Te ayudamos a
         entender el impacto del interés compuesto en tus inversiones de manera

@@ -40,7 +40,7 @@ export default function ProductButtons() {
 
   return (
     <section
-      className="mb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto"
+      className="mb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto"
       aria-label="Añadir productos de inversión"
     >
       {(Object.keys(productTypes) as ProductType[]).map((type) => {

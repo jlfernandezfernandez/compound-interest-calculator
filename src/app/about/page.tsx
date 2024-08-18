@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main>
+    <main className="max-w-5xl mx-auto">
       <AboutIntroSection />
       <MissionSection />
       <FeaturesSection />

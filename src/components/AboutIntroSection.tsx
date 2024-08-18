@@ -15,7 +15,7 @@ const AboutIntroSection: React.FC = () => {
       >
         Gana con Interés: Tu Compañero de Inversiones 📈
       </h1>
-      <p className="text-lg text-gray-700 mb-6 max-w-4xl mx-auto">
+      <p className="text-lg text-gray-700 mb-6">
         Calcula y visualiza el poder del interés compuesto en tus inversiones de
         forma gratuita y sencilla. Ideal para fondos de inversión, cuentas
         remuneradas y planes de pensiones.
