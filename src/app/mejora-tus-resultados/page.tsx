@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function ImproveResultsPage() {
   return (
-    <main className="max-w-5xl mx-auto">
+    <main className="max-w-5xl mx-auto mb-14">
       <div className="space-y-12">
         <ImproveResultsHeader />
         <ImproveResultsCompoundInterest />

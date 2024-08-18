@@ -3,7 +3,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Calculator, TrendingUp } from "lucide-react";
+import { Calculator, TrendingUp, Wallet } from "lucide-react";
 import { Logo } from "./Logo";
 import { NavItem } from "./NavItem";
 import { ActionButtons } from "./ActionButtons";
@@ -18,6 +18,11 @@ const NAV_ITEMS = [
     href: "/mejora-tus-resultados",
     label: "Mejora tus resultados",
     Icon: TrendingUp,
+  },
+  {
+    href: "/mejora-tus-resultados/como-invierto",
+    label: "Cómo invierto",
+    Icon: Wallet,
   },
 ];
 
