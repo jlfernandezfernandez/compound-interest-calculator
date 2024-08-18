@@ -49,7 +49,6 @@ export default function ImproveResultsPage() {
               description="Banco digital con cuentas multidivisa y opciones de inversión en acciones y criptomonedas."
               link="https://revolut.com/referral/?referral-code=jordilftw5!FEB2-24-VR-ES"
               linkText="Explora Revolut"
-              referralBenefit="Beneficio: Tarjeta gratis y hasta 50€ al hacer tu primera compra."
             />
           </div>
         </section>

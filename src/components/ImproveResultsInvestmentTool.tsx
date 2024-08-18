@@ -8,7 +8,7 @@ interface ImproveResultsInvestmentToolProps {
   emoji: string;
   link: string;
   linkText: string;
-  referralBenefit: string;
+  referralBenefit?: string;
 }
 
 const ImproveResultsInvestmentTool: React.FC<
