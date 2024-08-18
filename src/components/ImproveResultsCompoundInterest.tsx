@@ -13,7 +13,7 @@ const ImproveResultsCompoundInterest = () => (
       financiero. Es el proceso por el cual el interés se añade al capital
       principal, generando así más intereses en el siguiente período.
     </p>
-    <p className="text-base sm:text-lg text-gray-700 mb-6">
+    <p className="text-base sm:text-lg text-gray-700 mb-8">
       Por ejemplo, una inversión de 1.000€ con un interés anual del 5%
       compuesto, después de 20 años se convertiría en 2.653,30€, ¡más del doble!
     </p>

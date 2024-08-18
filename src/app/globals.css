@@ -28,3 +28,7 @@
     clip-path: inset(0.6px);
   }
 }
+
+.tabular-nums {
+  font-feature-settings: "tnum";
+}

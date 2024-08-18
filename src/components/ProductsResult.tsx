@@ -85,7 +85,7 @@ const ProductsResult = () => {
           <BarChart data={barChartData} />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full mt-4">
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-300 flex items-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-300 flex items-center transition-all duration-300 hover:shadow-xl">
             <table className="w-full">
               <tbody>
                 {[
@@ -95,21 +95,23 @@ const ProductsResult = () => {
                 ].map((item, index) => (
                   <tr
                     key={index}
-                    className="border-b border-gray-100 last:border-b-0"
+                    className={`border-b border-gray-100 last:border-b-0 ${
+                      index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                    } hover:bg-gray-100`}
                   >
-                    <td className="py-3 text-left text-gray-600">
+                    <td className="py-3 pl-4 text-left text-gray-700 text-base">
                       {item.label}
                     </td>
-                    <td className="py-3 text-right font-medium text-gray-800">
+                    <td className="py-3 pr-4 text-right font-medium text-gray-800 tabular-nums">
                       {formatCurrency(item.value)}
                     </td>
                   </tr>
                 ))}
-                <tr className="border-t-2 border-gray-300">
-                  <td className="py-3 text-left font-semibold text-gray-700">
+                <tr>
+                  <td className="py-3 text-left pl-4 font-semibold text-gray-700">
                     Total
                   </td>
-                  <td className="py-3 text-right font-bold text-gray-900">
+                  <td className="py-3 pr-4 text-right font-bold text-gray-900 tabular-nums">
                     {formatCurrency(summary.allTotalGenerated)}
                   </td>
                 </tr>

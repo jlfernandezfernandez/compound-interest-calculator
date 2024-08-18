@@ -24,7 +24,7 @@ const AboutIntroSection: React.FC = () => {
         as={Link}
         href="/calculadora-interes-compuesto"
         variant="primary"
-        size="lg"
+        size="md"
       >
         Empieza a Calcular Tus Ganancias
       </Button>
