@@ -7,7 +7,6 @@ import { Providers } from "@/store/Providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header/Header";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 const plusJakartaSNS = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -26,6 +25,7 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
   viewportFit: "cover",
+  themeColor: "white",
 };
 
 export default function RootLayout({
@@ -47,7 +47,6 @@ export default function RootLayout({
           <Analytics />
         </Providers>
       </body>
-      <GoogleAnalytics gaId="AW-16673769195" />
     </html>
   );
 }
