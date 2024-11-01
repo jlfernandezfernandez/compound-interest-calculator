@@ -5,7 +5,6 @@ import Link from "next/link";
 import ImproveResultsHeader from "@/components/ImproveResultsHeader";
 import ImproveResultsCompoundInterest from "@/components/ImproveResultsCompoundInterest";
 import ImproveResultsInvestmentTool from "@/components/ImproveResultsInvestmentTool";
-import Button from "@/components/Button";
 
 export const metadata: Metadata = {
   title:
@@ -69,18 +68,16 @@ export default function ImproveResultsPage() {
         </section>
 
         <section className="text-center border-t border-gray-200 pt-8">
-          <h2 className="text-base font-semibold text-gray-800 mb-8">
+          <h2 className="text-base font-semibold text-gray-800 mb-4">
             ¿Quieres ver cómo aplico estas estrategias en mi propia cartera de
             inversión?{" "}
           </h2>
-          <Button
-            as={Link}
+          <Link
             href="/mejora-tus-resultados/como-invierto"
-            variant="primary"
-            size="md"
+            className="inline-block bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800 transition duration-300 text-sm font-medium"
           >
             Explora Mi Estrategia de Inversión
-          </Button>
+          </Link>
         </section>
       </div>
     </main>

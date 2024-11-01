@@ -1,6 +1,5 @@
 // components/AboutIntroSection.tsx
 import React from "react";
-import Button from "./Button";
 import Link from "next/link";
 
 const AboutIntroSection: React.FC = () => {
@@ -15,19 +14,17 @@ const AboutIntroSection: React.FC = () => {
       >
         Gana con Interés: Tu Compañero de Inversiones 📈
       </h1>
-      <p className="text-lg text-gray-700 mb-6">
+      <p className="text-lg text-gray-700 mb-4">
         Calcula y visualiza el poder del interés compuesto en tus inversiones de
         forma gratuita y sencilla. Ideal para fondos de inversión, cuentas
         remuneradas y planes de pensiones.
       </p>
-      <Button
-        as={Link}
+      <Link
         href="/calculadora-interes-compuesto"
-        variant="primary"
-        size="md"
+        className="inline-block bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800 transition duration-300 font-medium"
       >
         Empieza a Calcular Tus Ganancias
-      </Button>
+      </Link>
     </section>
   );
 };
