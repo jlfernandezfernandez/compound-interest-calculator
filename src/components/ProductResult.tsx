@@ -74,7 +74,7 @@ export default function ProductResult({
     )?.adverb || "";
 
   return (
-    <div className="space-y-8 p-4">
+    <div className="space-y-8 mt-4">
       <ProductsSummary
         totalSavings={formattedTotalGenerated}
         monthlySavings={formattedContribution}

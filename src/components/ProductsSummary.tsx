@@ -14,7 +14,7 @@ export default function ProductsSummary({
   period,
 }: SavingsPhraseProps) {
   return (
-    <div className="text-center">
+    <div className="text-center p-2">
       <div className="text-lg mb-1">¡Gran trabajo! 🎉</div>
       <div className="text-2xl font-bold mb-1">{totalSavings}</div>
       <div className="text-lg">
