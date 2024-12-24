@@ -1,30 +1,39 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://www.ganaconinteres.com";
+  const lastModified = new Date();
+
   return [
     {
-      url: "https://www.ganaconinteres.com/calculadora-interes-compuesto",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
+      url: baseUrl,
+      lastModified,
+      changeFrequency: "daily",
+      priority: 1,
     },
     {
-      url: "https://www.ganaconinteres.com/mejora-tus-resultados",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
+      url: `${baseUrl}/calculadora-interes-compuesto`,
+      lastModified,
+      changeFrequency: "daily",
+      priority: 1,
     },
     {
-      url: "https://www.ganaconinteres.com/mejora-tus-resultados/como-invierto",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+      url: `${baseUrl}/mejora-tus-resultados`,
+      lastModified,
+      changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: "https://www.ganaconinteres.com/about",
-      lastModified: new Date(),
+      url: `${baseUrl}/mejora-tus-resultados/como-invierto`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.5,
     },
   ];
 }

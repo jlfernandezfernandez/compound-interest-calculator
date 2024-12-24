@@ -27,6 +27,17 @@ export default function FAQSection() {
       answer:
         "La frecuencia de capitalización puede ser diaria, mensual, trimestral o anual, dependiendo del producto financiero. Cuanto más frecuente sea la capitalización, mayor será el rendimiento final.",
     },
+    {
+      question:
+        "¿Por qué es importante el interés compuesto para mis inversiones?",
+      answer:
+        "El interés compuesto es fundamental para el crecimiento a largo plazo de tus inversiones porque multiplica tus ganancias de forma exponencial. Einstein lo llamó 'la octava maravilla del mundo' por su capacidad de generar riqueza.",
+    },
+    {
+      question: "¿Cómo puedo maximizar el efecto del interés compuesto?",
+      answer:
+        "Para maximizar el interés compuesto, es importante: 1) Empezar a invertir lo antes posible, 2) Reinvertir todos los beneficios, 3) Mantener las inversiones a largo plazo, y 4) Buscar las mejores tasas de interés disponibles.",
+    },
   ];
 
   return (
