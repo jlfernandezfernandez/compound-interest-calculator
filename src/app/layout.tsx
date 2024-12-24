@@ -11,10 +11,12 @@ import Header from "@/components/Header/Header";
 const plusJakartaSNS = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Calculadora de Interés Compuesto",
+  title: {
+    default: "Calculadora de Interés Compuesto | Simulador Gratuito 2025",
+    template: "%s | Gana con Interés",
+  },
   description:
-    "Calcula y visualiza el crecimiento de tus inversiones con interés compuesto.",
-  manifest: "/manifest.json",
+    "Calcula el interés compuesto de tus inversiones ✓ Simulador actualizado 2025 ✓ Ejemplos prácticos ✓ Comparador de productos financieros ✓ Resultados instantáneos",
 };
 
 export const viewport: Viewport = {

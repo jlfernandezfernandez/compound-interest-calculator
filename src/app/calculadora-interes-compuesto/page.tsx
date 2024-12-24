@@ -5,12 +5,16 @@ import ProductButtons from "@/components/ProductButtons";
 import ProductList from "@/components/ProductList";
 import ProductsResult from "@/components/ProductsResult";
 import FinalSection from "@/components/FinalSection";
+import FAQSection from "@/components/FAQSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Calculadora de Interés Compuesto - Maximiza tus Inversiones",
+  title:
+    "Calculadora de Interés Compuesto 2025 | Simulador Gratuito de Inversiones",
   description:
-    "Descubre la calculadora de interés compuesto más completa. Analiza fondos de inversión, planes de pensión y cuentas remuneradas. Optimiza tus rendimientos financieros con nuestra herramienta única.",
+    "Calcula el interés compuesto de tus inversiones ✓ Simulador actualizado 2025 ✓ Fondos indexados, planes de pensiones y cuentas remuneradas ✓ Resultados instantáneos y gráficos",
+  keywords:
+    "calculadora interés compuesto, simulador inversiones, calculadora rendimiento inversiones, interés compuesto calculator, calculadora intereses",
 };
 
 export default function CalculatorPage() {
@@ -21,6 +25,7 @@ export default function CalculatorPage() {
         <ProductButtons />
         <ProductList />
         <ProductsResult />
+        <FAQSection />
       </main>
       <FinalSection />
     </div>
