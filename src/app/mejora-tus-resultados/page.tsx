@@ -30,7 +30,7 @@ export default function ImproveResultsPage() {
               title="MyInvestor"
               emoji="🏦"
               description="Plataforma líder en España para diversificar tu cartera con fondos de inversión de bajo coste."
-              link="https://myinvestor.page.link/decXeBGbKbyMkiJEA"
+              link="https://app.myinvestor.es/cperfApp.html?codigo_anfitrion=50CCV#aperturaCuenta:paso0"
               linkText="Únete a MyInvestor"
               referralBenefit="Beneficio: 20€ al abrir una cuenta y hacer tu primera inversión de 100€ o más."
             />
@@ -46,7 +46,7 @@ export default function ImproveResultsPage() {
               title="Revolut"
               emoji="💳"
               description="Banco digital con cuentas multidivisa y opciones de inversión en acciones y criptomonedas."
-              link="https://revolut.com/referral/?referral-code=jordilftw5!FEB2-24-VR-ES"
+              link="https://revolut.com/referral/?referral-code=jordilftw5!DEC1-24-VR-ES"
               linkText="Explora Revolut"
             />
           </div>
