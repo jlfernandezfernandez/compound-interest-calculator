@@ -11,12 +11,20 @@ export default function FinalSection() {
         Descubre herramientas como MyInvestor, Micappital y Revolut para
         potenciar tus estrategias financieras.
       </p>
-      <Link
-        href="/mejora-tus-resultados"
-        className="inline-block bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800 transition duration-300 text-sm font-medium"
-      >
-        Saber más
-      </Link>
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+        <Link
+          href="/mejora-tus-resultados"
+          className="inline-block bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800 transition duration-300 text-sm font-medium"
+        >
+          Saber más
+        </Link>
+        <Link
+          href="/about"
+          className="inline-block bg-white text-gray-800 py-2 px-4 rounded-full border border-gray-300 hover:bg-gray-100 transition duration-300 text-sm font-medium"
+        >
+          Sobre este proyecto
+        </Link>
+      </div>
     </section>
   );
 }

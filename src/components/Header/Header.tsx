@@ -3,7 +3,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Calculator, TrendingUp, Wallet } from "lucide-react";
+import { Calculator, TrendingUp, Wallet, Info } from "lucide-react";
 import { Logo } from "./Logo";
 import { NavItem } from "./NavItem";
 import { ActionButtons } from "./ActionButtons";
@@ -23,6 +23,11 @@ const NAV_ITEMS = [
     href: "/mejora-tus-resultados/como-invierto",
     label: "Cómo invierto",
     Icon: Wallet,
+  },
+  {
+    href: "/about",
+    label: "Sobre nosotros",
+    Icon: Info,
   },
 ];
 
@@ -45,10 +50,19 @@ export default function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="relative mb-8" role="banner">
+    <header
+      className="relative mb-8"
+      role="banner"
+      aria-label="Cabecera del sitio"
+    >
       <div className="py-4 px-4 flex items-center justify-between border-b border-gray-200">
         <Logo />
-        <ActionButtons isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+        <ActionButtons
+          isMenuOpen={isMenuOpen}
+          toggleMenu={toggleMenu}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+        />
       </div>
 
       <nav
@@ -59,6 +73,7 @@ export default function Header() {
         }`}
         role="navigation"
         aria-label="Menú principal"
+        aria-hidden={!isMenuOpen}
       >
         {NAV_ITEMS.map(({ href, label, Icon }) => (
           <NavItem
@@ -68,6 +83,7 @@ export default function Header() {
             Icon={Icon}
             isActive={pathname === href}
             onClick={() => setIsMenuOpen(false)}
+            aria-current={pathname === href ? "page" : undefined}
           />
         ))}
       </nav>

@@ -7,6 +7,8 @@ import { Providers } from "@/store/Providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const plusJakartaSNS = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -44,6 +46,8 @@ export default function RootLayout({
             <main className="max-w-9xl mx-auto flex-grow px-4 sm:px-6 lg:px-8 mb-8">
               {children}
             </main>
+            <Footer />
+            <ScrollToTop />
           </div>
           <SpeedInsights />
           <Analytics />
