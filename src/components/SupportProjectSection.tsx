@@ -49,6 +49,18 @@ const SupportProjectSection: React.FC = () => {
           />
         </Link>
       </div>
+
+      {/* Enlace a BuildYourSetup - Minimalista y sencillo */}
+      <div className="mt-6">
+        <Link
+          href="https://www.buildyoursetup.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-300 border-b border-dashed border-gray-400 hover:border-blue-400 pb-0.5"
+        >
+          Visita también otro de mis proyectos: buildyoursetup.com
+        </Link>
+      </div>
     </section>
   );
 };
