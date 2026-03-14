@@ -2,9 +2,7 @@
 
 "use client";
 
-import { Provider } from "react-redux";
-import { store, persistor } from ".";
-import { PersistGate } from "redux-persist/integration/react";
+import { CalculatorProvider } from "./CalculatorContext";
 
 interface Props {
   children: React.ReactNode;
@@ -12,10 +10,8 @@ interface Props {
 
 export const Providers = ({ children }: Props) => {
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        {children}
-      </PersistGate>
-    </Provider>
+    <CalculatorProvider>
+      {children}
+    </CalculatorProvider>
   );
 };

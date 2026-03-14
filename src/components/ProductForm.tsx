@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo } from "react";
-import { useAppDispatch } from "@/store";
-import { updateProduct } from "@/store/calculator/calculatorSlice";
+import { useCalculator } from "@/store/CalculatorContext";
 import { ProductDetails, periods } from "@/financial_products/productTypes";
 import NumberInput from "./NumberInput";
 
@@ -9,13 +8,13 @@ export default function ProductForm({
 }: {
   productDetails: ProductDetails;
 }) {
-  const dispatch = useAppDispatch();
+  const { updateProduct } = useCalculator();
 
   const handleChangeNumber = useCallback(
     (field: keyof ProductDetails, value: number | undefined) => {
-      dispatch(updateProduct({ ...productDetails, [field]: value }));
+      updateProduct({ ...productDetails, [field]: value });
     },
-    [dispatch, productDetails]
+    [updateProduct, productDetails]
   );
 
   const handleChangeFrequency = useCallback(

@@ -1,18 +1,15 @@
 "use client";
 
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../store";
-import { addProduct } from "@/store/calculator/calculatorSlice";
+import { useCalculator } from "@/store/CalculatorContext";
 import {
   ProductDetails,
   ProductType,
   productTypes,
-  periods,
 } from "@/financial_products/productTypes";
 
 export default function ProductButtons() {
-  const dispatch = useAppDispatch();
-  const products = useAppSelector((state) => state.calculator.products);
+  const { products, addProduct } = useCalculator();
 
   const countByType = (type: ProductType) =>
     products.filter((product) => product.type === type).length;
@@ -35,7 +32,7 @@ export default function ProductButtons() {
       contributionFrequency: 12, // Monthly by default
       capitalizationPeriod: 12, // Monthly by default
     };
-    dispatch(addProduct(newProduct));
+    addProduct(newProduct);
   };
 
   return (

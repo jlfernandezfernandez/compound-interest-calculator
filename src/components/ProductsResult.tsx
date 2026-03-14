@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo } from "react";
-import { useAppSelector } from "@/store";
+import { useCalculator } from "@/store/CalculatorContext";
 import {
   calculateGlobalYearlyTotals,
   formatCurrency,
@@ -10,7 +10,7 @@ import PieChart from "./PieChart";
 import BarChart from "./BarChart";
 
 const ProductsResult = () => {
-  const products = useAppSelector((state) => state.calculator.products);
+  const { products } = useCalculator();
 
   const summary = useMemo(() => summarizeProducts(products), [products]);
 

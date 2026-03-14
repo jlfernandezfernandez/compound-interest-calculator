@@ -1,9 +1,5 @@
 import React, { useCallback, useMemo } from "react";
-import { useAppDispatch } from "@/store";
-import {
-  removeProduct,
-  updateProduct,
-} from "@/store/calculator/calculatorSlice";
+import { useCalculator } from "@/store/CalculatorContext";
 import {
   ProductDetails,
   productTypes,
@@ -17,7 +13,7 @@ export default function ProductCard({
 }: {
   productDetails: ProductDetails;
 }) {
-  const dispatch = useAppDispatch();
+  const { removeProduct, updateProduct } = useCalculator();
 
   const productInfo = useMemo(
     () =>
@@ -29,14 +25,14 @@ export default function ProductCard({
   );
 
   const handleRemoveProduct = useCallback(() => {
-    dispatch(removeProduct(productDetails.id));
-  }, [dispatch, productDetails.id]);
+    removeProduct(productDetails.id);
+  }, [removeProduct, productDetails.id]);
 
   const handleNameChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch(updateProduct({ ...productDetails, name: e.target.value }));
+      updateProduct({ ...productDetails, name: e.target.value });
     },
-    [dispatch, productDetails]
+    [updateProduct, productDetails]
   );
 
   return (

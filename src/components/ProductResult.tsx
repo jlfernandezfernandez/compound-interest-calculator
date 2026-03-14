@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { useAppDispatch } from "@/store";
-import { updateYearlyTotals } from "@/store/calculator/calculatorSlice";
+import { useCalculator } from "@/store/CalculatorContext";
 import {
   ProductDetails,
   periods,
@@ -18,7 +17,7 @@ export default function ProductResult({
 }: {
   productDetails: ProductDetails;
 }) {
-  const dispatch = useAppDispatch();
+  const { updateYearlyTotals } = useCalculator();
 
   const totalYearly = calculateYearlyTotals(productDetails);
   const initialBalance: number = productDetails.initialAmount || 0;
@@ -27,11 +26,9 @@ export default function ProductResult({
     totalInterestGenerated: number = 0;
 
   useEffect(() => {
-    dispatch(
-      updateYearlyTotals({ id: productDetails.id, yearlyTotals: totalYearly })
-    );
+    updateYearlyTotals(productDetails.id, totalYearly);
   }, [
-    dispatch,
+    updateYearlyTotals,
     productDetails.id,
     productDetails.initialAmount,
     productDetails.contribution,
