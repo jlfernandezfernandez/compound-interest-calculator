@@ -1,14 +1,17 @@
 // app/layout.tsx
 
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { Providers } from "@/store/Providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
-const plusJakartaSNS = Plus_Jakarta_Sans({ subsets: ["latin"] });
+const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -37,17 +40,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={plusJakartaSNS.className}>
-        <Providers>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="max-w-9xl mx-auto flex-grow px-4 sm:px-6 lg:px-8 mb-8">
-              {children}
-            </main>
-            <Footer />
-            <ScrollToTop />
-          </div>
-        </Providers>
+      <body className={`${plusJakarta.className} ${spaceGrotesk.variable}`}>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="max-w-9xl mx-auto flex-grow px-4 sm:px-6 lg:px-8 mb-8">
+            {children}
+          </main>
+          <Footer />
+          <ScrollToTop />
+        </div>
       </body>
     </html>
   );

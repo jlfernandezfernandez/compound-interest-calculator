@@ -1,9 +1,5 @@
-import React, { useCallback, useMemo } from "react";
-import { useAppDispatch } from "@/store";
-import {
-  removeProduct,
-  updateProduct,
-} from "@/store/calculator/calculatorSlice";
+import React from "react";
+import { useProducts } from "@/store";
 import {
   ProductDetails,
   productTypes,
@@ -17,27 +13,17 @@ export default function ProductCard({
 }: {
   productDetails: ProductDetails;
 }) {
-  const dispatch = useAppDispatch();
+  const { removeProduct, updateProduct } = useProducts();
 
-  const productInfo = useMemo(
-    () =>
-      productTypes[productDetails.type] || {
-        emoji: "",
-        title: "",
-      },
-    [productDetails.type]
-  );
+  const productInfo = productTypes[productDetails.type] || {
+    emoji: "",
+    title: "",
+  };
 
-  const handleRemoveProduct = useCallback(() => {
-    dispatch(removeProduct(productDetails.id));
-  }, [dispatch, productDetails.id]);
+  const handleRemoveProduct = () => removeProduct(productDetails.id);
 
-  const handleNameChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch(updateProduct({ ...productDetails, name: e.target.value }));
-    },
-    [dispatch, productDetails]
-  );
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    updateProduct({ ...productDetails, name: e.target.value });
 
   return (
     <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-300 h-full">
@@ -52,7 +38,7 @@ export default function ProductCard({
               placeholder={productInfo.title}
               value={productDetails.name || ""}
               onChange={handleNameChange}
-              className="text-md sm:text-lg bg-transparent hover:border-b border-gray-200 focus:border-gray-400 outline-none transition-colors duration-200 w-full pr-8"
+              className="text-md sm:text-lg bg-transparent hover:border-b border-gray-200 focus:border-leaf outline-none transition-colors duration-200 w-full pr-8"
               maxLength={17}
               aria-label={`Nombre del ${productInfo.title}`}
             />

@@ -42,7 +42,7 @@ export default function FAQSection() {
 
   return (
     <section className="my-12 mx-auto">
-      <h2 className="text-2xl font-bold mb-6">
+      <h2 className="font-display text-2xl font-bold mb-6 text-ink">
         Preguntas Frecuentes sobre el Interés Compuesto
       </h2>
       <Accordion type="single" collapsible className="w-full">

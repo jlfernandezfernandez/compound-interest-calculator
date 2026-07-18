@@ -10,8 +10,10 @@ export default function Header() {
       aria-label="Cabecera del sitio"
     >
       <Link href="/" className="flex items-center font-semibold space-x-2">
-        <LineChart className="w-5 h-5" aria-hidden="true" />
-        <span className="text-sm sm:text-lg">Gana con Interés</span>
+        <LineChart className="w-5 h-5 text-leaf" aria-hidden="true" />
+        <span className="font-display text-sm sm:text-lg text-ink">
+          Gana con Interés
+        </span>
       </Link>
     </header>
   );

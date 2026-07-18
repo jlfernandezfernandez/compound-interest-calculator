@@ -27,7 +27,7 @@ export default function NumberInput({
       <label htmlFor={id} className="font-semibold">
         {label}
       </label>
-      <div className="flex items-center border p-2 rounded border-gray-200 focus-within:border-gray-400 transition-colors duration-150">
+      <div className="flex items-center border p-2 rounded border-gray-200 focus-within:border-leaf transition-colors duration-150">
         <input
           id={id}
           type="number"

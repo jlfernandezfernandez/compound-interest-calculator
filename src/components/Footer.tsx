@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer
-      className="bg-gray-100 text-gray-800 py-8 px-6 mt-auto"
+      className="bg-leaf-soft/60 text-ink py-8 px-6 mt-auto border-t border-gray-200"
       role="contentinfo"
       aria-label="Pie de página"
     >
@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="flex items-center gap-4">
           <Link
             href="/calculadora-interes-compuesto"
-            className="text-sm hover:text-blue-600 transition-colors"
+            className="text-sm hover:text-leaf transition-colors"
           >
             Calculadora
           </Link>
@@ -26,7 +26,7 @@ export default function Footer() {
             href="https://github.com/jlfernandezfernandez/compound-interest-calculator"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm hover:text-blue-600 transition-colors"
+            className="text-sm hover:text-leaf transition-colors"
             aria-label="Código fuente en GitHub (se abre en una nueva ventana)"
           >
             GitHub

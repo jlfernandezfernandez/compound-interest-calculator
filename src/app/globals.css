@@ -1,8 +1,24 @@
 @import "tailwindcss";
 
 @theme {
+  /* Paleta: papel + tinta verde; ámbar reservado a "intereses" */
+  --color-paper: #fafaf7;
+  --color-ink: #17281e;
+  --color-leaf: #2e7d4f;
+  --color-leaf-soft: #e9f3ec;
+  --color-seed: #9aa79f;
+  --color-contrib: #5b8bc9;
+  --color-growth: #b97f1c;
+
+  --font-display: var(--font-display), sans-serif;
+
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
 }
 
 @keyframes accordion-down {

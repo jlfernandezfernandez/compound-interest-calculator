@@ -1,16 +1,17 @@
 "use client";
 import React, { useMemo } from "react";
-import { useAppSelector } from "@/store";
+import { useProducts } from "@/store";
 import {
   calculateGlobalYearlyTotals,
   formatCurrency,
   summarizeProducts,
 } from "@/domain/financialCalculations";
+import { productTypes, dataColors } from "@/financial_products/productTypes";
 import Chart from "./Chart";
 import BarChart from "./BarChart";
 
 const ProductsResult = () => {
-  const products = useAppSelector((state) => state.calculator.products);
+  const { products } = useProducts();
 
   const summary = useMemo(() => summarizeProducts(products), [products]);
 
@@ -25,9 +26,12 @@ const ProductsResult = () => {
             summary.totalProductRemunerado,
             summary.totalProductPensiones,
           ],
-          backgroundColor: ["#FF4242", "#95ED87", "#7FB2F0"],
-          borderColor: ["#FF4242", "#95ED87", "#7FB2F0"],
-          borderWidth: 1,
+          backgroundColor: [
+            productTypes.inversion.color,
+            productTypes.cuenta.color,
+            productTypes.pension.color,
+          ],
+          borderWidth: 0,
         },
       ],
     }),
@@ -52,17 +56,17 @@ const ProductsResult = () => {
         {
           label: "Total Contribuido",
           data: globalYearlyTotals.map((item) => item.totalContribution),
-          backgroundColor: "#B784B7",
+          backgroundColor: dataColors.contribution,
         },
         {
           label: "Total Intereses Generados",
           data: globalYearlyTotals.map((item) => item.totalInterest),
-          backgroundColor: "#E493B3",
+          backgroundColor: dataColors.interest,
         },
         {
           label: "Balance Inicial",
           data: globalYearlyTotals.map(() => totalInitialAmount),
-          backgroundColor: "#EEA5A6",
+          backgroundColor: dataColors.initial,
         },
       ],
     }),
@@ -77,7 +81,7 @@ const ProductsResult = () => {
     <div className="mt-8 mb-8 w-full">
       <div className="flex flex-col items-center w-full">
         <section className="mb-3 flex flex-col items-center text-center">
-          <h2 className="text-base lg:text-xl font-bold mb-2 text-gray-900">
+          <h2 className="font-display text-base lg:text-xl font-bold mb-2 text-ink">
             Resumen
           </h2>
         </section>
@@ -91,18 +95,25 @@ const ProductsResult = () => {
                 {[
                   { label: "Balance Inicial", value: totalInitialAmount },
                   { label: "Depósitos", value: summary.allTotalContribution },
-                  { label: "Intereses", value: summary.allTotalInterest },
+                  {
+                    label: "Intereses",
+                    value: summary.allTotalInterest,
+                    highlight: true,
+                  },
                 ].map((item, index) => (
                   <tr
                     key={index}
-                    className={`border-b border-gray-100 last:border-b-0 ${
-                      index % 2 === 0 ? "bg-gray-50" : "bg-white"
-                    } hover:bg-gray-100`}
+                    className="border-b border-gray-100 hover:bg-leaf-soft/50 transition-colors duration-150"
                   >
                     <td className="py-3 pl-4 text-left text-gray-700 text-base">
                       {item.label}
                     </td>
-                    <td className="py-3 pr-4 text-right font-medium text-gray-800 tabular-nums">
+                    <td
+                      className={`py-3 pr-4 text-right font-medium tabular-nums ${
+                        item.highlight ? "text-growth font-semibold" : "text-gray-800"
+                      }`}
+                    >
+                      {item.highlight && "+"}
                       {formatCurrency(item.value)}
                     </td>
                   </tr>
@@ -111,7 +122,7 @@ const ProductsResult = () => {
                   <td className="py-3 text-left pl-4 font-semibold text-gray-700">
                     Total
                   </td>
-                  <td className="py-3 pr-4 text-right font-bold text-gray-900 tabular-nums">
+                  <td className="py-3 pr-4 text-right font-display font-bold text-ink tabular-nums">
                     {formatCurrency(summary.allTotalGenerated)}
                   </td>
                 </tr>

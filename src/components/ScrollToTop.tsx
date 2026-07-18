@@ -18,8 +18,8 @@ export default function ScrollToTop() {
       aria-label="Volver arriba"
       aria-hidden={!isVisible}
       tabIndex={isVisible ? 0 : -1}
-      className={`fixed bottom-6 right-6 p-3 bg-black text-white rounded-full shadow-lg z-50
-        hover:bg-gray-800 active:scale-95
+      className={`fixed bottom-6 right-6 p-3 bg-ink text-white rounded-full shadow-lg z-50
+        hover:bg-leaf active:scale-95
         transition-[opacity,translate,scale,background-color] duration-200 ease-out
         ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}
     >

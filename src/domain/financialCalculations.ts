@@ -98,7 +98,7 @@ export const summarizeProducts = (products: ProductDetails[]) => {
   }>(
     (summary, product) => {
       const lastYear: Partial<YearlyTotals> =
-        product.yearlyTotals?.[product.yearlyTotals.length - 1] ?? {};
+        calculateYearlyTotals(product).at(-1) ?? {};
       const totalGenerated = lastYear.totalGenerated ?? 0;
 
       summary.allTotalContribution += lastYear.totalContribution ?? 0;
@@ -134,11 +134,12 @@ export const calculateGlobalYearlyTotals = (
   products: ProductDetails[]
 ): YearlyTotals[] => {
   const maxYear = Math.max(...products.map((product) => product.duration ?? 0));
+  const perProduct = products.map((product) => calculateYearlyTotals(product));
 
   return Array.from({ length: maxYear }, (_, i) => i + 1).map((year) => {
-    return products.reduce<YearlyTotals>(
-      (yearTotal, product) => {
-        const yearlyDetail = product.yearlyTotals?.find(
+    return perProduct.reduce<YearlyTotals>(
+      (yearTotal, yearlyTotals) => {
+        const yearlyDetail = yearlyTotals.find(
           (detail) => detail.year === year
         );
         if (yearlyDetail) {

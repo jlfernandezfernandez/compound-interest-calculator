@@ -1,8 +1,16 @@
 
 export const productTypes = {
-    inversion: { key: 'inversion', emoji: '📈', title: 'Fondo de Inversión', initialBalanceColor:'#f57a74', totalContributionColor:'#f9b3af', totalInterestColor:'#f2544c'},
-    pension: { key: 'pension', emoji: '💰', title: 'Plan de Pensiones', initialBalanceColor:'#4D79C7', totalContributionColor:'#7FB2F0', totalInterestColor:'#35478D'},
-    cuenta: { key: 'cuenta', emoji: '🏦', title: 'Cuenta Remunerada', initialBalanceColor:'#157E38', totalContributionColor:'#45BF55', totalInterestColor:'#044E29'},
+    inversion: { key: 'inversion', emoji: '📈', title: 'Fondo de Inversión', color: '#2e7d4f' },
+    pension: { key: 'pension', emoji: '💰', title: 'Plan de Pensiones', color: '#5b8bc9' },
+    cuenta: { key: 'cuenta', emoji: '🏦', title: 'Cuenta Remunerada', color: '#7fb2a0' },
+};
+
+// Semántica de datos compartida por todos los gráficos:
+// balance inicial (neutro), depósitos (azul), intereses (ámbar)
+export const dataColors = {
+    initial: '#9aa79f',
+    contribution: '#5b8bc9',
+    interest: '#e3a63c',
 };
 
 export type ProductType = keyof typeof productTypes;
@@ -33,10 +41,4 @@ export interface ProductDetails {
     contribution?: number;
     contributionFrequency?: ProductPeriodicity;
     duration?: number;
-    capitalizationPeriod?: ProductPeriodicity;
-    yearlyTotals?: YearlyTotals[];
-}
-
-export interface ProductProps {
-    productType: ProductType;
 }

@@ -1,6 +1,5 @@
 import React from "react";
-import { useAppDispatch } from "@/store";
-import { updateProduct } from "@/store/calculator/calculatorSlice";
+import { useProducts } from "@/store";
 import { ProductDetails, periods } from "@/financial_products/productTypes";
 import NumberInput from "./NumberInput";
 
@@ -9,13 +8,13 @@ export default function ProductForm({
 }: {
   productDetails: ProductDetails;
 }) {
-  const dispatch = useAppDispatch();
+  const { updateProduct } = useProducts();
 
   const handleChangeNumber = (
     field: keyof ProductDetails,
     value: number | undefined
   ) => {
-    dispatch(updateProduct({ ...productDetails, [field]: value }));
+    updateProduct({ ...productDetails, [field]: value });
   };
 
   return (
@@ -49,7 +48,7 @@ export default function ProductForm({
           onChange={(e) =>
             handleChangeNumber("contributionFrequency", Number(e.target.value))
           }
-          className="input border p-2 rounded border-gray-200 focus:border-gray-400"
+          className="input border p-2 rounded border-gray-200 focus:border-leaf"
         >
           {periods.map((frequency) => (
             <option key={frequency.value} value={frequency.time}>

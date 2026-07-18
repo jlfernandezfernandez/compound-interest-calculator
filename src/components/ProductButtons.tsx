@@ -1,18 +1,15 @@
 "use client";
 
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../store";
-import { addProduct } from "@/store/calculator/calculatorSlice";
+import { useProducts } from "@/store";
 import {
   ProductDetails,
   ProductType,
   productTypes,
-  periods,
 } from "@/financial_products/productTypes";
 
 export default function ProductButtons() {
-  const dispatch = useAppDispatch();
-  const products = useAppSelector((state) => state.calculator.products);
+  const { products, addProduct } = useProducts();
 
   const countByType = (type: ProductType) =>
     products.filter((product) => product.type === type).length;
@@ -33,9 +30,8 @@ export default function ProductButtons() {
       interestRate: 3.5,
       duration: 25,
       contributionFrequency: 12, // Monthly by default
-      capitalizationPeriod: 12, // Monthly by default
     };
-    dispatch(addProduct(newProduct));
+    addProduct(newProduct);
   };
 
   return (
@@ -49,7 +45,7 @@ export default function ProductButtons() {
           <button
             key={type}
             onClick={() => handleAddProduct(type)}
-            className="group relative bg-white border border-gray-300 hover:border-gray-400 text-gray-800 py-3 px-4 rounded-lg transition-[border-color,box-shadow,scale] duration-200 ease-out shadow-sm hover:shadow-md active:scale-[0.97] flex items-center justify-center h-16 w-full"
+            className="group relative bg-white border border-gray-300 hover:border-leaf hover:bg-leaf-soft/40 text-ink py-3 px-4 rounded-lg transition-[border-color,background-color,box-shadow,scale] duration-200 ease-out shadow-sm hover:shadow-md active:scale-[0.97] flex items-center justify-center h-16 w-full"
             aria-label={`Añadir ${info.title}`}
           >
             <span className="flex items-center text-sm">
@@ -57,7 +53,7 @@ export default function ProductButtons() {
               <span className="font-medium">Añadir {info.title}</span>
             </span>
             {countByType(type) > 0 && (
-              <span className="absolute -top-2 -right-2 bg-black text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 bg-leaf text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
                 {countByType(type)}
               </span>
             )}

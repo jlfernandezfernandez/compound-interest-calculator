@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { useAppSelector } from "../store";
+import { useProducts } from "@/store";
 import ProductCard from "./ProductCard";
 
 export default function ProductList() {
-  const products = useAppSelector((state) => state.calculator.products);
+  const { products } = useProducts();
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
