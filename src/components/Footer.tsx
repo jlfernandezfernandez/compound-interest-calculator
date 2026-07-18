@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import { Github } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -27,10 +26,10 @@ export default function Footer() {
             href="https://github.com/jlfernandezfernandez/compound-interest-calculator"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm hover:text-blue-600 transition-colors flex items-center"
+            className="text-sm hover:text-blue-600 transition-colors"
             aria-label="Código fuente en GitHub (se abre en una nueva ventana)"
           >
-            <Github className="h-4 w-4 mr-1" aria-hidden="true" /> GitHub
+            GitHub
           </a>
         </div>
       </div>

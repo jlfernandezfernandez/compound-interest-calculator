@@ -25,7 +25,7 @@ export default function ProductButtons() {
         : `${productTypes[type].title} ${count + 1}`;
 
     const newProduct: ProductDetails = {
-      id: `${type}-${Math.random().toString(36).substr(2, 9)}`,
+      id: crypto.randomUUID(),
       type: type,
       name: newName,
       initialAmount: 3000,
