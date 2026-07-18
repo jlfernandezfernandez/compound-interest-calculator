@@ -30,41 +30,24 @@ export default function ImproveResultsPage() {
               title="MyInvestor"
               emoji="🏦"
               description="Plataforma líder en España para diversificar tu cartera con fondos de inversión de bajo coste."
-              link="https://app.myinvestor.es/cperfApp.html?codigo_anfitrion=50CCV#aperturaCuenta:paso0"
+              link="https://www.myinvestor.es"
               linkText="Únete a MyInvestor"
-              referralBenefit="Beneficio: 20€ al abrir una cuenta y hacer tu primera inversión de 100€ o más."
             />
             <ImproveResultsInvestmentTool
               title="Micappital"
               emoji="💼"
               description="Gestión financiera personalizada que utiliza IA para optimizar tu cartera."
-              link="https://www.micappital.com?referal=jordiluisgZ2kOJ"
+              link="https://www.micappital.com"
               linkText="Descubre Micappital"
-              referralBenefit="Beneficio: 50€ en comisiones gratuitas al registrarte con este enlace."
             />
             <ImproveResultsInvestmentTool
               title="Revolut"
               emoji="💳"
               description="Banco digital con cuentas multidivisa y opciones de inversión en acciones y criptomonedas."
-              link="https://revolut.com/referral/?referral-code=jordilftw5!DEC1-24-VR-ES"
+              link="https://www.revolut.com"
               linkText="Explora Revolut"
             />
           </div>
-        </section>
-
-        <section className="bg-gray-100 p-6 rounded-lg">
-          <h2 className="text-lg font-bold mb-4">
-            ¿Por qué usar estos enlaces?
-          </h2>
-          <p className="mb-4">
-            Al utilizar mis enlaces de referido, no solo obtienes beneficios
-            exclusivos, sino que también apoyas el desarrollo continuo de esta
-            web gratuita sobre educación financiera e interés compuesto.
-          </p>
-          <p>
-            Tu apoyo me permite seguir creando contenido valioso y herramientas
-            útiles para ayudarte a alcanzar tus metas financieras.
-          </p>
         </section>
 
         <section className="text-center border-t border-gray-200 pt-8">

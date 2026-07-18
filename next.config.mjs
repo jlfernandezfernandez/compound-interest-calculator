@@ -1,15 +1,12 @@
+const isGhPages = process.env.GITHUB_ACTIONS === "true";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/calculadora-interes-compuesto",
-        permanent: true,
-      },
-    ];
-  },
+  output: "export",
+  trailingSlash: true,
+  basePath: isGhPages ? "/compound-interest-calculator" : "",
   images: {
+    unoptimized: true,
     dangerouslyAllowSVG: true,
     remotePatterns: [
       {

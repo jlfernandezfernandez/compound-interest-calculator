@@ -2,24 +2,20 @@
 
 import { ImageResponse } from "next/og";
 
+export const dynamic = "force-static";
+
+const icons = [
+  { contentType: "image/png", size: { width: 192, height: 192 }, id: "icon-192" },
+  { contentType: "image/png", size: { width: 512, height: 512 }, id: "icon-512" },
+  { contentType: "image/png", size: { width: 192, height: 192 }, id: "icon-maskable" },
+];
+
 export function generateImageMetadata() {
-  return [
-    {
-      contentType: "image/png",
-      size: { width: 192, height: 192 },
-      id: "icon-192",
-    },
-    {
-      contentType: "image/png",
-      size: { width: 512, height: 512 },
-      id: "icon-512",
-    },
-    {
-      contentType: "image/png",
-      size: { width: 192, height: 192 },
-      id: "icon-maskable",
-    },
-  ];
+  return icons;
+}
+
+export function generateStaticParams() {
+  return icons.map(({ id }) => ({ __metadata_id__: id }));
 }
 
 export default function Icon({ id }: { id: string }) {
