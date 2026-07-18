@@ -15,10 +15,7 @@ export default function ProductCard({
 }) {
   const { removeProduct, updateProduct } = useProducts();
 
-  const productInfo = productTypes[productDetails.type] || {
-    emoji: "",
-    title: "",
-  };
+  const productInfo = productTypes[productDetails.type];
 
   const handleRemoveProduct = () => removeProduct(productDetails.id);
 

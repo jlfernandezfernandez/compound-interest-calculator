@@ -23,14 +23,6 @@ function load(): ProductDetails[] {
     }
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return JSON.parse(raw);
-    // Migración desde el antiguo redux-persist
-    const legacy = localStorage.getItem("persist:root");
-    if (legacy) {
-      const migrated = JSON.parse(JSON.parse(legacy).products ?? "[]");
-      localStorage.removeItem("persist:root");
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
-      return migrated;
-    }
   } catch {}
   return EMPTY;
 }

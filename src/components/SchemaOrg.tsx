@@ -1,6 +1,3 @@
-import React from "react";
-import Script from "next/script";
-
 const baseUrl = "https://jlfernandezfernandez.github.io/compound-interest-calculator";
 
 const schemas = [
@@ -32,9 +29,8 @@ export default function SchemaOrg() {
   return (
     <>
       {schemas.map((schema, i) => (
-        <Script
+        <script
           key={i}
-          id={`schema-${i}`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />

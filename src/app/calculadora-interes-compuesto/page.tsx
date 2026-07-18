@@ -42,8 +42,13 @@ export default function CalculatorPage() {
       <IntroductionSection />
       <main className="flex-grow">
         <ProductButtons />
-        <ProductList />
-        <ProductsResult />
+        {/* Desktop: productos a la izquierda, resumen sticky a la derecha */}
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(360px,480px)] lg:gap-8 lg:items-start">
+          <ProductList />
+          <aside className="lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto">
+            <ProductsResult />
+          </aside>
+        </div>
         <FAQSection />
       </main>
     </div>

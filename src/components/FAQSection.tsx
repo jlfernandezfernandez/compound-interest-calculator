@@ -1,10 +1,3 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
 export default function FAQSection() {
   const faqs = [
     {
@@ -45,18 +38,20 @@ export default function FAQSection() {
       <h2 className="font-display text-2xl font-bold mb-6 text-ink">
         Preguntas Frecuentes sobre el Interés Compuesto
       </h2>
-      <Accordion type="single" collapsible className="w-full">
-        {faqs.map((faq, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="text-left">
-              {faq.question}
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-gray-600">{faq.answer}</p>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      {faqs.map((faq) => (
+        <details key={faq.question} className="border-b border-gray-200 group">
+          <summary className="cursor-pointer select-none list-none flex items-center justify-between py-4 text-sm font-medium hover:underline text-left">
+            {faq.question}
+            <span
+              aria-hidden="true"
+              className="ml-2 shrink-0 text-gray-400 transition-transform duration-200 group-open:rotate-180"
+            >
+              ▾
+            </span>
+          </summary>
+          <p className="pb-4 text-sm text-gray-600">{faq.answer}</p>
+        </details>
+      ))}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

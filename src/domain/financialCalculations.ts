@@ -12,14 +12,12 @@ export function calculateYearCompoundInterest(
   years: number,
   contributionFrequency: ProductPeriodicity
 ): number {
-  const contributionPeriods: number = years * contributionFrequency;
-  const ratePerPeriod: number = interestRate / 100 / contributionFrequency;
-  return Array(contributionPeriods)
-    .fill(0)
-    .reduce(
-      (futureValue) => futureValue * (1 + ratePerPeriod) + contribution,
-      initialBalance
-    );
+  const n = years * contributionFrequency;
+  const r = interestRate / 100 / contributionFrequency;
+  // Fórmula cerrada de anualidad; con r=0 no hay interés, solo aportaciones
+  if (r === 0) return initialBalance + contribution * n;
+  const growth = Math.pow(1 + r, n);
+  return initialBalance * growth + contribution * ((growth - 1) / r);
 }
 
 export function calculateYearContribution(
@@ -153,9 +151,7 @@ export const calculateGlobalYearlyTotals = (
   return Array.from({ length: maxYear }, (_, i) => i + 1).map((year) => {
     return perProduct.reduce<YearlyTotals>(
       (yearTotal, yearlyTotals) => {
-        const yearlyDetail = yearlyTotals.find(
-          (detail) => detail.year === year
-        );
+        const yearlyDetail = yearlyTotals[year - 1];
         if (yearlyDetail) {
           yearTotal.totalContribution += yearlyDetail.totalContribution;
           yearTotal.totalGenerated += yearlyDetail.totalGenerated;

@@ -11,6 +11,7 @@ import {
     Legend,
     TooltipItem,
 } from 'chart.js';
+import { formatCurrency } from '@/domain/financialCalculations';
 
 // Registrando los componentes necesarios de Chart.js para el gráfico de barras
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
@@ -58,7 +59,7 @@ export default function BarChart({ data }: BarChartProps) {
                         const sum = tooltipItems.reduce((acc, tooltipItem) => {
                             return acc + (tooltipItem.parsed.y ?? 0);
                         }, 0);
-                        return '💸 ' + new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(sum);
+                        return '💸 ' + formatCurrency(sum);
                     },
                     label: function (tooltipItem: TooltipItem<"bar">) {
                         let label = tooltipItem.dataset.label || '';
@@ -66,7 +67,7 @@ export default function BarChart({ data }: BarChartProps) {
                             label += ': ';
                         }
                         if (typeof tooltipItem.raw === 'number') {
-                            label += new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(tooltipItem.raw);
+                            label += formatCurrency(tooltipItem.raw);
                         }
                         return label;
                     }
@@ -79,12 +80,8 @@ export default function BarChart({ data }: BarChartProps) {
                 stacked: true,
                 beginAtZero: true,
                 ticks: {
-                    callback: function (value: string | number) {
-                        if (typeof value === 'number') {
-                            return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(value);
-                        }
-                        return value;
-                    }
+                    callback: (value: string | number) =>
+                        typeof value === 'number' ? formatCurrency(value) : value,
                 }
             },
             x: {

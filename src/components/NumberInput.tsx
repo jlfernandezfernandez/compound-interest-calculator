@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface NumberInputProps {
   id: string;
@@ -7,6 +7,9 @@ interface NumberInputProps {
   value: number | undefined;
   placeholder?: string;
   onChange: (value: number | undefined) => void;
+  min?: number;
+  max?: number;
+  step?: number;
 }
 
 export default function NumberInput({
@@ -16,11 +19,26 @@ export default function NumberInput({
   value,
   placeholder,
   onChange,
+  min,
+  max,
+  step,
 }: NumberInputProps) {
+  // Estado local de texto para permitir escribir decimales a medias ("3.")
+  const [text, setText] = useState(value?.toString() ?? "");
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    onChange(value === "" ? undefined : parseFloat(value));
+    const raw = e.target.value;
+    setText(raw);
+    onChange(raw === "" ? undefined : parseFloat(raw));
   };
+
+  const handleSlider = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value;
+    setText(raw);
+    onChange(parseFloat(raw));
+  };
+
+  const hasSlider = min !== undefined && max !== undefined;
 
   return (
     <div className="flex flex-col">
@@ -33,12 +51,24 @@ export default function NumberInput({
           type="number"
           inputMode="decimal"
           placeholder={placeholder}
-          defaultValue={value}
+          value={text}
           onChange={handleChange}
-          className="flex-1 outline-none"
+          className="flex-1 outline-none min-w-0"
         />
         <span className="text-gray-500">{unit}</span>
       </div>
+      {hasSlider && (
+        <input
+          type="range"
+          aria-label={`${label} (deslizador)`}
+          min={min}
+          max={max}
+          step={step ?? 1}
+          value={value ?? min}
+          onChange={handleSlider}
+          className="mt-2 w-full accent-leaf cursor-pointer"
+        />
+      )}
     </div>
   );
 }

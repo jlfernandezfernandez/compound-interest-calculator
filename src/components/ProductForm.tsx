@@ -25,6 +25,9 @@ export default function ProductForm({
         value={productDetails.initialAmount}
         placeholder="3000"
         unit="€"
+        min={0}
+        max={100000}
+        step={500}
         onChange={(value) => handleChangeNumber("initialAmount", value)}
       />
       <NumberInput
@@ -33,6 +36,9 @@ export default function ProductForm({
         value={productDetails.contribution}
         placeholder="250"
         unit="€"
+        min={0}
+        max={2000}
+        step={25}
         onChange={(value) => handleChangeNumber("contribution", value)}
       />
       <div className="flex flex-col">
@@ -63,6 +69,9 @@ export default function ProductForm({
         value={productDetails.interestRate}
         placeholder="3.5"
         unit="%"
+        min={0}
+        max={15}
+        step={0.1}
         onChange={(value) => handleChangeNumber("interestRate", value)}
       />
       <NumberInput
@@ -71,6 +80,9 @@ export default function ProductForm({
         value={productDetails.duration}
         placeholder="25"
         unit="años"
+        min={1}
+        max={50}
+        step={1}
         onChange={(value) => handleChangeNumber("duration", value)}
       />
     </div>

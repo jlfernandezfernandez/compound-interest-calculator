@@ -88,7 +88,7 @@ const ProductsResult = () => {
   }
 
   return (
-    <div className="mt-8 mb-8 w-full">
+    <div className="mt-8 lg:mt-0 mb-8 w-full">
       <div className="flex flex-col items-center w-full">
         <section className="mb-3 flex flex-col items-center text-center gap-2">
           <h2 className="font-display text-base lg:text-xl font-bold text-ink">
@@ -105,10 +105,10 @@ const ProductsResult = () => {
           )}
           <ShareButton />
         </section>
-        <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-300 w-full chart-container mt-3 mb-2">
+        <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-300 w-full h-[400px] min-[600px]:h-[350px] mt-3 mb-2">
           <BarChart data={barChartData} />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 w-full mt-4">
           <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-300 flex items-center transition-shadow duration-200 hover:shadow-xl">
             <table className="w-full">
               <tbody>
@@ -155,6 +155,63 @@ const ProductsResult = () => {
             </div>
           </div>
         </div>
+        <details className="w-full mt-6 bg-white rounded-lg border border-gray-300 shadow-sm open:shadow-md transition-shadow group">
+          <summary className="cursor-pointer select-none px-5 py-4 text-sm font-semibold text-gray-700 hover:text-leaf transition-colors list-none flex items-center justify-between">
+            Desglose año a año
+            <span
+              aria-hidden="true"
+              className="text-gray-400 transition-transform duration-200 group-open:rotate-180"
+            >
+              ▾
+            </span>
+          </summary>
+          <div className="overflow-x-auto px-2 pb-4">
+            <table className="w-full text-sm tabular-nums">
+              <thead>
+                <tr className="text-gray-500 text-xs uppercase tracking-wide border-b border-gray-200">
+                  <th className="py-2 px-3 text-left font-medium">Año</th>
+                  <th className="py-2 px-3 text-right font-medium">
+                    Aportado
+                  </th>
+                  <th className="py-2 px-3 text-right font-medium">
+                    Intereses
+                  </th>
+                  <th className="py-2 px-3 text-right font-medium">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {globalYearlyTotals.map((year) => (
+                  <tr
+                    key={year.year}
+                    className={`border-b border-gray-100 ${
+                      year.year === globalCrossoverYear ? "bg-leaf-soft/60" : ""
+                    }`}
+                  >
+                    <td className="py-2 px-3 text-left text-gray-600">
+                      {year.year}
+                      {year.year === globalCrossoverYear && (
+                        <span className="ml-1" title="Tus intereses superan tus aportaciones">
+                          🌱
+                        </span>
+                      )}
+                    </td>
+                    <td className="py-2 px-3 text-right text-gray-800">
+                      {formatCurrency(
+                        year.totalContribution + totalInitialAmount
+                      )}
+                    </td>
+                    <td className="py-2 px-3 text-right text-growth">
+                      +{formatCurrency(year.totalInterest)}
+                    </td>
+                    <td className="py-2 px-3 text-right font-medium text-ink">
+                      {formatCurrency(year.totalGenerated)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
       </div>
     </div>
   );

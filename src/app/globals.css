@@ -11,43 +11,11 @@
   --color-growth: #b97f1c;
 
   --font-display: var(--font-display), sans-serif;
-
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
 }
 
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);
-}
-
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--radix-accordion-content-height);
-  }
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-  to {
-    height: 0;
-  }
-}
-
-.chart-container {
-  height: 350px;
-  width: 100%;
-}
-
-@media (max-width: 600px) {
-  .chart-container {
-    height: 400px;
-  }
 }
 
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
