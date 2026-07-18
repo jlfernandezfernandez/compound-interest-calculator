@@ -6,6 +6,7 @@ import {
 } from "@/financial_products/productTypes";
 import {
   calculateYearlyTotals,
+  findCrossoverYear,
   formatCurrency,
 } from "@/domain/financialCalculations";
 import Chart from "./Chart";
@@ -17,10 +18,15 @@ export default function ProductResult({
   productDetails: ProductDetails;
 }) {
   const initialBalance: number = productDetails.initialAmount || 0;
-  const lastYear = calculateYearlyTotals(productDetails).at(-1);
+  const yearlyTotals = calculateYearlyTotals(productDetails);
+  const lastYear = yearlyTotals.at(-1);
   const totalContribution = lastYear?.totalContribution ?? 0;
   const totalGenerated = lastYear?.totalGenerated ?? 0;
   const totalInterestGenerated = lastYear?.totalInterest ?? 0;
+  const crossoverYear = findCrossoverYear(yearlyTotals);
+  const doublingYears = productDetails.interestRate
+    ? Math.round(72 / productDetails.interestRate)
+    : null;
 
   const chartData = {
     labels: ["Balance Inicial", "Depósitos Totales", "Intereses Totales"],
@@ -47,11 +53,13 @@ export default function ProductResult({
   return (
     <div className="space-y-8 mt-4">
       <ProductsSummary
-        totalSavings={formatCurrency(totalGenerated)}
-        totalInterest={formatCurrency(totalInterestGenerated)}
+        totalSavings={totalGenerated}
+        totalInterest={totalInterestGenerated}
         monthlySavings={formatCurrency(productDetails.contribution || 0)}
         years={productDetails.duration || 0}
         period={periodAdverb}
+        crossoverYear={crossoverYear}
+        doublingYears={doublingYears}
       />
       <div className="w-full flex justify-center">
         <Chart variant="doughnut" data={chartData} />

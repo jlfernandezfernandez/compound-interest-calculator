@@ -11,6 +11,16 @@ const listeners = new Set<() => void>();
 
 function load(): ProductDetails[] {
   try {
+    // Escenario compartido por URL: gana sobre lo guardado y se persiste
+    const shared = new URLSearchParams(location.hash.slice(1)).get("s");
+    if (shared) {
+      const products = JSON.parse(decodeURIComponent(atob(shared)));
+      if (Array.isArray(products)) {
+        history.replaceState(null, "", location.pathname);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+        return products;
+      }
+    }
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return JSON.parse(raw);
     // Migración desde el antiguo redux-persist

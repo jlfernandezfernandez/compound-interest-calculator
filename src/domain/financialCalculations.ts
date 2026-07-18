@@ -35,6 +35,20 @@ export const formatCurrency = (amount: number): string =>
     amount
   );
 
+// Primer año en que los intereses generados ese año superan lo aportado ese año
+export function findCrossoverYear(yearlyTotals: YearlyTotals[]): number | null {
+  let prevInterest = 0;
+  let prevContribution = 0;
+  for (const year of yearlyTotals) {
+    const interestGained = year.totalInterest - prevInterest;
+    const contributed = year.totalContribution - prevContribution;
+    if (contributed > 0 && interestGained > contributed) return year.year;
+    prevInterest = year.totalInterest;
+    prevContribution = year.totalContribution;
+  }
+  return null;
+}
+
 export function calculateYearlyTotals(
   productDetails: ProductDetails
 ): YearlyTotals[] {

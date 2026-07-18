@@ -3,12 +3,15 @@ import React, { useMemo } from "react";
 import { useProducts } from "@/store";
 import {
   calculateGlobalYearlyTotals,
+  findCrossoverYear,
   formatCurrency,
   summarizeProducts,
 } from "@/domain/financialCalculations";
 import { productTypes, dataColors } from "@/financial_products/productTypes";
+import { useCountUp } from "@/lib/useCountUp";
 import Chart from "./Chart";
 import BarChart from "./BarChart";
+import ShareButton from "./ShareButton";
 
 const ProductsResult = () => {
   const { products } = useProducts();
@@ -42,6 +45,13 @@ const ProductsResult = () => {
     () => calculateGlobalYearlyTotals(products),
     [products]
   );
+
+  const globalCrossoverYear = useMemo(
+    () => findCrossoverYear(globalYearlyTotals),
+    [globalYearlyTotals]
+  );
+
+  const animatedTotal = useCountUp(summary.allTotalGenerated);
 
   const totalInitialAmount = useMemo(
     () =>
@@ -80,10 +90,20 @@ const ProductsResult = () => {
   return (
     <div className="mt-8 mb-8 w-full">
       <div className="flex flex-col items-center w-full">
-        <section className="mb-3 flex flex-col items-center text-center">
-          <h2 className="font-display text-base lg:text-xl font-bold mb-2 text-ink">
+        <section className="mb-3 flex flex-col items-center text-center gap-2">
+          <h2 className="font-display text-base lg:text-xl font-bold text-ink">
             Resumen
           </h2>
+          {globalCrossoverYear !== null && (
+            <p className="text-sm text-gray-600">
+              🌱 Desde el año{" "}
+              <span className="font-semibold text-leaf">
+                {globalCrossoverYear}
+              </span>{" "}
+              tus intereses superan tus aportaciones
+            </p>
+          )}
+          <ShareButton />
         </section>
         <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-300 w-full chart-container mt-3 mb-2">
           <BarChart data={barChartData} />
@@ -123,7 +143,7 @@ const ProductsResult = () => {
                     Total
                   </td>
                   <td className="py-3 pr-4 text-right font-display font-bold text-ink tabular-nums">
-                    {formatCurrency(summary.allTotalGenerated)}
+                    {formatCurrency(animatedTotal)}
                   </td>
                 </tr>
               </tbody>
