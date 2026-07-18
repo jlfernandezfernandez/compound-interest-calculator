@@ -19,12 +19,8 @@ const SchemaOrg: React.FC<SchemaOrgProps> = ({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Gana con Interés",
-    url: "https://www.ganaconinteres.com",
-    logo: "https://www.ganaconinteres.com/logo.png",
-    sameAs: [
-      "https://github.com/jlfernandezfernandez",
-      "https://www.producthunt.com/posts/compound-interest-calculator-c9828068-fee6-49d7-a195-ba4941234d3f",
-    ],
+    url: "https://jlfernandezfernandez.github.io/compound-interest-calculator",
+    sameAs: ["https://github.com/jlfernandezfernandez"],
   };
 
   // Datos estructurados para la página web
@@ -38,7 +34,7 @@ const SchemaOrg: React.FC<SchemaOrgProps> = ({
     isPartOf: {
       "@type": "WebSite",
       name: "Gana con Interés",
-      url: "https://www.ganaconinteres.com",
+      url: "https://jlfernandezfernandez.github.io/compound-interest-calculator",
     },
     inLanguage: "es-ES",
   };
@@ -54,11 +50,6 @@ const SchemaOrg: React.FC<SchemaOrgProps> = ({
       "@type": "Offer",
       price: "0",
       priceCurrency: "EUR",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "125",
     },
   };
 

@@ -3,7 +3,7 @@ import { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.ganaconinteres.com";
+  const baseUrl = "https://jlfernandezfernandez.github.io/compound-interest-calculator";
   const lastModified = new Date();
 
   return [
@@ -18,18 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "daily",
       priority: 1,
-    },
-    {
-      url: `${baseUrl}/mejora-tus-resultados`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/mejora-tus-resultados/como-invierto`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.7,
     },
     {
       url: `${baseUrl}/about`,

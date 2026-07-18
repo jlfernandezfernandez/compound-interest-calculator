@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://www.ganaconinteres.com/sitemap.xml",
-    host: "https://www.ganaconinteres.com",
+    sitemap: "https://jlfernandezfernandez.github.io/compound-interest-calculator/sitemap.xml",
+    host: "https://jlfernandezfernandez.github.io/compound-interest-calculator",
   };
 }

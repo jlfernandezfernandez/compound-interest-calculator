@@ -56,7 +56,7 @@ export default function BarChart({ data }: BarChartProps) {
                 callbacks: {
                     footer: (tooltipItems: TooltipItem<"bar">[]) => {
                         const sum = tooltipItems.reduce((acc, tooltipItem) => {
-                            return acc + tooltipItem.parsed.y;
+                            return acc + (tooltipItem.parsed.y ?? 0);
                         }, 0);
                         return '💸 ' + new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(sum);
                     },

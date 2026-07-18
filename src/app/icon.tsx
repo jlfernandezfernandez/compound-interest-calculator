@@ -1,26 +1,11 @@
 // app/icon.tsx
-
 import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static";
+export const size = { width: 192, height: 192 };
+export const contentType = "image/png";
 
-const icons = [
-  { contentType: "image/png", size: { width: 192, height: 192 }, id: "icon-192" },
-  { contentType: "image/png", size: { width: 512, height: 512 }, id: "icon-512" },
-  { contentType: "image/png", size: { width: 192, height: 192 }, id: "icon-maskable" },
-];
-
-export function generateImageMetadata() {
-  return icons;
-}
-
-export function generateStaticParams() {
-  return icons.map(({ id }) => ({ __metadata_id__: id }));
-}
-
-export default function Icon({ id }: { id: string }) {
-  const isMaskable = id === "icon-maskable";
-
+export default function Icon() {
   return new ImageResponse(
     (
       <div
@@ -33,20 +18,11 @@ export default function Icon({ id }: { id: string }) {
           alignItems: "center",
           justifyContent: "center",
           color: "white",
-          ...(isMaskable && {
-            borderRadius: "50%",
-            padding: "25%",
-          }),
         }}
       >
         📈
       </div>
     ),
-    {
-      ...{
-        width: id === "icon-512" ? 512 : 192,
-        height: id === "icon-512" ? 512 : 192,
-      },
-    }
+    size
   );
 }

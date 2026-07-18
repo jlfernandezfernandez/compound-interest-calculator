@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   keywords:
     "sobre nosotros, calculadora interés compuesto, herramienta financiera, educación financiera, libertad financiera, inversiones",
   alternates: {
-    canonical: "https://www.ganaconinteres.com/about",
+    canonical: "https://jlfernandezfernandez.github.io/compound-interest-calculator/about",
   },
   openGraph: {
     title: "Sobre Gana con Interés: Calculadora de Interés Compuesto",
     description:
       "Descubre cómo Gana con Interés te ayuda a calcular y visualizar fácilmente el crecimiento de tus inversiones con nuestra calculadora de interés compuesto gratuita y sencilla.",
-    url: "https://www.ganaconinteres.com/about",
+    url: "https://jlfernandezfernandez.github.io/compound-interest-calculator/about",
     siteName: "Gana con Interés",
     locale: "es_ES",
     type: "website",

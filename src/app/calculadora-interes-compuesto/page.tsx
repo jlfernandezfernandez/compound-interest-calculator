@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   keywords:
     "calculadora interés compuesto, simulador inversiones, calculadora rendimiento inversiones, interés compuesto calculator, calculadora intereses, rentabilidad inversiones",
   alternates: {
-    canonical: "https://www.ganaconinteres.com/calculadora-interes-compuesto",
+    canonical: "https://jlfernandezfernandez.github.io/compound-interest-calculator/calculadora-interes-compuesto",
   },
   openGraph: {
     title: "Calculadora de Interés Compuesto 2025 | Simulador Gratuito",
     description:
       "Calcula el interés compuesto de tus inversiones con nuestro simulador gratuito. Resultados instantáneos y gráficos detallados.",
-    url: "https://www.ganaconinteres.com/calculadora-interes-compuesto",
+    url: "https://jlfernandezfernandez.github.io/compound-interest-calculator/calculadora-interes-compuesto",
     siteName: "Gana con Interés",
     locale: "es_ES",
     type: "website",
@@ -40,7 +40,7 @@ export default function CalculatorPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <SchemaOrg
-        url="https://www.ganaconinteres.com/calculadora-interes-compuesto"
+        url="https://jlfernandezfernandez.github.io/compound-interest-calculator/calculadora-interes-compuesto"
         title="Calculadora de Interés Compuesto 2025 | Simulador Gratuito de Inversiones"
         description="Calcula el interés compuesto de tus inversiones ✓ Simulador actualizado 2025 ✓ Fondos indexados, planes de pensiones y cuentas remuneradas ✓ Resultados instantáneos y gráficos"
       />

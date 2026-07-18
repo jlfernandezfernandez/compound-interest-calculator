@@ -42,22 +42,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/mejora-tus-resultados"
-                  className="text-sm hover:text-blue-600 transition-colors"
-                >
-                  Mejora tus resultados
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/mejora-tus-resultados/como-invierto"
-                  className="text-sm hover:text-blue-600 transition-colors"
-                >
-                  Cómo invierto
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/about"
                   className="text-sm hover:text-blue-600 transition-colors"
                 >
@@ -103,20 +87,11 @@ export default function Footer() {
         </div>
 
         {/* Línea de copyright */}
-        <div className="border-t border-gray-200 mt-8 pt-4 text-sm text-gray-600 flex flex-col sm:flex-row justify-between items-center">
+        <div className="border-t border-gray-200 mt-8 pt-4 text-sm text-gray-600 text-center sm:text-left">
           <p>
             © {new Date().getFullYear()} Gana con Interés. Todos los derechos
             reservados.
           </p>
-          <Link
-            href="https://www.producthunt.com/posts/compound-interest-calculator-c9828068-fee6-49d7-a195-ba4941234d3f"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs hover:text-blue-600 transition-colors mt-2 sm:mt-0"
-            aria-label="Encuéntranos en Product Hunt (se abre en una nueva ventana)"
-          >
-            Encuéntranos en Product Hunt
-          </Link>
         </div>
       </div>
     </footer>
