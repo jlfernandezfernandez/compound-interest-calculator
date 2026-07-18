@@ -1,77 +1,44 @@
 import React from "react";
 import Script from "next/script";
 
-interface SchemaOrgProps {
-  url: string;
-  title: string;
-  description: string;
-  imageUrl?: string;
-}
+const baseUrl = "https://jlfernandezfernandez.github.io/compound-interest-calculator";
 
-const SchemaOrg: React.FC<SchemaOrgProps> = ({
-  url,
-  title,
-  description,
-  imageUrl,
-}) => {
-  // Datos estructurados para la organización
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Gana con Interés",
-    url: "https://jlfernandezfernandez.github.io/compound-interest-calculator",
-    sameAs: ["https://github.com/jlfernandezfernandez"],
-  };
-
-  // Datos estructurados para la página web
-  const webpageSchema = {
+const schemas = [
+  {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    url,
-    name: title,
-    description,
-    ...(imageUrl && { image: imageUrl }),
+    url: `${baseUrl}/calculadora-interes-compuesto`,
+    name: "Calculadora de Interés Compuesto | Simulador Gratuito de Inversiones",
+    description:
+      "Calcula el interés compuesto de tus inversiones. Fondos indexados, planes de pensiones y cuentas remuneradas. Resultados instantáneos y gráficos.",
     isPartOf: {
       "@type": "WebSite",
       name: "Gana con Interés",
-      url: "https://jlfernandezfernandez.github.io/compound-interest-calculator",
+      url: baseUrl,
     },
     inLanguage: "es-ES",
-  };
-
-  // Datos estructurados para la calculadora
-  const calculatorSchema = {
+  },
+  {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "Calculadora de Interés Compuesto",
     applicationCategory: "FinanceApplication",
     operatingSystem: "Web",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "EUR",
-    },
-  };
+    offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  },
+];
 
+export default function SchemaOrg() {
   return (
     <>
-      <Script
-        id="schema-organization"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <Script
-        id="schema-webpage"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }}
-      />
-      <Script
-        id="schema-calculator"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorSchema) }}
-      />
+      {schemas.map((schema, i) => (
+        <Script
+          key={i}
+          id={`schema-${i}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
     </>
   );
-};
-
-export default SchemaOrg;
+}

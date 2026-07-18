@@ -6,7 +6,7 @@ import {
   formatCurrency,
   summarizeProducts,
 } from "@/domain/financialCalculations";
-import PieChart from "./PieChart";
+import Chart from "./Chart";
 import BarChart from "./BarChart";
 
 const ProductsResult = () => {
@@ -85,7 +85,7 @@ const ProductsResult = () => {
           <BarChart data={barChartData} />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full mt-4">
-          <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-300 flex items-center transition-all duration-300 hover:shadow-xl">
+          <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-300 flex items-center transition-shadow duration-200 hover:shadow-xl">
             <table className="w-full">
               <tbody>
                 {[
@@ -120,7 +120,7 @@ const ProductsResult = () => {
           </div>
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-300 flex justify-center items-center">
             <div className="w-full sm:w-4/5 md:w-3/4 lg:w-2/3">
-              <PieChart data={pieChartData} />
+              <Chart variant="pie" data={pieChartData} />
             </div>
           </div>
         </div>

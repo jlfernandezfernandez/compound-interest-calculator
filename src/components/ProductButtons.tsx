@@ -49,7 +49,7 @@ export default function ProductButtons() {
           <button
             key={type}
             onClick={() => handleAddProduct(type)}
-            className="group relative bg-white border border-gray-300 hover:border-gray-400 text-gray-800 py-3 px-4 rounded-lg transition duration-300 shadow-sm hover:shadow-md flex items-center justify-center h-16 w-full"
+            className="group relative bg-white border border-gray-300 hover:border-gray-400 text-gray-800 py-3 px-4 rounded-lg transition-[border-color,box-shadow,scale] duration-200 ease-out shadow-sm hover:shadow-md active:scale-[0.97] flex items-center justify-center h-16 w-full"
             aria-label={`Añadir ${info.title}`}
           >
             <span className="flex items-center text-sm">

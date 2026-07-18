@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React from "react";
 import { useAppDispatch } from "@/store";
 import { updateProduct } from "@/store/calculator/calculatorSlice";
 import { ProductDetails, periods } from "@/financial_products/productTypes";
@@ -11,29 +11,12 @@ export default function ProductForm({
 }) {
   const dispatch = useAppDispatch();
 
-  const handleChangeNumber = useCallback(
-    (field: keyof ProductDetails, value: number | undefined) => {
-      dispatch(updateProduct({ ...productDetails, [field]: value }));
-    },
-    [dispatch, productDetails]
-  );
-
-  const handleChangeFrequency = useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      handleChangeNumber("contributionFrequency", Number(e.target.value));
-    },
-    [handleChangeNumber]
-  );
-
-  const periodOptions = useMemo(
-    () =>
-      periods.map((frequency) => (
-        <option key={frequency.value} value={frequency.time}>
-          {frequency.label}
-        </option>
-      )),
-    []
-  );
+  const handleChangeNumber = (
+    field: keyof ProductDetails,
+    value: number | undefined
+  ) => {
+    dispatch(updateProduct({ ...productDetails, [field]: value }));
+  };
 
   return (
     <div className="space-y-6">
@@ -63,10 +46,16 @@ export default function ProductForm({
         <select
           id={`${productDetails.id}_contributionFrequency`}
           value={productDetails.contributionFrequency || ""}
-          onChange={handleChangeFrequency}
+          onChange={(e) =>
+            handleChangeNumber("contributionFrequency", Number(e.target.value))
+          }
           className="input border p-2 rounded border-gray-200 focus:border-gray-400"
         >
-          {periodOptions}
+          {periods.map((frequency) => (
+            <option key={frequency.value} value={frequency.time}>
+              {frequency.label}
+            </option>
+          ))}
         </select>
       </div>
       <NumberInput

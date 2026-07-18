@@ -3,44 +3,27 @@
 import React, { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 
-const ScrollToTop: React.FC = () => {
+export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Mostrar el botón cuando el usuario baja 300px
-  const toggleVisibility = () => {
-    if (window.scrollY > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
-  // Función para volver arriba suavemente
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
+    const toggleVisibility = () => setIsVisible(window.scrollY > 300);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   return (
-    <>
-      {isVisible && (
-        <button
-          onClick={scrollToTop}
-          aria-label="Volver arriba"
-          className="fixed bottom-6 right-6 p-3 bg-black text-white rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300 z-50"
-        >
-          <ArrowUp size={20} />
-        </button>
-      )}
-    </>
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Volver arriba"
+      aria-hidden={!isVisible}
+      tabIndex={isVisible ? 0 : -1}
+      className={`fixed bottom-6 right-6 p-3 bg-black text-white rounded-full shadow-lg z-50
+        hover:bg-gray-800 active:scale-95
+        transition-[opacity,translate,scale,background-color] duration-200 ease-out
+        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}
+    >
+      <ArrowUp size={20} />
+    </button>
   );
-};
-
-export default ScrollToTop;
+}

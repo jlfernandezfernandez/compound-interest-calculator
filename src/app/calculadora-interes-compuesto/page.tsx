@@ -38,11 +38,7 @@ export const metadata: Metadata = {
 export default function CalculatorPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <SchemaOrg
-        url="https://jlfernandezfernandez.github.io/compound-interest-calculator/calculadora-interes-compuesto"
-        title="Calculadora de Interés Compuesto 2025 | Simulador Gratuito de Inversiones"
-        description="Calcula el interés compuesto de tus inversiones ✓ Simulador actualizado 2025 ✓ Fondos indexados, planes de pensiones y cuentas remuneradas ✓ Resultados instantáneos y gráficos"
-      />
+      <SchemaOrg />
       <IntroductionSection />
       <main className="flex-grow">
         <ProductButtons />

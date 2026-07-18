@@ -52,7 +52,7 @@ export default function ProductCard({
               placeholder={productInfo.title}
               value={productDetails.name || ""}
               onChange={handleNameChange}
-              className="text-md sm:text-lg bg-transparent hover:border-b border-gray-200 focus:border-gray-400 outline-none transition-colors duration-300 w-full pr-8"
+              className="text-md sm:text-lg bg-transparent hover:border-b border-gray-200 focus:border-gray-400 outline-none transition-colors duration-200 w-full pr-8"
               maxLength={17}
               aria-label={`Nombre del ${productInfo.title}`}
             />
@@ -64,7 +64,7 @@ export default function ProductCard({
         </div>
         <button
           onClick={handleRemoveProduct}
-          className="text-sm text-gray-500 hover:text-red-600 transition-colors duration-300 p-2 rounded-full hover:bg-gray-100 flex-shrink-0"
+          className="text-sm text-gray-500 hover:text-red-600 transition-[color,background-color,scale] duration-200 active:scale-90 p-2 rounded-full hover:bg-gray-100 flex-shrink-0"
           aria-label={`Descartar ${productDetails.name || productInfo.title}`}
         >
           <Trash2 className="w-5 h-5" />

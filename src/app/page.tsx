@@ -2,28 +2,10 @@ import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Calculadora de Interés Compuesto | Simulador Gratuito 2025",
-  description:
-    "Calcula el interés compuesto de tus inversiones ✓ Simulador actualizado 2025 ✓ Ejemplos prácticos ✓ Comparador de productos financieros ✓ Resultados instantáneos",
-  keywords:
-    "calculadora interés compuesto, simulador inversiones, calculadora rendimiento inversiones, interés compuesto calculator, calculadora intereses, rentabilidad inversiones, libertad financiera",
+  title: "Calculadora de Interés Compuesto | Simulador Gratuito",
   alternates: {
-    canonical: "https://jlfernandezfernandez.github.io/compound-interest-calculator",
-  },
-  openGraph: {
-    title: "Calculadora de Interés Compuesto | Simulador Gratuito 2025",
-    description:
-      "Calcula el interés compuesto de tus inversiones con nuestro simulador gratuito. Resultados instantáneos y gráficos detallados.",
-    url: "https://jlfernandezfernandez.github.io/compound-interest-calculator",
-    siteName: "Gana con Interés",
-    locale: "es_ES",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Calculadora de Interés Compuesto | Simulador Gratuito 2025",
-    description:
-      "Calcula el interés compuesto de tus inversiones con nuestro simulador gratuito. Resultados instantáneos y gráficos detallados.",
+    canonical:
+      "https://jlfernandezfernandez.github.io/compound-interest-calculator/calculadora-interes-compuesto",
   },
 };
 

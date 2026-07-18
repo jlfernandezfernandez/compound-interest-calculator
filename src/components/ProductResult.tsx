@@ -10,7 +10,7 @@ import {
   calculateYearlyTotals,
   formatCurrency,
 } from "@/domain/financialCalculations";
-import DoughnutChart from "./DoughnutChart";
+import Chart from "./Chart";
 import ProductsSummary from "./ProductsSummary";
 
 export default function ProductResult({
@@ -22,9 +22,10 @@ export default function ProductResult({
 
   const totalYearly = calculateYearlyTotals(productDetails);
   const initialBalance: number = productDetails.initialAmount || 0;
-  let totalContribution: number = 0,
-    totalGenerated: number = 0,
-    totalInterestGenerated: number = 0;
+  const lastYear = totalYearly.at(-1);
+  const totalContribution = lastYear?.totalContribution ?? 0;
+  const totalGenerated = lastYear?.totalGenerated ?? 0;
+  const totalInterestGenerated = lastYear?.totalInterest ?? 0;
 
   useEffect(() => {
     dispatch(
@@ -39,13 +40,6 @@ export default function ProductResult({
     productDetails.duration,
     productDetails.contributionFrequency,
   ]);
-
-  totalYearly.findLast((data) => {
-    totalContribution = data.totalContribution || 0;
-    totalGenerated = data.totalGenerated || 0;
-    totalInterestGenerated = data.totalInterest || 0;
-    return true;
-  });
 
   const chartData = {
     labels: ["Balance Inicial", "Depósitos Totales", "Intereses Totales"],
@@ -82,7 +76,7 @@ export default function ProductResult({
         period={periodAdverb}
       />
       <div className="w-full flex justify-center">
-        <DoughnutChart data={chartData} />
+        <Chart variant="doughnut" data={chartData} />
       </div>
     </div>
   );
