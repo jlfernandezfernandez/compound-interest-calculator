@@ -1,7 +1,6 @@
 // components/Footer.tsx
 
 import React from "react";
-import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -15,23 +14,15 @@ export default function Footer() {
           © {new Date().getFullYear()} Gana con Interés. Calculadora de
           interés compuesto.
         </p>
-        <div className="flex items-center gap-4">
-          <Link
-            href="/calculadora-interes-compuesto"
-            className="text-sm hover:text-leaf transition-colors"
-          >
-            Calculadora
-          </Link>
-          <a
-            href="https://github.com/jlfernandezfernandez/compound-interest-calculator"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm hover:text-leaf transition-colors"
-            aria-label="Código fuente en GitHub (se abre en una nueva ventana)"
-          >
-            GitHub
-          </a>
-        </div>
+        <a
+          href="https://github.com/jlfernandezfernandez/compound-interest-calculator"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm hover:text-leaf transition-colors"
+          aria-label="Código fuente en GitHub (se abre en una nueva ventana)"
+        >
+          GitHub
+        </a>
       </div>
     </footer>
   );

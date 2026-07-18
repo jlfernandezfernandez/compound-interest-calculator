@@ -32,6 +32,13 @@ export default function ProductButtons() {
       contributionFrequency: 12, // Monthly by default
     };
     addProduct(newProduct);
+    // Scroll a la tarjeta recién creada una vez pintada
+    requestAnimationFrame(() =>
+      document.getElementById(newProduct.id)?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      })
+    );
   };
 
   return (

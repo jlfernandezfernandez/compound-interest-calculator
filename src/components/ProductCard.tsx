@@ -38,7 +38,7 @@ export default function ProductCard({
               placeholder={productInfo.title}
               value={productDetails.name || ""}
               onChange={handleNameChange}
-              className="text-md sm:text-lg bg-transparent hover:border-b border-gray-200 focus:border-leaf outline-none transition-colors duration-200 w-full pr-8"
+              className="text-md sm:text-lg bg-transparent border-b border-transparent hover:border-gray-200 focus:border-leaf outline-none transition-colors duration-200 w-full pr-8"
               maxLength={17}
               aria-label={`Nombre del ${productInfo.title}`}
             />

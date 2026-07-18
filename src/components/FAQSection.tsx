@@ -41,7 +41,7 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="my-12 mx-auto">
+    <section className="my-12 mx-auto max-w-3xl">
       <h2 className="font-display text-2xl font-bold mb-6 text-ink">
         Preguntas Frecuentes sobre el Interés Compuesto
       </h2>

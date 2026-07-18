@@ -31,8 +31,9 @@ export default function NumberInput({
         <input
           id={id}
           type="number"
+          inputMode="decimal"
           placeholder={placeholder}
-          value={value !== undefined ? value : ""}
+          defaultValue={value}
           onChange={handleChange}
           className="flex-1 outline-none"
         />

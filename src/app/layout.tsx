@@ -43,7 +43,7 @@ export default function RootLayout({
       <body className={`${plusJakarta.className} ${spaceGrotesk.variable}`}>
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="max-w-9xl mx-auto flex-grow px-4 sm:px-6 lg:px-8 mb-8">
+          <main className="w-full max-w-7xl mx-auto flex-grow px-4 sm:px-6 lg:px-8 mb-8">
             {children}
           </main>
           <Footer />
