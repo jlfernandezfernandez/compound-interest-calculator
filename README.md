@@ -1,6 +1,17 @@
 # Gana con Interés
 
-Calculadora de interés compuesto (Next.js, static export).
+Calculadora de interés compuesto para fondos de inversión, planes de
+pensiones y cuentas remuneradas. Next.js (App Router), static export,
+desplegado en GitHub Pages.
+
+**Demo:** https://jlfernandezfernandez.github.io/compound-interest-calculator/
+
+## Stack
+
+- Next.js 16 (static export) + React 19 + TypeScript
+- Tailwind CSS, Radix UI
+- Redux Toolkit (estado del formulario)
+- Chart.js
 
 ## Desarrollo
 
@@ -9,7 +20,7 @@ npm install
 npm run dev
 ```
 
-App sirve bajo `/compound-interest-calculator` (basePath fijo para GitHub Pages).
+La app sirve bajo `/compound-interest-calculator` (basePath fijo, igual que en producción).
 
 ## Build
 
@@ -21,5 +32,9 @@ Genera el sitio estático en `out/`.
 
 ## Deploy
 
-Push a `main` dispara `.github/workflows/deploy-gh-pages.yml`, que publica `out/` en GitHub Pages:
-https://jlfernandezfernandez.github.io/compound-interest-calculator/
+Cada push a `main` dispara `.github/workflows/deploy-gh-pages.yml`, que
+compila el proyecto y publica `out/` en GitHub Pages.
+
+## Licencia
+
+MIT

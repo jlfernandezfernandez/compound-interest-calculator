@@ -4,7 +4,6 @@ import IntroductionSection from "@/components/IntroductionSection";
 import ProductButtons from "@/components/ProductButtons";
 import ProductList from "@/components/ProductList";
 import ProductsResult from "@/components/ProductsResult";
-import FinalSection from "@/components/FinalSection";
 import FAQSection from "@/components/FAQSection";
 import SchemaOrg from "@/components/SchemaOrg";
 import { Metadata } from "next";
@@ -51,7 +50,6 @@ export default function CalculatorPage() {
         <ProductsResult />
         <FAQSection />
       </main>
-      <FinalSection />
     </div>
   );
 }
