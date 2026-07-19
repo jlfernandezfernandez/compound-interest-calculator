@@ -42,25 +42,26 @@ export default function ProductButtons() {
 
   return (
     <section
-      className="mb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto"
+      className="mb-8 flex flex-wrap justify-center gap-3"
       aria-label="Añadir productos de inversión"
     >
       {(Object.keys(productTypes) as ProductType[]).map((type) => {
         const info = productTypes[type];
+        const count = countByType(type);
         return (
           <button
             key={type}
             onClick={() => handleAddProduct(type)}
-            className="group relative bg-white border border-gray-300 hover:border-leaf hover:bg-leaf-soft/40 text-ink py-3 px-4 rounded-lg transition-[border-color,background-color,box-shadow,scale] duration-200 ease-out shadow-sm hover:shadow-md active:scale-[0.97] flex items-center justify-center h-16 w-full"
+            className="bg-white border border-gray-300 hover:border-leaf hover:bg-leaf-soft/40 text-ink py-2.5 px-4 rounded-full transition-[border-color,background-color,box-shadow,scale] duration-200 ease-out shadow-sm hover:shadow-md active:scale-[0.97] inline-flex items-center gap-2 text-sm"
             aria-label={`Añadir ${info.title}`}
           >
-            <span className="flex items-center text-sm">
-              <span className="mr-2 text-lg">{info.emoji}</span>
-              <span className="font-medium">Añadir {info.title}</span>
+            <span className="text-base" aria-hidden="true">
+              {info.emoji}
             </span>
-            {countByType(type) > 0 && (
-              <span className="absolute -top-2 -right-2 bg-leaf text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
-                {countByType(type)}
+            <span className="font-medium">Añadir {info.title}</span>
+            {count > 0 && (
+              <span className="bg-leaf text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                {count}
               </span>
             )}
           </button>

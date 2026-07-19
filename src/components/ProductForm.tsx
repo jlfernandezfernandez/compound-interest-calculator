@@ -18,7 +18,7 @@ export default function ProductForm({
   };
 
   return (
-    <div className="space-y-6">
+    <div className="grid grid-cols-2 gap-x-4 gap-y-5">
       <NumberInput
         id={`${productDetails.id}_initialAmount`}
         label="Cantidad Inicial"
@@ -44,7 +44,7 @@ export default function ProductForm({
       <div className="flex flex-col">
         <label
           htmlFor={`${productDetails.id}_contributionFrequency`}
-          className="block text-sm font-medium text-gray-700"
+          className="text-sm font-medium text-gray-700 mb-1"
         >
           Periodicidad
         </label>
@@ -54,7 +54,7 @@ export default function ProductForm({
           onChange={(e) =>
             handleChangeNumber("contributionFrequency", Number(e.target.value))
           }
-          className="input border p-2 rounded border-gray-200 focus:border-leaf"
+          className="border p-2 rounded-lg border-gray-200 focus:border-leaf outline-none bg-white h-[42px]"
         >
           {periods.map((frequency) => (
             <option key={frequency.value} value={frequency.time}>
@@ -62,18 +62,9 @@ export default function ProductForm({
             </option>
           ))}
         </select>
+        {/* Alinea con el slider de Duración en la misma fila */}
+        <div className="mt-2 h-4" aria-hidden="true" />
       </div>
-      <NumberInput
-        id={`${productDetails.id}_interestRate`}
-        label="Interés Anual"
-        value={productDetails.interestRate}
-        placeholder="3.5"
-        unit="%"
-        min={0}
-        max={15}
-        step={0.1}
-        onChange={(value) => handleChangeNumber("interestRate", value)}
-      />
       <NumberInput
         id={`${productDetails.id}_duration`}
         label="Duración"
@@ -85,6 +76,19 @@ export default function ProductForm({
         step={1}
         onChange={(value) => handleChangeNumber("duration", value)}
       />
+      <div className="col-span-2">
+        <NumberInput
+          id={`${productDetails.id}_interestRate`}
+          label="Interés Anual"
+          value={productDetails.interestRate}
+          placeholder="3.5"
+          unit="%"
+          min={0}
+          max={15}
+          step={0.1}
+          onChange={(value) => handleChangeNumber("interestRate", value)}
+        />
+      </div>
     </div>
   );
 }

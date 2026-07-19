@@ -18,6 +18,17 @@ body {
   color: var(--color-ink);
 }
 
+/* Sin flechas de spinner en inputs numéricos: los sliders ya cubren el ajuste fino */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
   img[loading="lazy"] {
     clip-path: inset(0.6px);

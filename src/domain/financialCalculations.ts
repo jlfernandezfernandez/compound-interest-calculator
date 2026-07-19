@@ -1,7 +1,6 @@
 import {
   ProductDetails,
   YearlyTotals,
-  ProductType,
   ProductPeriodicity,
 } from "@/financial_products/productTypes";
 
@@ -98,41 +97,18 @@ function calculateYearTotal(
 }
 
 export const summarizeProducts = (products: ProductDetails[]) => {
-  return products.reduce<{
-    totalProductInversion: number;
-    totalProductRemunerado: number;
-    totalProductPensiones: number;
-    allTotalContribution: number;
-    allTotalInterest: number;
-    allTotalGenerated: number;
-  }>(
+  return products.reduce(
     (summary, product) => {
       const lastYear: Partial<YearlyTotals> =
         calculateYearlyTotals(product).at(-1) ?? {};
-      const totalGenerated = lastYear.totalGenerated ?? 0;
 
       summary.allTotalContribution += lastYear.totalContribution ?? 0;
       summary.allTotalInterest += lastYear.totalInterest ?? 0;
-      summary.allTotalGenerated += totalGenerated;
-
-      switch (product.type) {
-        case "inversion":
-          summary.totalProductInversion += totalGenerated;
-          break;
-        case "cuenta":
-          summary.totalProductRemunerado += totalGenerated;
-          break;
-        case "pension":
-          summary.totalProductPensiones += totalGenerated;
-          break;
-      }
+      summary.allTotalGenerated += lastYear.totalGenerated ?? 0;
 
       return summary;
     },
     {
-      totalProductInversion: 0,
-      totalProductRemunerado: 0,
-      totalProductPensiones: 0,
       allTotalContribution: 0,
       allTotalInterest: 0,
       allTotalGenerated: 0,

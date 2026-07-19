@@ -2,7 +2,7 @@
 export const productTypes = {
     inversion: { key: 'inversion', emoji: '📈', title: 'Fondo de Inversión', color: '#2e7d4f' },
     pension: { key: 'pension', emoji: '💰', title: 'Plan de Pensiones', color: '#5b8bc9' },
-    cuenta: { key: 'cuenta', emoji: '🏦', title: 'Cuenta Remunerada', color: '#7fb2a0' },
+    cuenta: { key: 'cuenta', emoji: '🏦', title: 'Cuenta Remunerada', color: '#2e8b8b' },
 };
 
 export const dataColors = {

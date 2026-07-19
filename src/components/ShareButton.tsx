@@ -23,7 +23,7 @@ export default function ShareButton() {
   return (
     <button
       onClick={handleShare}
-      className="inline-flex items-center gap-2 text-sm font-medium text-leaf bg-leaf-soft hover:bg-leaf hover:text-white px-4 py-2 rounded-full transition-[background-color,color,scale] duration-200 active:scale-[0.97]"
+      className="inline-flex items-center gap-2 text-sm font-medium text-white bg-leaf hover:bg-leaf/90 px-4 py-2 rounded-full shadow-sm transition-[background-color,scale] duration-200 active:scale-[0.97]"
       aria-live="polite"
     >
       {copied ? (
