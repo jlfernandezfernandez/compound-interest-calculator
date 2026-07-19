@@ -7,16 +7,16 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Calculadora de Interés Compuesto 2025 | Simulador Gratuito de Inversiones",
+    "Calculadora de Interés Compuesto | Simulador Gratuito de Inversiones",
   description:
-    "Calcula el interés compuesto de tus inversiones ✓ Simulador actualizado 2025 ✓ Fondos indexados, planes de pensiones y cuentas remuneradas ✓ Resultados instantáneos y gráficos",
+    "Calcula el interés compuesto de tus inversiones ✓ Fondos indexados, planes de pensiones y cuentas remuneradas ✓ Resultados instantáneos y gráficos",
   keywords:
     "calculadora interés compuesto, simulador inversiones, calculadora rendimiento inversiones, interés compuesto calculator, calculadora intereses, rentabilidad inversiones",
   alternates: {
     canonical: "https://jlfernandezfernandez.github.io/compound-interest-calculator/calculadora-interes-compuesto",
   },
   openGraph: {
-    title: "Calculadora de Interés Compuesto 2025 | Simulador Gratuito",
+    title: "Calculadora de Interés Compuesto | Simulador Gratuito",
     description:
       "Calcula el interés compuesto de tus inversiones con nuestro simulador gratuito. Resultados instantáneos y gráficos detallados.",
     url: "https://jlfernandezfernandez.github.io/compound-interest-calculator/calculadora-interes-compuesto",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calculadora de Interés Compuesto 2025 | Simulador Gratuito",
+    title: "Calculadora de Interés Compuesto | Simulador Gratuito",
     description:
       "Calcula el interés compuesto de tus inversiones con nuestro simulador gratuito. Resultados instantáneos y gráficos detallados.",
   },

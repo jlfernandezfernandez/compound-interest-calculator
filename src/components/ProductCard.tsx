@@ -23,7 +23,7 @@ export default function ProductCard({
     updateProduct({ ...productDetails, name: e.target.value });
 
   return (
-    <div className="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-200 h-full flex flex-col">
+    <div className="@container bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-200 h-full flex flex-col">
       <div className="flex items-center gap-3 mb-5">
         <span
           className="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0"

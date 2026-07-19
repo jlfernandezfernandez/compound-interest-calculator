@@ -18,7 +18,7 @@ export default function ProductForm({
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5">
+    <div className="grid grid-cols-1 @md:grid-cols-2 gap-x-4 gap-y-5">
       <NumberInput
         id={`${productDetails.id}_initialAmount`}
         label="Cantidad Inicial"
@@ -63,7 +63,7 @@ export default function ProductForm({
           ))}
         </select>
         {/* Alinea con el slider de Duración en la misma fila (solo en 2 columnas) */}
-        <div className="mt-2 h-4 hidden sm:block" aria-hidden="true" />
+        <div className="mt-2 h-4 hidden @md:block" aria-hidden="true" />
       </div>
       <NumberInput
         id={`${productDetails.id}_duration`}
@@ -76,7 +76,7 @@ export default function ProductForm({
         step={1}
         onChange={(value) => handleChangeNumber("duration", value)}
       />
-      <div className="sm:col-span-2">
+      <div className="@md:col-span-2">
         <NumberInput
           id={`${productDetails.id}_interestRate`}
           label="Interés Anual"

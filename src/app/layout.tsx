@@ -13,11 +13,11 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Calculadora de Interés Compuesto | Simulador Gratuito 2025",
+    default: "Calculadora de Interés Compuesto | Simulador Gratuito",
     template: "%s | Gana con Interés",
   },
   description:
-    "Calcula el interés compuesto de tus inversiones ✓ Simulador actualizado 2025 ✓ Ejemplos prácticos ✓ Comparador de productos financieros ✓ Resultados instantáneos",
+    "Calcula el interés compuesto de tus inversiones ✓ Ejemplos prácticos ✓ Comparador de productos financieros ✓ Resultados instantáneos",
 };
 
 export const viewport: Viewport = {
