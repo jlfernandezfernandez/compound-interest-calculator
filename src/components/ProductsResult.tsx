@@ -105,11 +105,10 @@ export function SummaryBand() {
 
       {shares.length > 1 && summary.allTotalGenerated > 0 && (
         <div className="mt-6">
-          <div className="flex h-3 gap-1">
+          <div className="flex h-3 rounded-full overflow-hidden">
             {shares.map((share) => (
               <div
                 key={share.id}
-                className="rounded-full"
                 style={{
                   backgroundColor: share.color,
                   width: `${(share.total / summary.allTotalGenerated) * 100}%`,

@@ -29,6 +29,12 @@ input[type="number"] {
   appearance: textfield;
 }
 
+/* En táctil, deslizar en vertical sobre un slider scrollea la página;
+   solo el gesto horizontal mueve el slider */
+input[type="range"] {
+  touch-action: pan-y;
+}
+
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
   img[loading="lazy"] {
     clip-path: inset(0.6px);
