@@ -36,7 +36,6 @@ export default function Chart({ variant, data }: ChartProps) {
     elements: { arc: { borderWidth: 0 } },
   };
 
-  // Placeholder para mantener la forma del gráfico sin datos
   const chartData = hasData
     ? data
     : {

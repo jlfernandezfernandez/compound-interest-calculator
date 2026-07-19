@@ -29,10 +29,9 @@ export default function ProductButtons() {
       contribution: 250,
       interestRate: 3.5,
       duration: 25,
-      contributionFrequency: 12, // Monthly by default
+      contributionFrequency: 12,
     };
     addProduct(newProduct);
-    // Scroll a la tarjeta recién creada una vez pintada
     requestAnimationFrame(() =>
       document.getElementById(newProduct.id)?.scrollIntoView({
         behavior: "smooth",

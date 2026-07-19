@@ -1,7 +1,5 @@
-// app/apple-icon.tsx
 import { ImageResponse } from 'next/og'
 
-// Route segment config
 export const dynamic = 'force-static'
 
 export const size = {
@@ -10,11 +8,9 @@ export const size = {
 }
 export const contentType = 'image/png'
 
-// Image generation
 export default function AppleIcon() {
   return new ImageResponse(
     (
-      // ImageResponse JSX element
       <div
         style={{
           fontSize: 180,

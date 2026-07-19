@@ -14,7 +14,6 @@ export function calculateYearCompoundInterest(
 ): number {
   const n = years * contributionFrequency;
   const r = interestRate / 100 / contributionFrequency;
-  // Fórmula cerrada de anualidad; con r=0 no hay interés, solo aportaciones
   if (r === 0) return initialBalance + contribution * n;
   const growth = Math.pow(1 + r, n);
   return initialBalance * growth + contribution * ((growth - 1) / r);
@@ -33,7 +32,6 @@ export const formatCurrency = (amount: number): string =>
     amount
   );
 
-// Primer año en que los intereses generados ese año superan lo aportado ese año
 export function findCrossoverYear(yearlyTotals: YearlyTotals[]): number | null {
   let prevInterest = 0;
   let prevContribution = 0;

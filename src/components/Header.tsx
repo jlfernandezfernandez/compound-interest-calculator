@@ -1,4 +1,3 @@
-// components/Header.tsx
 import Link from "next/link";
 import { LineChart } from "lucide-react";
 

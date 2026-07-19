@@ -13,7 +13,6 @@ import {
 } from 'chart.js';
 import { formatCurrency } from '@/domain/financialCalculations';
 
-// Registrando los componentes necesarios de Chart.js para el gráfico de barras
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 interface BarChartProps {
@@ -28,20 +27,17 @@ interface BarChartProps {
 }
 
 export default function BarChart({ data }: BarChartProps) {
-    // Estado para controlar si el dispositivo es móvil
     const [isMobile, setIsMobile] = useState(false);
 
-    // Ajustar isMobile basado en el ancho de la ventana solo del lado del cliente
     useEffect(() => {
         const updateMobileStatus = () => {
             setIsMobile(window.innerWidth < 600);
         };
 
-        updateMobileStatus(); // Ejecuta una vez al montar
+        updateMobileStatus();
 
-        window.addEventListener('resize', updateMobileStatus); // Ajusta al cambiar el tamaño
+        window.addEventListener('resize', updateMobileStatus);
 
-        // Limpieza al desmontar
         return () => window.removeEventListener('resize', updateMobileStatus);
     }, []);
 

@@ -1,9 +1,6 @@
-// app/calculadora-interes-compuesto/page.tsx
-
 import IntroductionSection from "@/components/IntroductionSection";
 import ProductButtons from "@/components/ProductButtons";
 import ProductList from "@/components/ProductList";
-import ProductsResult from "@/components/ProductsResult";
 import FAQSection from "@/components/FAQSection";
 import SchemaOrg from "@/components/SchemaOrg";
 import { Metadata } from "next";
@@ -42,13 +39,7 @@ export default function CalculatorPage() {
       <IntroductionSection />
       <main className="flex-grow">
         <ProductButtons />
-        {/* Desktop: productos a la izquierda, resumen sticky a la derecha */}
-        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(360px,480px)] lg:gap-8 lg:items-start">
-          <ProductList />
-          <aside className="lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto">
-            <ProductsResult />
-          </aside>
-        </div>
+        <ProductList />
         <FAQSection />
       </main>
     </div>

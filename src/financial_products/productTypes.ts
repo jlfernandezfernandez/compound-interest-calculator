@@ -5,8 +5,6 @@ export const productTypes = {
     cuenta: { key: 'cuenta', emoji: '🏦', title: 'Cuenta Remunerada', color: '#7fb2a0' },
 };
 
-// Semántica de datos compartida por todos los gráficos:
-// balance inicial (neutro), depósitos (azul), intereses (ámbar)
 export const dataColors = {
     initial: '#9aa79f',
     contribution: '#5b8bc9',
@@ -19,7 +17,7 @@ export const periods = [
     { value: 'monthly', label: 'Mensual', time: 12, adverb: 'mensual' },
     { value: 'annually', label: 'Anual', time: 1, adverb: 'anual' },
     { value: 'daily', label: 'Diario', time: 365, adverb: 'diario' },
-    { value: 'quarterly', label: 'Trimestral', time: 3, adverb: 'trimestral' },
+    { value: 'quarterly', label: 'Trimestral', time: 4, adverb: 'trimestral' },
     { value: 'half_yearly', label: 'Semestral', time: 2, adverb: 'semestral' },
 ];
 
